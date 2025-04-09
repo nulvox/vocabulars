@@ -1,0 +1,16 @@
+/home/this/prj/vocabular/build/linux/x64/release/bundle/vocabular
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/icudtl.dat
+/home/this/prj/vocabular/build/linux/x64/release/bundle/lib/libflutter_linux_gtk.so
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/assets/images/living_room.jpg
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/assets/images/kitchen.jpg
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/assets/images/bedroom.jpg
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/assets/vocabulary.json
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/shaders/ink_sparkle.frag
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/NativeAssetsManifest.json
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/AssetManifest.json
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/AssetManifest.bin
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/FontManifest.json
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/NOTICES.Z
+/home/this/prj/vocabular/build/linux/x64/release/bundle/data/flutter_assets/version.json
+/home/this/prj/vocabular/build/linux/x64/release/bundle/lib/libapp.so

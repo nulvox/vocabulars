@@ -1,0 +1,48 @@
+name: vocabular
+description: A vocabulary learning app that uses images and audio to teach words in multiple languages.
+version: 1.0.0+1
+
+environment:
+  sdk: "^3.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # For handling state management
+  provider: ^6.0.5
+  # For working with JSON data
+  json_annotation: ^4.9.0
+  # For playing audio files
+  just_audio: ^0.9.35
+  # For file path operations
+  path: ^1.8.3
+  # For localization support
+  flutter_localizations:
+    sdk: flutter
+  # For SVG support
+  flutter_svg: ^2.0.7
+  # For file operations in desktop and web environments
+  file_picker: ^5.3.1
+  # For platform detection
+  universal_platform: ^1.0.0+1
+  # For storing preferences (like selected language)
+  shared_preferences: ^2.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # For generating JSON serialization code
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.6
+  # For linting
+  flutter_lints: ^2.0.2
+  # Use Flutter's built-in coverage tools instead of test_coverage
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/audio/
+    - assets/vocabulary.json
+    - assets/audio/

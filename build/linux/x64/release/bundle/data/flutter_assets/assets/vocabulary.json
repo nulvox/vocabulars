@@ -1,0 +1,334 @@
+{
+  "title": "Household Items Vocabulary",
+  "description": "Learn vocabulary for common household items in multiple languages",
+  "supportedLanguages": ["en", "es", "fr"],
+  "scenes": [
+    {
+      "id": "living_room",
+      "name": "Living Room",
+      "imagePath": "living_room.jpg",
+      "interactionPoints": [
+        {
+          "id": "sofa",
+          "label": "Sofa",
+          "x": 0.5,
+          "y": 0.6,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/sofa.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/sofa.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/sofa.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Sofa"
+            },
+            {
+              "languageCode": "es",
+              "text": "Sofá"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Canapé"
+            }
+          ]
+        },
+        {
+          "id": "tv",
+          "label": "Television",
+          "x": 0.3,
+          "y": 0.3,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/television.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/television.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/television.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Television"
+            },
+            {
+              "languageCode": "es",
+              "text": "Televisión"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Télévision"
+            }
+          ]
+        },
+        {
+          "id": "lamp",
+          "label": "Lamp",
+          "x": 0.8,
+          "y": 0.4,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/lamp.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/lamp.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/lamp.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Lamp"
+            },
+            {
+              "languageCode": "es",
+              "text": "Lámpara"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Lampe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "imagePath": "kitchen.jpg",
+      "interactionPoints": [
+        {
+          "id": "refrigerator",
+          "label": "Refrigerator",
+          "x": 0.2,
+          "y": 0.5,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/refrigerator.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/refrigerator.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/refrigerator.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Refrigerator"
+            },
+            {
+              "languageCode": "es",
+              "text": "Refrigerador"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Réfrigérateur"
+            }
+          ]
+        },
+        {
+          "id": "stove",
+          "label": "Stove",
+          "x": 0.5,
+          "y": 0.6,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/stove.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/stove.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/stove.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Stove"
+            },
+            {
+              "languageCode": "es",
+              "text": "Estufa"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Cuisinière"
+            }
+          ]
+        },
+        {
+          "id": "sink",
+          "label": "Sink",
+          "x": 0.8,
+          "y": 0.5,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/sink.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/sink.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/sink.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Sink"
+            },
+            {
+              "languageCode": "es",
+              "text": "Fregadero"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Évier"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bedroom",
+      "name": "Bedroom",
+      "imagePath": "bedroom.jpg",
+      "interactionPoints": [
+        {
+          "id": "bed",
+          "label": "Bed",
+          "x": 0.5,
+          "y": 0.5,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/bed.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/bed.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/bed.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Bed"
+            },
+            {
+              "languageCode": "es",
+              "text": "Cama"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Lit"
+            }
+          ]
+        },
+        {
+          "id": "wardrobe",
+          "label": "Wardrobe",
+          "x": 0.2,
+          "y": 0.3,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/wardrobe.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/wardrobe.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/wardrobe.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Wardrobe"
+            },
+            {
+              "languageCode": "es",
+              "text": "Armario"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Armoire"
+            }
+          ]
+        },
+        {
+          "id": "mirror",
+          "label": "Mirror",
+          "x": 0.8,
+          "y": 0.3,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/mirror.mp3"
+            },
+            {
+              "languageCode": "es", 
+              "filePath": "es/mirror.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/mirror.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Mirror"
+            },
+            {
+              "languageCode": "es",
+              "text": "Espejo"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Miroir"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
