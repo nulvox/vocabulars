@@ -29,7 +29,10 @@ class VocabularyCard extends StatefulWidget {
 
 class _VocabularyCardState extends State<VocabularyCard> with SingleTickerProviderStateMixin {
   /// Audio player for pronunciations
-  late AudioPlayer _audioPlayer;
+  AudioPlayer? _audioPlayer;
+  
+  /// Whether audio playback is supported on this platform
+  final bool _isAudioSupported = PlatformUtils.isAudioSupported;
   
   /// Animation controller for card entry
   late AnimationController _animationController;
@@ -39,13 +42,56 @@ class _VocabularyCardState extends State<VocabularyCard> with SingleTickerProvid
   
   /// Track if audio is currently playing
   bool _isPlaying = false;
+  
+  /// Track audio playback progress (0.0 to 1.0)
+  double _playbackProgress = 0.0;
+  
+  /// Track if this widget is still mounted
+  bool _isMounted = true;
 
   @override
   void initState() {
     super.initState();
     
-    // Initialize audio player
-    _audioPlayer = AudioPlayer();
+    // Initialize audio player only if supported on this platform
+    if (_isAudioSupported) {
+      _audioPlayer = AudioPlayer();
+      
+      // Listen for audio player state changes
+      _audioPlayer!.playerStateStream.listen((state) {
+        if (!_isMounted) return;
+        
+        if (state.processingState == ProcessingState.completed ||
+            state.processingState == ProcessingState.idle) {
+          setState(() {
+            _isPlaying = false;
+            _playbackProgress = 0.0;
+          });
+        }
+      }, onError: (error) {
+        if (kDebugMode) {
+          print('Audio player error: $error');
+        }
+        if (_isMounted) {
+          setState(() {
+            _isPlaying = false;
+            _playbackProgress = 0.0;
+          });
+        }
+      });
+      
+      // Listen for position updates to track progress
+      _audioPlayer!.positionStream.listen((position) {
+        if (!_isMounted || !_isPlaying) return;
+        
+        final duration = _audioPlayer!.duration;
+        if (duration != null && _isMounted) {
+          setState(() {
+            _playbackProgress = position.inMilliseconds / duration.inMilliseconds;
+          });
+        }
+      });
+    }
     
     // Initialize animation controller
     _animationController = AnimationController(
@@ -65,7 +111,11 @@ class _VocabularyCardState extends State<VocabularyCard> with SingleTickerProvid
 
   @override
   void dispose() {
-    _audioPlayer.dispose();
+    _isMounted = false;
+    if (_audioPlayer != null) {
+      _audioPlayer!.stop();
+      _audioPlayer!.dispose();
+    }
     _animationController.dispose();
     super.dispose();
   }
@@ -118,14 +168,52 @@ class _VocabularyCardState extends State<VocabularyCard> with SingleTickerProvid
                 
                 const Divider(),
                 
-                // Audio pronunciation button
+                // Audio pronunciation button and progress - always show if audio file exists
                 if (_getAudioFile() != null)
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: ElevatedButton.icon(
-                      onPressed: _playAudio,
-                      icon: Icon(_isPlaying ? Icons.stop : Icons.volume_up),
-                      label: Text(_isPlaying ? 'Stop' : 'Listen'),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: _playAudio,
+                          icon: Icon(_isPlaying ? Icons.stop : Icons.volume_up),
+                          label: Text(_isPlaying ? 'Stop' : 'Listen'),
+                          // Use a slightly different color if audio isn't supported
+                          style: _isAudioSupported
+                              ? null
+                              : ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.grey[400],
+                                ),
+                        ),
+                        // Show progress bar when audio is playing
+                        if (_isPlaying)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: LinearProgressIndicator(
+                              value: _playbackProgress,
+                              backgroundColor: Colors.grey[300],
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                Theme.of(context).primaryColor
+                              ),
+                            ),
+                          ),
+                        
+                        // Show platform compatibility notice if needed
+                        if (!_isAudioSupported)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 4.0),
+                            child: Text(
+                              'Audio playback not supported on this platform',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[600],
+                                fontStyle: FontStyle.italic,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
                 
@@ -190,33 +278,99 @@ class _VocabularyCardState extends State<VocabularyCard> with SingleTickerProvid
 
   /// Plays the audio pronunciation
   Future<void> _playAudio() async {
+    // If audio is not supported on this platform, show a message and return
+    if (!_isAudioSupported || _audioPlayer == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Audio playback is not supported on this platform'),
+          backgroundColor: Colors.amber[700],
+          duration: const Duration(seconds: 3),
+          action: SnackBarAction(
+            label: 'OK',
+            textColor: Colors.white,
+            onPressed: () {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            },
+          ),
+        ),
+      );
+      return;
+    }
+  
+    if (_isPlaying) {
+      // Stop currently playing audio
+      await _audioPlayer!.stop();
+      setState(() {
+        _isPlaying = false;
+      });
+      return;
+    }
+    
     final audioFile = _getAudioFile();
-    if (audioFile == null) return;
+    if (audioFile == null) {
+      if (kDebugMode) {
+        print('No audio file available for language: ${widget.currentLanguage}');
+      }
+      return;
+    }
     
     setState(() {
       _isPlaying = true;
     });
+    
     try {
       // Get the appropriate audio file path based on platform
       final audioPath = PlatformUtils.isWeb
-          ? 'assets/${AppConstants.audioAssetsDir}${audioFile.filePath}'
+          ? 'assets/audio/${audioFile.filePath}'
           : '${AppConstants.audioAssetsDir}${audioFile.filePath}';
       
-      // Load and play the audio
-      await _audioPlayer.setAsset(audioPath);
-      await _audioPlayer.play();
+      if (kDebugMode) {
+        print('Playing audio from: $audioPath');
+        print('Audio file details: ${audioFile.languageCode}/${audioFile.filePath}');
+        print('Is web platform: ${PlatformUtils.isWeb}');
+      }
       
+      // Load the audio
+      await _audioPlayer!.setAsset(audioPath);
       
-      // Wait until audio completes
-      await _audioPlayer.playerStateStream.firstWhere(
-        (state) => state.processingState == ProcessingState.completed
-      );
+      // Check if audio loaded successfully
+      final duration = await _audioPlayer!.duration;
+      if (kDebugMode) {
+        print('Audio duration: $duration');
+      }
+      
+      // Play the audio
+      await _audioPlayer!.play();
+      
+      // Note: We don't need to wait for completion here anymore
+      // as we're handling it in the playerStateStream listener in initState
     } catch (e) {
-      print('Error playing audio: $e');
-    } finally {
-      setState(() {
-        _isPlaying = false;
-      });
+      if (kDebugMode) {
+        print('Error playing audio: $e');
+      }
+      
+      // Show error message to user
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Could not play audio: ${e.toString().split('\n')[0]}'),
+          backgroundColor: Colors.red[700],
+          duration: const Duration(seconds: 3),
+          action: SnackBarAction(
+            label: 'OK',
+            textColor: Colors.white,
+            onPressed: () {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            },
+          ),
+        ),
+      );
+      
+      if (_isMounted) {
+        setState(() {
+          _isPlaying = false;
+          _playbackProgress = 0.0;
+        });
+      }
     }
   }
 }

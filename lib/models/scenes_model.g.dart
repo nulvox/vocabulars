@@ -29,7 +29,10 @@ Map<String, dynamic> _$VocabularyDataToJson(VocabularyData instance) =>
 Scene _$SceneFromJson(Map<String, dynamic> json) => Scene(
       id: json['id'] as String,
       name: json['name'] as String,
-      imagePath: json['imagePath'] as String,
+      imagePath: json['imagePath'] as String?,
+      imageLayers: (json['imageLayers'] as List<dynamic>?)
+          ?.map((e) => ImageLayer.fromJson(e as Map<String, dynamic>))
+          .toList(),
       interactionPoints: (json['interactionPoints'] as List<dynamic>)
           .map((e) => InteractionPoint.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -39,7 +42,29 @@ Map<String, dynamic> _$SceneToJson(Scene instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'imagePath': instance.imagePath,
+      'imageLayers': instance.imageLayers,
       'interactionPoints': instance.interactionPoints,
+    };
+
+ImageLayer _$ImageLayerFromJson(Map<String, dynamic> json) => ImageLayer(
+      id: json['id'] as String,
+      imagePath: json['imagePath'] as String,
+      opacity: (json['opacity'] as num?)?.toDouble() ?? 1.0,
+      x: (json['x'] as num?)?.toDouble() ?? 0.0,
+      y: (json['y'] as num?)?.toDouble() ?? 0.0,
+      scale: (json['scale'] as num?)?.toDouble() ?? 1.0,
+      zIndex: (json['zIndex'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$ImageLayerToJson(ImageLayer instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'imagePath': instance.imagePath,
+      'opacity': instance.opacity,
+      'x': instance.x,
+      'y': instance.y,
+      'scale': instance.scale,
+      'zIndex': instance.zIndex,
     };
 
 InteractionPoint _$InteractionPointFromJson(Map<String, dynamic> json) =>

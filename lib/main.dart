@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'models/vocabulary_model.dart';
 import 'utils/platform_utils.dart';
 import 'screens/home_screen.dart';
@@ -62,6 +63,15 @@ class VocabularApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const HomeScreen(),
+      // Add required localization delegates
+      localizationsDelegates: const [
+        // Built-in localization of basic text for Material widgets
+        GlobalMaterialLocalizations.delegate,
+        // Built-in localization for text direction LTR/RTL
+        GlobalWidgetsLocalizations.delegate,
+        // Built-in localization of cupertino widgets
+        GlobalCupertinoLocalizations.delegate,
+      ],
       // Platform-specific settings
       supportedLocales: vocabularyModel.isMultilingual
           ? vocabularyModel.availableLanguages.map((code) => Locale(code))

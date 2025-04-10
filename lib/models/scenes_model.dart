@@ -32,7 +32,7 @@ class VocabularyData {
   Map<String, dynamic> toJson() => _$VocabularyDataToJson(this);
 }
 
-/// Represents a single scene with an image and interaction points
+/// Represents a single scene with image layers and interaction points
 @JsonSerializable()
 class Scene {
   /// Unique identifier for the scene
@@ -41,8 +41,12 @@ class Scene {
   /// Display name of the scene
   final String name;
   
-  /// Path to the image file for this scene, relative to assets folder
-  final String imagePath;
+  /// Path to the background image file for this scene, relative to assets folder
+  /// @deprecated - Use imageLayers instead
+  final String? imagePath;
+  
+  /// List of image layers that compose this scene (back to front order)
+  final List<ImageLayer>? imageLayers;
   
   /// List of interaction points in this scene
   final List<InteractionPoint> interactionPoints;
@@ -50,15 +54,80 @@ class Scene {
   Scene({
     required this.id,
     required this.name,
-    required this.imagePath,
+    this.imagePath,
+    this.imageLayers,
     required this.interactionPoints,
-  });
+  }) : assert(imagePath != null || (imageLayers != null && imageLayers.isNotEmpty),
+             'Either imagePath or imageLayers must be provided');
 
   /// Create a Scene instance from a JSON map
   factory Scene.fromJson(Map<String, dynamic> json) => _$SceneFromJson(json);
 
   /// Convert this Scene instance to a JSON map
   Map<String, dynamic> toJson() => _$SceneToJson(this);
+  
+  /// Gets the image layers for rendering
+  /// If imageLayers is provided, returns that
+  /// If only imagePath is provided, creates a single layer from it
+  List<ImageLayer> getImageLayers() {
+    if (imageLayers != null && imageLayers!.isNotEmpty) {
+      return imageLayers!;
+    }
+    // Fallback to legacy imagePath
+    if (imagePath != null) {
+      return [ImageLayer(
+        id: 'background',
+        imagePath: imagePath!,
+        opacity: 1.0,
+        x: 0.0,
+        y: 0.0,
+        scale: 1.0,
+      )];
+    }
+    return [];
+  }
+}
+
+/// Represents a single image layer in a scene
+@JsonSerializable()
+class ImageLayer {
+  /// Unique identifier for the layer
+  final String id;
+  
+  /// Path to the image file, relative to assets folder
+  final String imagePath;
+  
+  /// Opacity of the layer (0.0 to 1.0)
+  final double opacity;
+  
+  /// X-coordinate of the layer (0.0 is left, relative to scene width)
+  final double x;
+  
+  /// Y-coordinate of the layer (0.0 is top, relative to scene height)
+  final double y;
+  
+  /// Scale factor of the layer (1.0 is original size)
+  final double scale;
+  
+  /// Z-index for manual ordering override (higher numbers show on top)
+  final int? zIndex;
+
+  ImageLayer({
+    required this.id,
+    required this.imagePath,
+    this.opacity = 1.0,
+    this.x = 0.0,
+    this.y = 0.0,
+    this.scale = 1.0,
+    this.zIndex,
+  });
+
+  /// Create an ImageLayer instance from a JSON map
+  factory ImageLayer.fromJson(Map<String, dynamic> json) =>
+      _$ImageLayerFromJson(json);
+
+  /// Convert this ImageLayer instance to a JSON map
+  Map<String, dynamic> toJson() => _$ImageLayerToJson(this);
 }
 
 /// Represents a point of interaction within a scene

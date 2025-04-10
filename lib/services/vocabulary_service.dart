@@ -61,10 +61,25 @@ class VocabularyService {
       }
       
       print('Loading vocabulary data from: $_jsonPath');
+      
+      // Debug the raw JSON content
+      print('Raw JSON content (first 200 chars): ${jsonString.substring(0, min(200, jsonString.length))}');
+      
       vocabularyData = await _parseVocabularyData(jsonString);
       print('Loaded scenes: ${vocabularyData.scenes.length}');
+      
+      // Debug each scene
       for (var scene in vocabularyData.scenes) {
-        print('Scene: ${scene.id}, image: ${scene.imagePath}');
+        print('Scene ID: ${scene.id}, Name: ${scene.name}');
+        if (scene.imagePath != null) {
+          print('  Image path: ${scene.imagePath}');
+        }
+        if (scene.imageLayers != null) {
+          print('  Image layers: ${scene.imageLayers!.length}');
+          for (var layer in scene.imageLayers!) {
+            print('    Layer: ${layer.id}, Path: ${layer.imagePath}');
+          }
+        }
       }
       
       // Verify that the data is valid
@@ -120,10 +135,23 @@ class VocabularyService {
       throw Exception('No scenes found in vocabulary data');
     }
     
-    // Verify each scene has a valid image path
+    // Verify each scene has a valid image path or layers
     for (var scene in data.scenes) {
-      if (scene.imagePath.isEmpty) {
-        throw Exception('Scene ${scene.id} has an empty image path');
+      // Scene can have either direct imagePath or imageLayers
+      if ((scene.imagePath == null || scene.imagePath!.isEmpty) &&
+          (scene.imageLayers == null || scene.imageLayers!.isEmpty)) {
+        print('Scene ${scene.id} has neither a valid image path nor image layers');
+        throw Exception('Scene ${scene.id} has neither a valid image path nor image layers');
+      }
+      
+      // If using imageLayers, check that each layer has a valid path
+      if (scene.imageLayers != null && scene.imageLayers!.isNotEmpty) {
+        for (var layer in scene.imageLayers!) {
+          if (layer.imagePath.isEmpty) {
+            print('Layer ${layer.id} in scene ${scene.id} has an empty image path');
+            throw Exception('Layer ${layer.id} in scene ${scene.id} has an empty image path');
+          }
+        }
       }
     }
   }

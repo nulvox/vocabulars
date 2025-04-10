@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import '../utils/app_constants.dart';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 /// A dropdown widget for selecting the current language
 class LanguageDropdown extends StatelessWidget {
@@ -40,12 +43,11 @@ class LanguageDropdown extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Display language flag icon if available
-                if (_getLanguageFlag(code) != null)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Text(_getLanguageFlag(code)!),
-                  ),
+                // Display language flag image if available
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: _getFlagImage(code),
+                ),
                 // Display language name
                 Container(
                   constraints: const BoxConstraints(
@@ -64,21 +66,63 @@ class LanguageDropdown extends StatelessWidget {
     );
   }
 
-  /// Gets the flag emoji for a language
-  String? _getLanguageFlag(String code) {
-    // Simple mapping of language codes to flag emojis
-    final Map<String, String> flags = {
-      'en': '🇺🇸', // United States
-      'es': '🇪🇸', // Spain
-      'fr': '🇫🇷', // France
-      'de': '🇩🇪', // Germany
-      'it': '🇮🇹', // Italy
-      'pt': '🇵🇹', // Portugal
-      'ru': '🇷🇺', // Russia
-      'zh': '🇨🇳', // China
-      'ja': '🇯🇵', // Japan
-      'ko': '🇰🇷', // South Korea
-    };
-    return flags[code];
+  /// Gets a flag image widget for a language
+  Widget _getFlagImage(String code) {
+    // Fixed size for flag icons
+    const double flagWidth = 24.0;
+    const double flagHeight = 16.0;
+    
+    // Path to the flag image asset
+    final String flagPath = 'assets/images/flags/$code.svg';
+    
+    // Try to load the flag image, but provide a text-based fallback
+    return SizedBox(
+      width: flagWidth,
+      height: flagHeight,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(2.0),
+        child: _buildFlagWidget(code, flagPath),
+      ),
+    );
+  }
+  
+  /// Builds the appropriate flag widget based on environment
+  Widget _buildFlagWidget(String code, String flagPath) {
+    // Check if SVG exists by attempting to load it with error handling
+    try {
+      return SvgPicture.asset(
+        flagPath,
+        width: 24.0,
+        height: 16.0,
+        fit: BoxFit.cover,
+        placeholderBuilder: (BuildContext context) {
+          // Fallback to text-based representation if SVG fails to load
+          return Container(
+            color: Colors.grey.shade200,
+            alignment: Alignment.center,
+            child: Text(
+              code.toUpperCase(),
+              style: const TextStyle(
+                fontSize: 10.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          );
+        },
+      );
+    } catch (e) {
+      // Additional error handling for platforms that don't handle errorBuilder
+      return Container(
+        color: Colors.grey.shade200,
+        alignment: Alignment.center,
+        child: Text(
+          code.toUpperCase(),
+          style: const TextStyle(
+            fontSize: 10.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      );
+    }
   }
 }

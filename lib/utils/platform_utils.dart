@@ -2,7 +2,8 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:file_picker/file_picker.dart';
+// Import local wrapper instead of direct dependency
+import 'file_picker_wrapper.dart';
 import 'package:universal_platform/universal_platform.dart';
 
 /// Utility class for handling platform-specific operations
@@ -17,11 +18,23 @@ class PlatformUtils {
                  UniversalPlatform.isLinux);
   
   /// Checks if the app is running on mobile (Android, iOS)
-  static bool get isMobile => 
+  static bool get isMobile =>
       !kIsWeb && (UniversalPlatform.isAndroid || UniversalPlatform.isIOS);
-
+  
   /// Checks if the app is running on Android
   static bool get isAndroid => !kIsWeb && UniversalPlatform.isAndroid;
+
+  /// Checks if the app is running on Linux
+  static bool get isLinux => !kIsWeb && UniversalPlatform.isLinux;
+
+  /// Checks if audio playback is supported on this platform
+  static bool get isAudioSupported {
+    final supported = !isLinux;
+    if (kDebugMode) {
+      print('Audio support check: isLinux=$isLinux, isAudioSupported=$supported');
+    }
+    return supported; // Currently Linux doesn't support just_audio
+  }
 
   /// Loads a file from the asset bundle (used for bundled assets)
   static Future<String> loadAssetFile(String path) async {
@@ -45,33 +58,8 @@ class PlatformUtils {
   /// Allows the user to pick a JSON file from their filesystem
   /// Returns the content of the selected file or null if canceled
   static Future<String?> pickJsonFile() async {
-    try {
-      FilePickerResult? result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: ['json'],
-      );
-      
-      if (result != null) {
-        if (kIsWeb) {
-          // Web platform - read bytes
-          final bytes = result.files.single.bytes;
-          if (bytes != null) {
-            return utf8.decode(bytes);
-          }
-        } else {
-          // Desktop/Mobile platform - read file path
-          final path = result.files.single.path;
-          if (path != null) {
-            final file = File(path);
-            return await file.readAsString();
-          }
-        }
-      }
-      return null; // User canceled the picker
-    } catch (e) {
-      print('Error picking JSON file: $e');
-      return null;
-    }
+    // Use our wrapper which handles fallback behavior
+    return await FilePickerWrapper.pickJsonFile();
   }
 
   /// Allows the user to pick a folder containing vocabulary data
@@ -79,17 +67,11 @@ class PlatformUtils {
   static Future<String?> pickDirectory() async {
     if (kIsWeb) {
       // Web doesn't support directory picking in the same way
-      // Consider using a different approach for web
       return null;
     }
     
-    try {
-      String? directoryPath = await FilePicker.platform.getDirectoryPath();
-      return directoryPath;
-    } catch (e) {
-      print('Error picking directory: $e');
-      return null;
-    }
+    // Use our wrapper which handles fallback behavior
+    return await FilePickerWrapper.pickDirectory();
   }
   
   /// Creates platform-appropriate paths for assets
