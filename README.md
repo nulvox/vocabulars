@@ -133,6 +133,7 @@ The `vocabulary.json` file should follow this format:
 - Keep recordings clear and concise
 - Recommended length: 1-2 seconds per word
 - File naming should match the vocabulary item ID
+- Audio files can be automatically downloaded from Wiktionary using the provided scripts (see "Automated Audio Downloads" section below)
 
 ## Building for Different Platforms
 
@@ -202,6 +203,91 @@ flutter pub run build_runner build --delete-conflicting-outputs
 
 This step is required before running the app for the first time or after making changes to the model classes.
 
+## Automated Audio Downloads
+
+The project includes a script to automatically download audio pronunciation files from Wiktionary based on your vocabulary.json configuration:
+
+```
+./scripts/download_audio.sh
+```
+
+This script:
+1. Reads your vocabulary.json file
+2. For each word in each language, attempts to find a pronunciation on Wiktionary
+3. Downloads the audio file and saves it to the correct location in assets/audio/
+
+### Language Preferences
+
+The script prioritizes pronunciations in the following order:
+- English: American > Canadian > UK > Australian
+- French: France > Canadian
+- Spanish: Mexican > Spain
+
+### Integration with Build Process
+
+You can integrate the audio download with your build process using the provided script:
+
+```
+./scripts/build_with_audio.sh [flutter_build_arguments]
+```
+
+For example, to build an APK with fresh audio files:
+```
+./scripts/build_with_audio.sh build apk
+```
+
+To build for iOS:
+```
+./scripts/build_with_audio.sh build ios
+```
+
+To build for web:
+```
+./scripts/build_with_audio.sh build web
+```
+
+### Skipping Audio Download
+
+If you already have your own audio files (or don't want to download new ones):
+
+1. Use the standard Flutter build commands directly:
+   ```
+   flutter build apk
+   flutter build ios
+   flutter build web
+   ```
+
+2. Or set up a symbolic link to your custom audio files:
+   ```
+   # Replace audio directory with your custom one
+   ln -sf /path/to/your/custom/audio assets/audio
+   ```
+
+### Advanced Usage Options
+
+The audio download script provides several options:
+
+```
+python3 scripts/download_audio.py --help
+```
+
+Some useful options include:
+
+- `--test`: Only download one word per language (useful for testing)
+- `--force`: Force re-download of audio files even if they already exist
+- `--vocabulary`: Specify a custom vocabulary JSON file
+- `--output-dir`: Specify a custom output directory for audio files
+
+### Requirements
+
+The audio download script requires:
+- Python 3.6 or higher
+- Python packages: requests, beautifulsoup4 (installed automatically by the script)
+
+For more details, see the script documentation in `scripts/README.md`.
+
+See `scripts/README.md` for more detailed information about the audio download functionality.
+
 This will create the `scenes_model.g.dart` file which is needed for JSON parsing.
 
 ## Running Tests
@@ -261,6 +347,7 @@ The app uses Provider for state management, with the main state contained in the
 - `AppConstants` in `lib/utils/app_constants.dart` contains customizable values
 - Theme colors can be adjusted in the `VocabularApp` class in `main.dart`
 - Supported languages can be extended in the `languageNames` map in `app_constants.dart`
+- Audio files can be automatically downloaded using the scripts in the `scripts/` directory
 
 ## Contributing
 
