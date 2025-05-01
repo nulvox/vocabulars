@@ -71,7 +71,6 @@ vocabulary_set/
 ```
 
 ### JSON Configuration Format
-
 The `vocabulary.json` file should follow this format:
 
 ```json
@@ -83,7 +82,7 @@ The `vocabulary.json` file should follow this format:
     {
       "id": "scene1",
       "name": "Scene 1 Name",
-      "imagePath": "scene1.jpg",
+      "imagePath": "scene1.jpg",  // Single image approach (backward compatible)
       "interactionPoints": [
         {
           "id": "item1",
@@ -116,16 +115,76 @@ The `vocabulary.json` file should follow this format:
           ]
         }
       ]
+    },
+    {
+      "id": "composed_scene",
+      "name": "Composed Scene with Layers",
+      "imageLayers": [  // Multiple image layers approach
+        {
+          "id": "background",
+          "imagePath": "background.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "furniture",
+          "imagePath": "furniture.svg",
+          "opacity": 0.95,
+          "x": 0.1,
+          "y": 0.1,
+          "scale": 1.2,
+          "zIndex": 2
+        },
+        {
+          "id": "decorations",
+          "imagePath": "decorations.webp",
+          "opacity": 0.9,
+          "x": 0.05,
+          "y": 0.15,
+          "scale": 1.1,
+          "zIndex": 3
+        }
+      ],
+      "interactionPoints": [
+        // ... interaction points ...
+      ]
     }
   ]
 }
 ```
+```
 
 ### Image Requirements
 
-- Images should be in JPG or PNG format
-- Recommended resolution: 1920x1080 (16:9 aspect ratio)
-- Keep file sizes reasonable (under 1MB per image if possible)
+- Images can be in JPG, PNG, WEBP, or SVG format
+- For raster images (JPG, PNG, WEBP):
+  - Recommended resolution: 1920x1080 (16:9 aspect ratio)
+  - Keep file sizes reasonable (under 1MB per image if possible)
+- For vector images (SVG):
+  - Make sure the SVG file uses standard SVG elements
+  - Keep the file size and complexity reasonable for better performance
+  - SVGs can be scaled and positioned dynamically
+
+### Image Composition
+
+The app now supports composing scenes from multiple image layers, which provides these benefits:
+
+- **Mixed formats**: Combine raster images (JPG, PNG, WEBP) with vector graphics (SVG)
+- **Dynamic positioning**: Position and scale individual layers
+- **Opacity control**: Set transparency levels for overlays
+- **Z-index ordering**: Control the stacking order of layers
+- **Reusable elements**: Reuse the same SVG assets across different scenes
+
+Layer properties:
+- `id`: Unique identifier for the layer
+- `imagePath`: Path to the image file (relative to assets/images/)
+- `opacity`: Transparency level (0.0 to 1.0, where 1.0 is fully opaque)
+- `x`, `y`: Position offset (0.0 to 1.0, relative to scene dimensions)
+- `scale`: Size scaling factor (1.0 is original size)
+- `zIndex`: Stacking order (higher numbers appear on top)
 
 ### Audio Requirements
 
@@ -348,6 +407,7 @@ The app uses Provider for state management, with the main state contained in the
 - Theme colors can be adjusted in the `VocabularApp` class in `main.dart`
 - Supported languages can be extended in the `languageNames` map in `app_constants.dart`
 - Audio files can be automatically downloaded using the scripts in the `scripts/` directory
+- Language flag images can be customized by adding PNG images to the `assets/images/flags/` directory (named using the language code, e.g., `en.png`, `fr.png`)
 
 ## Contributing
 

@@ -210,24 +210,4 @@ class VocabularyService {
     }
   }
   
-  /// Allows user to pick a vocabulary directory via file picker
-  /// Returns true if successful
-  Future<bool> pickAndLoadVocabularyDirectory() async {
-    if (PlatformUtils.isWeb) {
-      // Web doesn't support directory picking in the same way
-      // Instead, we could allow picking a JSON file
-      final jsonString = await PlatformUtils.pickJsonFile();
-      if (jsonString != null) {
-        return await loadVocabularyFromJsonString(jsonString);
-      }
-      return false;
-    }
-    
-    // Desktop and Android: pick a directory
-    final directoryPath = await PlatformUtils.pickDirectory();
-    if (directoryPath != null) {
-      return await loadVocabularyFromDirectory(directoryPath);
-    }
-    return false;
-  }
 }

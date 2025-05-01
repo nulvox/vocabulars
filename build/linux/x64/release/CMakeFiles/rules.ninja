@@ -22,7 +22,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__vocabular_unscanned_Release
+rule CXX_COMPILER__vocabulars_unscanned_Release
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/clang++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -32,7 +32,7 @@ rule CXX_COMPILER__vocabular_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__vocabular_Release
+rule CXX_EXECUTABLE_LINKER__vocabulars_Release
   depfile = $DEP_FILE
   deps = gcc
   command = $PRE_LINK && /usr/bin/clang++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
@@ -44,7 +44,7 @@ rule CXX_EXECUTABLE_LINKER__vocabular_Release
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/home/this/prj/vocabular/linux -B/home/this/prj/vocabular/build/linux/x64/release
+  command = /usr/bin/cmake --regenerate-during-build -S/home/this/prj/vocabulars/linux -B/home/this/prj/vocabulars/build/linux/x64/release
   description = Re-running CMake...
   generator = 1
 

@@ -2,8 +2,6 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-// Import local wrapper instead of direct dependency
-import 'file_picker_wrapper.dart';
 import 'package:universal_platform/universal_platform.dart';
 
 /// Utility class for handling platform-specific operations
@@ -55,24 +53,6 @@ class PlatformUtils {
     }
   }
 
-  /// Allows the user to pick a JSON file from their filesystem
-  /// Returns the content of the selected file or null if canceled
-  static Future<String?> pickJsonFile() async {
-    // Use our wrapper which handles fallback behavior
-    return await FilePickerWrapper.pickJsonFile();
-  }
-
-  /// Allows the user to pick a folder containing vocabulary data
-  /// Returns the selected directory path or null if canceled
-  static Future<String?> pickDirectory() async {
-    if (kIsWeb) {
-      // Web doesn't support directory picking in the same way
-      return null;
-    }
-    
-    // Use our wrapper which handles fallback behavior
-    return await FilePickerWrapper.pickDirectory();
-  }
   
   /// Creates platform-appropriate paths for assets
   static String getAssetPath(String basePath, String fileName) {

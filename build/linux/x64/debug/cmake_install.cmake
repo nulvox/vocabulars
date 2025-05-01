@@ -1,8 +1,8 @@
-# Install script for directory: /home/this/prj/vocabular/linux
+# Install script for directory: /home/this/prj/vocabulars/linux
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/this/prj/vocabular/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/this/prj/vocabulars/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,103 +44,103 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   
-  file(REMOVE_RECURSE "/home/this/prj/vocabular/build/linux/x64/debug/bundle/")
+  file(REMOVE_RECURSE "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/")
   
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/this/prj/vocabular/build/linux/x64/debug/bundle/vocabular" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/this/prj/vocabular/build/linux/x64/debug/bundle/vocabular")
+  if(EXISTS "$ENV{DESTDIR}/home/this/prj/vocabulars/build/linux/x64/debug/bundle/vocabulars" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/this/prj/vocabulars/build/linux/x64/debug/bundle/vocabulars")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/this/prj/vocabular/build/linux/x64/debug/bundle/vocabular"
+         FILE "$ENV{DESTDIR}/home/this/prj/vocabulars/build/linux/x64/debug/bundle/vocabulars"
          RPATH "$ORIGIN/lib")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/this/prj/vocabular/build/linux/x64/debug/bundle/vocabular")
+   "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/vocabulars")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/this/prj/vocabular/build/linux/x64/debug/bundle" TYPE EXECUTABLE FILES "/home/this/prj/vocabular/build/linux/x64/debug/intermediates_do_not_run/vocabular")
-  if(EXISTS "$ENV{DESTDIR}/home/this/prj/vocabular/build/linux/x64/debug/bundle/vocabular" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/this/prj/vocabular/build/linux/x64/debug/bundle/vocabular")
+  file(INSTALL DESTINATION "/home/this/prj/vocabulars/build/linux/x64/debug/bundle" TYPE EXECUTABLE FILES "/home/this/prj/vocabulars/build/linux/x64/debug/intermediates_do_not_run/vocabulars")
+  if(EXISTS "$ENV{DESTDIR}/home/this/prj/vocabulars/build/linux/x64/debug/bundle/vocabulars" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/this/prj/vocabulars/build/linux/x64/debug/bundle/vocabulars")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/home/this/prj/vocabular/build/linux/x64/debug/bundle/vocabular"
-         OLD_RPATH "/home/this/prj/vocabular/linux/flutter/ephemeral:"
+         FILE "$ENV{DESTDIR}/home/this/prj/vocabulars/build/linux/x64/debug/bundle/vocabulars"
+         OLD_RPATH "/home/this/prj/vocabulars/linux/flutter/ephemeral:"
          NEW_RPATH "$ORIGIN/lib")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/this/prj/vocabular/build/linux/x64/debug/bundle/vocabular")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/this/prj/vocabulars/build/linux/x64/debug/bundle/vocabulars")
     endif()
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/this/prj/vocabular/build/linux/x64/debug/bundle/data/icudtl.dat")
+   "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/data/icudtl.dat")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/this/prj/vocabular/build/linux/x64/debug/bundle/data" TYPE FILE FILES "/home/this/prj/vocabular/linux/flutter/ephemeral/icudtl.dat")
+  file(INSTALL DESTINATION "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/data" TYPE FILE FILES "/home/this/prj/vocabulars/linux/flutter/ephemeral/icudtl.dat")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/this/prj/vocabular/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so")
+   "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/this/prj/vocabular/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/this/prj/vocabular/linux/flutter/ephemeral/libflutter_linux_gtk.so")
+  file(INSTALL DESTINATION "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/this/prj/vocabulars/linux/flutter/ephemeral/libflutter_linux_gtk.so")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/this/prj/vocabular/build/linux/x64/debug/bundle/lib/")
+   "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/lib/")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/this/prj/vocabular/build/linux/x64/debug/bundle/lib" TYPE DIRECTORY FILES "/home/this/prj/vocabular/build/native_assets/linux/")
+  file(INSTALL DESTINATION "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/lib" TYPE DIRECTORY FILES "/home/this/prj/vocabulars/build/native_assets/linux/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   
-  file(REMOVE_RECURSE "/home/this/prj/vocabular/build/linux/x64/debug/bundle/data/flutter_assets")
+  file(REMOVE_RECURSE "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/data/flutter_assets")
   
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/this/prj/vocabular/build/linux/x64/debug/bundle/data/flutter_assets")
+   "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/data/flutter_assets")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/this/prj/vocabular/build/linux/x64/debug/bundle/data" TYPE DIRECTORY FILES "/home/this/prj/vocabular/build//flutter_assets")
+  file(INSTALL DESTINATION "/home/this/prj/vocabulars/build/linux/x64/debug/bundle/data" TYPE DIRECTORY FILES "/home/this/prj/vocabulars/build//flutter_assets")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/this/prj/vocabular/build/linux/x64/debug/flutter/cmake_install.cmake")
-  include("/home/this/prj/vocabular/build/linux/x64/debug/runner/cmake_install.cmake")
+  include("/home/this/prj/vocabulars/build/linux/x64/debug/flutter/cmake_install.cmake")
+  include("/home/this/prj/vocabulars/build/linux/x64/debug/runner/cmake_install.cmake")
 
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/this/prj/vocabular/build/linux/x64/debug/install_local_manifest.txt"
+  file(WRITE "/home/this/prj/vocabulars/build/linux/x64/debug/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -156,6 +156,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/this/prj/vocabular/build/linux/x64/debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/this/prj/vocabulars/build/linux/x64/debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

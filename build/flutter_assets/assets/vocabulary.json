@@ -4,6 +4,178 @@
   "supportedLanguages": ["en", "es", "fr"],
   "scenes": [
     {
+      "id": "composed_living_room",
+      "name": "Composed Living Room",
+      "imageLayers": [
+        {
+          "id": "background",
+          "imagePath": "living_room.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "furniture",
+          "imagePath": "furniture.svg",
+          "opacity": 0.95,
+          "x": 0.2,
+          "y": 0.1,
+          "scale": 1.2,
+          "zIndex": 2
+        },
+        {
+          "id": "decorations",
+          "imagePath": "decorations.svg",
+          "opacity": 0.9,
+          "x": 0.1,
+          "y": 0.05,
+          "scale": 1.1,
+          "zIndex": 3
+        }
+      ],
+      "interactionPoints": [
+        {
+          "id": "layered_sofa",
+          "label": "Layered Sofa",
+          "x": 0.5,
+          "y": 0.6,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/sofa.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/sofa.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/sofa.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Sofa"
+            },
+            {
+              "languageCode": "es",
+              "text": "Sofá"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Canapé"
+            }
+          ]
+        },
+        {
+          "id": "layered_lamp",
+          "label": "Layered Lamp",
+          "x": 0.3,
+          "y": 0.3,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/lamp.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/lamp.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/lamp.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Lamp"
+            },
+            {
+              "languageCode": "es",
+              "text": "Lámpara"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Lampe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mixed_formats",
+      "name": "Mixed Image Formats",
+      "imageLayers": [
+        {
+          "id": "webp_background",
+          "imagePath": "kitchen.webp",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "png_overlay",
+          "imagePath": "bedroom.png",
+          "opacity": 0.3,
+          "x": 0.1,
+          "y": 0.1,
+          "scale": 0.5,
+          "zIndex": 2
+        },
+        {
+          "id": "svg_decoration",
+          "imagePath": "decorations.svg",
+          "opacity": 0.8,
+          "x": 0.25,
+          "y": 0.25,
+          "scale": 0.7,
+          "zIndex": 3
+        }
+      ],
+      "interactionPoints": [
+        {
+          "id": "mixed_refrigerator",
+          "label": "Refrigerator",
+          "x": 0.2,
+          "y": 0.5,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/refrigerator.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/refrigerator.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/refrigerator.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Refrigerator"
+            },
+            {
+              "languageCode": "es",
+              "text": "Refrigerador"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Réfrigérateur"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "living_room",
       "name": "Living Room",
       "imagePath": "living_room.jpg",

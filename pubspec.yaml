@@ -23,7 +23,8 @@ dependencies:
   # For SVG support
   flutter_svg: ^2.0.7
   # For file operations in desktop and web environments
-  file_picker: ^5.3.1
+  # Temporarily removed due to compatibility issues
+  # file_picker dependency is handled via wrapper class
   # For platform detection
   universal_platform: ^1.0.0+1
   # For storing preferences (like selected language)
@@ -43,6 +44,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/images/flags/
     - assets/audio/
+    - assets/audio/en/
+    - assets/audio/es/
+    - assets/audio/fr/
     - assets/vocabulary.json
-    - assets/audio/

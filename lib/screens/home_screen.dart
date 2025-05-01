@@ -53,12 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
             availableLanguages: vocabularyModel.availableLanguages,
             onLanguageChanged: _onLanguageChanged,
           ),
-          // Load vocabulary button
-          IconButton(
-            icon: const Icon(Icons.folder_open),
-            onPressed: _pickVocabularyData,
-            tooltip: 'Load vocabulary set',
-          ),
           IconButton(
             icon: const Icon(Icons.info_outline),
             onPressed: _showInfoDialog,
@@ -221,50 +215,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
   
-  /// Allows user to pick and load a vocabulary set
-  Future<void> _pickVocabularyData() async {
-    final vocabularyService = Provider.of<VocabularyService>(context, listen: false);
-    
-    setState(() {
-      _isLoading = true;
-    });
-    
-    try {
-      final success = await vocabularyService.pickAndLoadVocabularyDirectory();
-      
-      if (success) {
-        // Update the model with new data
-        final vocabularyModel = Provider.of<VocabularyModel>(context, listen: false);
-        
-        // Create a new model with the new data
-        final newModel = VocabularyModel(
-          vocabularyData: vocabularyService.vocabularyData,
-          initialLanguage: vocabularyModel.currentLanguage,
-        );
-        
-        // Replace the existing model in the provider
-        Provider.of<VocabularyModel>(context, listen: false)
-          ..vocabularyData = newModel.vocabularyData
-          ..navigateToScene(0); // Reset to first scene
-          
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Vocabulary set loaded successfully!')),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Failed to load vocabulary set')),
-        );
-      }
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
 
   /// Counts the total number of vocabulary items across all scenes
   int _countVocabularyItems(VocabularyData data) {

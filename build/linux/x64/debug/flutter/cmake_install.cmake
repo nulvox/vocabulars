@@ -1,8 +1,8 @@
-# Install script for directory: /home/this/prj/vocabular/linux/flutter
+# Install script for directory: /home/this/prj/vocabulars/linux/flutter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/this/prj/vocabular/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/this/prj/vocabulars/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,6 +45,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/this/prj/vocabular/build/linux/x64/debug/flutter/install_local_manifest.txt"
+  file(WRITE "/home/this/prj/vocabulars/build/linux/x64/debug/flutter/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
