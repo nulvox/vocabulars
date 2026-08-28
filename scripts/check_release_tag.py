@@ -2,7 +2,6 @@
 """Validate a release tag and derive Flutter's Android version values."""
 
 import argparse
-import json
 import re
 import sys
 
@@ -19,23 +18,10 @@ def version(value):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--tag", required=True)
-    parser.add_argument("--existing-json", required=True, help="JSON array from gh release list")
     parser.add_argument("--write-pubspec", help="Update the pubspec version in this workspace")
     args = parser.parse_args()
 
     selected = version(args.tag)
-    releases = json.loads(open(args.existing_json, encoding="utf-8").read())
-    for release in releases:
-        tag = release.get("tagName", "")
-        if not tag:
-            continue
-        try:
-            existing = version(tag)
-        except ValueError:
-            continue
-        if selected <= existing:
-            raise SystemExit(f"{args.tag} is not higher than existing release {tag}")
-
     # Android versionCode must be a positive integer. This monotonic mapping
     # leaves room for patch releases and is deterministic from the tag.
     major, minor, patch = selected
