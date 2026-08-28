@@ -8,8 +8,8 @@
   ],
   "scenes": [
     {
-      "id": "composed_living_room",
-      "name": "Composed Living Room",
+      "id": "living_room",
+      "name": "Living Room",
       "imageLayers": [
         {
           "id": "background",
@@ -19,149 +19,23 @@
           "y": 0.0,
           "scale": 1.0,
           "zIndex": 1
-        }
-      ],
-      "interactionPoints": [
-        {
-          "id": "layered_sofa",
-          "label": "Layered Sofa",
-          "x": 0.5,
-          "y": 0.6,
-          "audioFiles": [
-            {
-              "languageCode": "en",
-              "filePath": "en/layered_sofa.mp3"
-            },
-            {
-              "languageCode": "es",
-              "filePath": "es/layered_sofa.mp3"
-            },
-            {
-              "languageCode": "fr",
-              "filePath": "fr/layered_sofa.mp3"
-            }
-          ],
-          "translations": [
-            {
-              "languageCode": "en",
-              "text": "Sofa"
-            },
-            {
-              "languageCode": "es",
-              "text": "Sofá"
-            },
-            {
-              "languageCode": "fr",
-              "text": "Canapé"
-            }
-          ]
         },
         {
-          "id": "layered_lamp",
-          "label": "Layered Lamp",
-          "x": 0.3,
-          "y": 0.3,
-          "audioFiles": [
-            {
-              "languageCode": "en",
-              "filePath": "en/layered_lamp.mp3"
-            },
-            {
-              "languageCode": "es",
-              "filePath": "es/layered_lamp.mp3"
-            },
-            {
-              "languageCode": "fr",
-              "filePath": "fr/layered_lamp.mp3"
-            }
-          ],
-          "translations": [
-            {
-              "languageCode": "en",
-              "text": "Lamp"
-            },
-            {
-              "languageCode": "es",
-              "text": "Lámpara"
-            },
-            {
-              "languageCode": "fr",
-              "text": "Lampe"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "mixed_formats",
-      "name": "Mixed Image Formats",
-      "imageLayers": [
-        {
-          "id": "webp_background",
-          "imagePath": "kitchen.jpg",
+          "id": "educator_child",
+          "imagePath": "educator_child.svg",
           "opacity": 1.0,
           "x": 0.0,
           "y": 0.0,
           "scale": 1.0,
-          "zIndex": 1
-        },
-        {
-          "id": "png_overlay",
-          "imagePath": "bedroom.jpg",
-          "opacity": 0.3,
-          "x": 0.1,
-          "y": 0.1,
-          "scale": 0.5,
           "zIndex": 2
         }
       ],
       "interactionPoints": [
         {
-          "id": "mixed_refrigerator",
-          "label": "Refrigerator",
-          "x": 0.2,
-          "y": 0.5,
-          "audioFiles": [
-            {
-              "languageCode": "en",
-              "filePath": "en/mixed_refrigerator.mp3"
-            },
-            {
-              "languageCode": "es",
-              "filePath": "es/mixed_refrigerator.mp3"
-            },
-            {
-              "languageCode": "fr",
-              "filePath": "fr/mixed_refrigerator.mp3"
-            }
-          ],
-          "translations": [
-            {
-              "languageCode": "en",
-              "text": "Refrigerator"
-            },
-            {
-              "languageCode": "es",
-              "text": "Refrigerador"
-            },
-            {
-              "languageCode": "fr",
-              "text": "Réfrigérateur"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "living_room",
-      "name": "Living Room",
-      "imagePath": "living_room.jpg",
-      "interactionPoints": [
-        {
           "id": "sofa",
           "label": "Sofa",
-          "x": 0.5,
-          "y": 0.6,
+          "x": 0.69,
+          "y": 0.59,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -194,8 +68,8 @@
         {
           "id": "tv",
           "label": "Television",
-          "x": 0.3,
-          "y": 0.3,
+          "x": 0.2,
+          "y": 0.32,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -228,8 +102,8 @@
         {
           "id": "lamp",
           "label": "Lamp",
-          "x": 0.8,
-          "y": 0.4,
+          "x": 0.9,
+          "y": 0.46,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -262,15 +136,34 @@
       ]
     },
     {
-      "id": "kitchen",
-      "name": "Kitchen",
-      "imagePath": "kitchen.jpg",
+      "id": "kitchen_with_educator",
+      "name": "Kitchen with Educator",
+      "imageLayers": [
+        {
+          "id": "background",
+          "imagePath": "kitchen.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "educator_child",
+          "imagePath": "educator_child.svg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 2
+        }
+      ],
       "interactionPoints": [
         {
           "id": "refrigerator",
           "label": "Refrigerator",
-          "x": 0.2,
-          "y": 0.5,
+          "x": 0.56,
+          "y": 0.4,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -303,8 +196,8 @@
         {
           "id": "stove",
           "label": "Stove",
-          "x": 0.5,
-          "y": 0.6,
+          "x": 0.7,
+          "y": 0.56,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -337,8 +230,8 @@
         {
           "id": "sink",
           "label": "Sink",
-          "x": 0.8,
-          "y": 0.5,
+          "x": 0.94,
+          "y": 0.59,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -373,13 +266,12 @@
     {
       "id": "bedroom",
       "name": "Bedroom",
-      "imagePath": "bedroom.jpg",
       "interactionPoints": [
         {
           "id": "bed",
           "label": "Bed",
-          "x": 0.5,
-          "y": 0.5,
+          "x": 0.36,
+          "y": 0.39,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -412,8 +304,8 @@
         {
           "id": "wardrobe",
           "label": "Wardrobe",
-          "x": 0.2,
-          "y": 0.3,
+          "x": 0.78,
+          "y": 0.63,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -446,8 +338,8 @@
         {
           "id": "mirror",
           "label": "Mirror",
-          "x": 0.8,
-          "y": 0.3,
+          "x": 0.86,
+          "y": 0.27,
           "audioFiles": [
             {
               "languageCode": "en",
@@ -476,6 +368,26 @@
               "text": "Miroir"
             }
           ]
+        }
+      ],
+      "imageLayers": [
+        {
+          "id": "background",
+          "imagePath": "bedroom.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "educator_child",
+          "imagePath": "educator_child.svg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 2
         }
       ]
     }

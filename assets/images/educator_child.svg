@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 667" preserveAspectRatio="none">
+  <!-- A friendly, transparent educator placed in the lower-left corner. -->
+  <g transform="translate(70 365)">
+    <ellipse cx="104" cy="270" rx="92" ry="18" fill="#102a43" opacity=".18"/>
+    <path d="M43 148c0-34 27-61 61-61h15c34 0 61 27 61 61v109H43z" fill="#4f86c6"/>
+    <path d="M43 164c-25 8-42 31-42 59v34h36v-38l30-13z" fill="#4f86c6"/>
+    <path d="M177 162c27 5 49 28 49 58v24h-35v-27l-31-15z" fill="#4f86c6"/>
+    <path d="M64 256v34h-24l-12 42h38l25-42v-34zM151 256v34h25l12 42h-38l-25-42v-34z" fill="#263b59"/>
+    <path d="M28 331h39v12H23c-8 0-10-9-3-12zM150 331h39c7 3 5 12-3 12h-44z" fill="#efb39a"/>
+    <circle cx="112" cy="74" r="59" fill="#efb39a"/>
+    <path d="M54 72c-7-51 20-78 61-78 38 0 62 25 57 77-15-22-30-29-47-31-21 22-42 30-71 32z" fill="#3d2c2a"/>
+    <circle cx="91" cy="78" r="5" fill="#263b59"/><circle cx="133" cy="78" r="5" fill="#263b59"/>
+    <path d="M99 101c9 7 19 7 28 0" fill="none" stroke="#a85855" stroke-width="4" stroke-linecap="round"/>
+    <path d="M177 166c42-31 61-65 84-92" fill="none" stroke="#efb39a" stroke-width="18" stroke-linecap="round"/>
+    <path d="M260 74l14-18M260 74l21 3M260 74l-4-21" stroke="#efb39a" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(90 285)">
+    <path d="M0 0h245c15 0 27 12 27 27v54c0 15-12 27-27 27H95l-31 25 7-25H27C12 108 0 96 0 81z" fill="white" opacity=".92"/>
+    <text x="24" y="45" fill="#102a43" font-family="sans-serif" font-size="22" font-weight="600">Tap an object!</text>
+    <text x="24" y="75" fill="#46627f" font-family="sans-serif" font-size="15">I’ll help you learn its word.</text>
+  </g>
+</svg>
