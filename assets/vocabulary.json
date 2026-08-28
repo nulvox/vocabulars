@@ -30,15 +30,15 @@
           "audioFiles": [
             {
               "languageCode": "en",
-              "filePath": "en/sofa.mp3"
+              "filePath": "en/layered_sofa.mp3"
             },
             {
               "languageCode": "es",
-              "filePath": "es/sofa.mp3"
+              "filePath": "es/layered_sofa.mp3"
             },
             {
               "languageCode": "fr",
-              "filePath": "fr/sofa.mp3"
+              "filePath": "fr/layered_sofa.mp3"
             }
           ],
           "translations": [
@@ -64,15 +64,15 @@
           "audioFiles": [
             {
               "languageCode": "en",
-              "filePath": "en/lamp.mp3"
+              "filePath": "en/layered_lamp.mp3"
             },
             {
               "languageCode": "es",
-              "filePath": "es/lamp.mp3"
+              "filePath": "es/layered_lamp.mp3"
             },
             {
               "languageCode": "fr",
-              "filePath": "fr/lamp.mp3"
+              "filePath": "fr/layered_lamp.mp3"
             }
           ],
           "translations": [
@@ -124,15 +124,15 @@
           "audioFiles": [
             {
               "languageCode": "en",
-              "filePath": "en/refrigerator.mp3"
+              "filePath": "en/mixed_refrigerator.mp3"
             },
             {
               "languageCode": "es",
-              "filePath": "es/refrigerator.mp3"
+              "filePath": "es/mixed_refrigerator.mp3"
             },
             {
               "languageCode": "fr",
-              "filePath": "fr/refrigerator.mp3"
+              "filePath": "fr/mixed_refrigerator.mp3"
             }
           ],
           "translations": [
@@ -199,15 +199,15 @@
           "audioFiles": [
             {
               "languageCode": "en",
-              "filePath": "en/television.mp3"
+              "filePath": "en/tv.mp3"
             },
             {
               "languageCode": "es",
-              "filePath": "es/television.mp3"
+              "filePath": "es/tv.mp3"
             },
             {
               "languageCode": "fr",
-              "filePath": "fr/television.mp3"
+              "filePath": "fr/tv.mp3"
             }
           ],
           "translations": [

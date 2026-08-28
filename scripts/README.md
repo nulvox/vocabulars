@@ -16,11 +16,12 @@ The script reads through the vocabulary configuration JSON file, identifies the 
 - Required Python packages:
   - requests
   - beautifulsoup4
+  - google-auth (for bundled Google Cloud TTS generation)
 
 Install requirements in a project-scoped environment with:
 ```
 python3 -m venv .venv
-.venv/bin/pip install requests beautifulsoup4
+.venv/bin/pip install requests beautifulsoup4 google-auth
 ```
 The wrapper intentionally does not install packages globally.
 
@@ -31,6 +32,25 @@ To use the script manually:
 ```bash
 ./scripts/download_audio.py
 ```
+
+To generate bundled pronunciations with Google Translate TTS (no login
+required), run:
+
+```bash
+./scripts/generate_audio.py --dry-run
+./scripts/generate_audio.py --update-json
+```
+
+For the optional authenticated Google Cloud provider:
+
+```bash
+GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json \\
+  ./scripts/generate_audio.py --provider cloud --update-json
+```
+
+The generator writes MP3 files into `assets/audio/` and does not put
+credentials in the app. See `docs/audio-pronunciation-plan.md` for the voice
+and review policy.
 
 To integrate with your build process, add it as a pre-build step or use the provided `download_audio.sh` wrapper script.
 
