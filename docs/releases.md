@@ -32,7 +32,8 @@ The generated audio, modified asset list, and generated vocabulary metadata
 exist only in the release build workspace; they are not committed as part of
 the release workflow. The release uses the Flutter build action and Android API
 35 available on the GitHub runner; it does not require Nix. The workflow pins
-Flutter 3.29.3 to match the Gradle/AGP versions in `android/`.
+Flutter 3.47.0, matching the Nix shell and the lockfile, with Gradle 8.7,
+Android Gradle Plugin 8.6.1, and Kotlin 2.0.21.
 
 ## Dry-running the version logic
 
