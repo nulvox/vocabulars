@@ -10,7 +10,8 @@ class AppConstants {
   static const double languageDropdownWidth = 120.0;
   
   /// Size of interaction point markers on the scene
-  static const double interactionPointSize = 30.0;
+  // Meets the recommended minimum touch target for accessible controls.
+  static const double interactionPointSize = 44.0;
   
   /// The color of interaction point markers
   static const int interactionPointColor = 0xFF2196F3; // Blue

@@ -84,8 +84,13 @@ class SceneView extends StatelessWidget {
             vocabularyModel.setActiveInteractionPoint(point);
           }
         },
-        child: Container(
-          width: AppConstants.interactionPointSize,
+        child: Semantics(
+          button: true,
+          selected: isActive,
+          label: 'Learn ${point.getTranslation(currentLanguage)}',
+          hint: isActive ? 'Double tap to close' : 'Double tap to open',
+          child: Container(
+            width: AppConstants.interactionPointSize,
           height: AppConstants.interactionPointSize,
           decoration: BoxDecoration(
             color: Color(isActive 
@@ -105,12 +110,13 @@ class SceneView extends StatelessWidget {
               ),
             ],
           ),
-          child: Tooltip(
-            message: point.getTranslation(currentLanguage),
-            child: Icon(
-              Icons.touch_app,
-              color: Colors.white,
-              size: AppConstants.interactionPointSize * 0.6,
+            child: Tooltip(
+              message: point.getTranslation(currentLanguage),
+              child: Icon(
+                Icons.touch_app,
+                color: Colors.white,
+                size: AppConstants.interactionPointSize * 0.6,
+              ),
             ),
           ),
         ),

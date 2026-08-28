@@ -81,8 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 16.0,
+                    runSpacing: 8.0,
                     children: [
                       // Scene selector dropdown
                       Row(
@@ -102,19 +105,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       
                       // Navigation controls
                       Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           ElevatedButton.icon(
                             onPressed: vocabularyModel.currentSceneIndex > 0
-                                ? () => vocabularyModel.previousScene()
+                                ? vocabularyModel.previousScene
                                 : null,
                             icon: const Icon(Icons.arrow_back),
                             label: const Text('Previous'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: vocabularyModel.currentSceneIndex > 0
-                                  ? Theme.of(context).primaryColor
-                                  : Colors.grey,
-                              foregroundColor: Colors.white,
-                            ),
                           ),
                           const SizedBox(width: 16),
                           Text(
@@ -127,22 +125,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(width: 16),
                           ElevatedButton.icon(
                             onPressed: vocabularyModel.currentSceneIndex < vocabularyModel.sceneCount - 1
-                                ? () => vocabularyModel.nextScene()
+                                ? vocabularyModel.nextScene
                                 : null,
                             icon: const Icon(Icons.arrow_forward),
                             label: const Text('Next'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: vocabularyModel.currentSceneIndex < vocabularyModel.sceneCount - 1
-                                  ? Theme.of(context).primaryColor
-                                  : Colors.grey,
-                              foregroundColor: Colors.white,
-                            ),
                           ),
                         ],
                       ),
                     ],
                   ),
-                ),
               ],
             ),
             
