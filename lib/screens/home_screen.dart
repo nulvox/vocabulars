@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/foundation.dart';
 import '../models/vocabulary_model.dart';
 import '../models/scenes_model.dart';
-import '../services/vocabulary_service.dart';
 import '../widgets/language_dropdown.dart';
 import '../widgets/scene_view.dart';
-import '../widgets/navigation_controls.dart';
 import '../widgets/scene_dropdown.dart';
 import '../utils/app_constants.dart';
-import '../utils/platform_utils.dart';
 
 /// The main screen of the application showing the current scene and controls
 class HomeScreen extends StatefulWidget {
@@ -27,14 +23,13 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       // Access the vocabulary model
       final vocabularyModel = Provider.of<VocabularyModel>(context);
-      final isMultilingual = vocabularyModel.isMultilingual;
       
       // Safety check for empty scenes
       if (vocabularyModel.sceneCount == 0) {
         return _buildErrorScaffold('No scenes available in vocabulary data');
       }
       
-      return _buildMainScaffold(vocabularyModel, isMultilingual);
+      return _buildMainScaffold(vocabularyModel);
     } catch (e) {
       print('Error in HomeScreen build: $e');
       return _buildErrorScaffold('Error loading application: $e');
@@ -42,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   
   /// Builds the main scaffold with all app content
-  Widget _buildMainScaffold(VocabularyModel vocabularyModel, bool isMultilingual) {
+  Widget _buildMainScaffold(VocabularyModel vocabularyModel) {
     return Scaffold(
       appBar: AppBar(
         title: Text(vocabularyModel.vocabularyData.title),

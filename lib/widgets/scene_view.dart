@@ -28,32 +28,32 @@ class SceneView extends StatelessWidget {
     final vocabularyModel = Provider.of<VocabularyModel>(context);
     final activePoint = vocabularyModel.activeInteractionPoint;
 
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        // Scene images (multiple layers)
-        ..._buildSceneLayers(context, scene),
-        
-        // Overlay all interaction points on the scene
-        ...scene.interactionPoints.map((point) => 
-          _buildInteractionPoint(context, point, point.id == activePoint?.id)
-        ),
-
-        // Display vocabulary card for the active interaction point
-        if (activePoint != null)
-          Positioned(
-            bottom: AppConstants.padding,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: VocabularyCard(
-                interactionPoint: activePoint,
-                currentLanguage: currentLanguage,
-                onClose: () => vocabularyModel.setActiveInteractionPoint(null),
-              ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final sceneSize = Size(constraints.maxWidth, constraints.maxHeight);
+        return Stack(
+          fit: StackFit.expand,
+          children: [
+            ..._buildSceneLayers(context, scene),
+            ...scene.interactionPoints.map((point) =>
+              _buildInteractionPoint(context, point, point.id == activePoint?.id, sceneSize)
             ),
-          ),
-      ],
+            if (activePoint != null)
+              Positioned(
+                bottom: AppConstants.padding,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: VocabularyCard(
+                    interactionPoint: activePoint,
+                    currentLanguage: currentLanguage,
+                    onClose: () => vocabularyModel.setActiveInteractionPoint(null),
+                  ),
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
 
@@ -61,13 +61,14 @@ class SceneView extends StatelessWidget {
   Widget _buildInteractionPoint(
     BuildContext context, 
     InteractionPoint point, 
-    bool isActive
+    bool isActive,
+    Size sceneSize,
   ) {
-    // Calculate position based on relative coordinates
+    // Coordinates are relative to the actual scene, not the whole window.
     return Positioned(
-      left: point.x * MediaQuery.of(context).size.width - 
+      left: point.x.clamp(0.0, 1.0).toDouble() * sceneSize.width -
           (AppConstants.interactionPointSize / 2),
-      top: point.y * MediaQuery.of(context).size.height - 
+      top: point.y.clamp(0.0, 1.0).toDouble() * sceneSize.height -
           (AppConstants.interactionPointSize / 2),
       child: GestureDetector(
         onTap: () {

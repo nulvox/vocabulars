@@ -17,10 +17,12 @@ The script reads through the vocabulary configuration JSON file, identifies the 
   - requests
   - beautifulsoup4
 
-Install requirements with:
+Install requirements in a project-scoped environment with:
 ```
-pip install requests beautifulsoup4
+python3 -m venv .venv
+.venv/bin/pip install requests beautifulsoup4
 ```
+The wrapper intentionally does not install packages globally.
 
 ## Usage
 
@@ -43,8 +45,9 @@ The script uses these constants that can be modified at the top of the file:
 ## Behavior
 
 - The script creates necessary directories if they don't exist
-- By default, it will overwrite existing audio files
+- By default, existing audio files are preserved; use `--force` to replace them
 - It logs information about the download process to the console
+- Downloads use timeouts and atomic `.part` files to avoid retaining truncated audio
 - If no audio is found for a specific word, a warning is logged
 
 ## Troubleshooting
