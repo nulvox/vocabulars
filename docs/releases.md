@@ -16,7 +16,8 @@ The release workflow then:
 2. Derives the Flutter `build-name` and a monotonic Android `build-number`
    from the tag, and writes the same version into `pubspec.yaml` in the build
    workspace.
-3. Installs Flutter, Python, and the Android SDK on the GitHub runner.
+3. Uses the Flutter action for Flutter and bundled Dart, Python for the
+   generator, and the Android SDK already present on the GitHub runner.
 4. Generates all bundled pronunciation files with the no-login provider.
 5. Validates the vocabulary and generated audio.
 6. Builds `app-release.apk` with the tag version.
@@ -30,7 +31,7 @@ GitHub rulesets. Fixes require a new version tag.
 The generated audio, modified asset list, and generated vocabulary metadata
 exist only in the release build workspace; they are not committed as part of
 the release workflow. The release uses the Flutter build action and Android API
-35 on the GitHub runner; it does not require Nix.
+35 available on the GitHub runner; it does not require Nix.
 
 ## Dry-running the version logic
 
