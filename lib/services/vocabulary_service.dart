@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/services.dart';
 import '../models/scenes_model.dart';
+import '../utils/app_logger.dart';
 import '../utils/app_constants.dart';
 import '../utils/platform_utils.dart';
 
@@ -40,7 +41,7 @@ class VocabularyService {
   Future<void> initialize() async {
     _errorMessage = null;
     try {
-      print('Initializing vocabulary service from $_jsonPath');
+      AppLogger.debug('Initializing vocabulary service from $_jsonPath');
       String jsonString;
       
       // Load the JSON file based on platform
@@ -50,9 +51,9 @@ class VocabularyService {
       } else if (_isExternalData && _externalDirectoryPath != null) {
         // For external data on desktop or mobile
         final jsonFilePath = '$_externalDirectoryPath/vocabulary.json';
-        print('Loading external data from: $jsonFilePath');
+        AppLogger.debug('Loading external data from: $jsonFilePath');
         if (PlatformUtils.isDesktop || PlatformUtils.isAndroid) {
-          print('Using filesystem loading method');
+          AppLogger.debug('Using filesystem loading method');
           jsonString = await PlatformUtils.loadFileFromFilesystem(jsonFilePath);
         } else {
           // Fallback to assets for other platforms
@@ -60,30 +61,30 @@ class VocabularyService {
         }
       } else {
         // Default: load from bundled assets
-        print('Loading bundled asset from: $_jsonPath');
+        AppLogger.debug('Loading bundled asset from: $_jsonPath');
         jsonString = await PlatformUtils.loadAssetFile(_jsonPath, bundle: _assetBundle);
-        print('Asset content length: ${jsonString.length}');
-        print('First 100 chars: ${jsonString.substring(0, min(100, jsonString.length))}');
+        AppLogger.debug('Asset content length: ${jsonString.length}');
+        AppLogger.debug('First 100 chars: ${jsonString.substring(0, min(100, jsonString.length))}');
       }
       
-      print('Loading vocabulary data from: $_jsonPath');
+      AppLogger.debug('Loading vocabulary data from: $_jsonPath');
       
       // Debug the raw JSON content
-      print('Raw JSON content (first 200 chars): ${jsonString.substring(0, min(200, jsonString.length))}');
+      AppLogger.debug('Raw JSON content (first 200 chars): ${jsonString.substring(0, min(200, jsonString.length))}');
       
       vocabularyData = await _parseVocabularyData(jsonString);
-      print('Loaded scenes: ${vocabularyData.scenes.length}');
+      AppLogger.debug('Loaded scenes: ${vocabularyData.scenes.length}');
       
       // Debug each scene
       for (var scene in vocabularyData.scenes) {
-        print('Scene ID: ${scene.id}, Name: ${scene.name}');
+        AppLogger.debug('Scene ID: ${scene.id}, Name: ${scene.name}');
         if (scene.imagePath != null) {
-          print('  Image path: ${scene.imagePath}');
+          AppLogger.debug('  Image path: ${scene.imagePath}');
         }
         if (scene.imageLayers != null) {
-          print('  Image layers: ${scene.imageLayers!.length}');
+          AppLogger.debug('  Image layers: ${scene.imageLayers!.length}');
           for (var layer in scene.imageLayers!) {
-            print('    Layer: ${layer.id}, Path: ${layer.imagePath}');
+            AppLogger.debug('    Layer: ${layer.id}, Path: ${layer.imagePath}');
           }
         }
       }
@@ -92,7 +93,7 @@ class VocabularyService {
       _validateVocabularyData();
     } catch (e) {
       _errorMessage = 'Could not load vocabulary data. Check the app assets and try again.';
-      print('Failed to load vocabulary data: $e');
+      AppLogger.debug('Failed to load vocabulary data: $e');
       // Keep the app renderable while exposing the failure to the UI.
       vocabularyData = _createEmptyVocabularyData();
     }
@@ -119,7 +120,7 @@ class VocabularyService {
       
       return true;
     } catch (e) {
-      print('Error loading vocabulary from JSON string: $e');
+      AppLogger.debug('Error loading vocabulary from JSON string: $e');
       return false;
     }
   }
@@ -157,7 +158,7 @@ class VocabularyService {
       // Scene can have either direct imagePath or imageLayers
       if ((scene.imagePath == null || scene.imagePath!.isEmpty) &&
           (scene.imageLayers == null || scene.imageLayers!.isEmpty)) {
-        print('Scene ${scene.id} has neither a valid image path nor image layers');
+        AppLogger.debug('Scene ${scene.id} has neither a valid image path nor image layers');
         throw Exception('Scene ${scene.id} has neither a valid image path nor image layers');
       }
       
@@ -246,7 +247,7 @@ class VocabularyService {
       
       return true;
     } catch (e) {
-      print('Failed to load vocabulary from directory: $e');
+      AppLogger.debug('Failed to load vocabulary from directory: $e');
       _externalDirectoryPath = null;
       _isExternalData = false;
       return false;

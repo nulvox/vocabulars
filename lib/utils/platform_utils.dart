@@ -1,23 +1,26 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:universal_platform/universal_platform.dart';
+
 import 'file_loader.dart';
+import 'app_logger.dart';
 
 /// Utility class for handling platform-specific operations
 class PlatformUtils {
   /// Checks if the app is running on web
   static bool get isWeb => kIsWeb;
-  
+
   /// Checks if the app is running on desktop (Windows, macOS, Linux)
-  static bool get isDesktop => 
-      !kIsWeb && (UniversalPlatform.isWindows || 
-                 UniversalPlatform.isMacOS || 
-                 UniversalPlatform.isLinux);
-  
+  static bool get isDesktop =>
+      !kIsWeb &&
+      (UniversalPlatform.isWindows ||
+          UniversalPlatform.isMacOS ||
+          UniversalPlatform.isLinux);
+
   /// Checks if the app is running on mobile (Android, iOS)
   static bool get isMobile =>
       !kIsWeb && (UniversalPlatform.isAndroid || UniversalPlatform.isIOS);
-  
+
   /// Checks if the app is running on Android
   static bool get isAndroid => !kIsWeb && UniversalPlatform.isAndroid;
 
@@ -28,13 +31,18 @@ class PlatformUtils {
   static bool get isAudioSupported {
     final supported = !isLinux;
     if (kDebugMode) {
-      print('Audio support check: isLinux=$isLinux, isAudioSupported=$supported');
+      AppLogger.debug(
+        'Audio support check: isLinux=$isLinux, isAudioSupported=$supported',
+      );
     }
     return supported; // Currently Linux doesn't support just_audio
   }
 
   /// Loads a file from the asset bundle (used for bundled assets)
-  static Future<String> loadAssetFile(String path, {AssetBundle? bundle}) async {
+  static Future<String> loadAssetFile(
+    String path, {
+    AssetBundle? bundle,
+  }) async {
     return await (bundle ?? rootBundle).loadString(path);
   }
 
@@ -47,7 +55,6 @@ class PlatformUtils {
     }
   }
 
-  
   /// Creates platform-appropriate paths for assets
   static String getAssetPath(String basePath, String fileName) {
     if (isWeb) {
@@ -58,12 +65,12 @@ class PlatformUtils {
       return '$basePath/$fileName';
     }
   }
-  
+
   /// Gets the appropriate image asset path based on platform
   static String getImageAssetPath(String fileName) {
     return getAssetPath('images', fileName);
   }
-  
+
   /// Gets the appropriate audio asset path based on platform
   static String getAudioAssetPath(String languageCode, String fileName) {
     return getAssetPath('audio/$languageCode', fileName);

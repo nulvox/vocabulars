@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import '../models/vocabulary_model.dart';
+import '../utils/app_logger.dart';
 import '../models/scenes_model.dart';
 import '../services/vocabulary_service.dart';
 import '../widgets/language_dropdown.dart';
@@ -24,21 +26,22 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       // Access the vocabulary model
       final vocabularyModel = Provider.of<VocabularyModel>(context);
-      
+
       // Safety check for empty scenes
       if (vocabularyModel.sceneCount == 0) {
         return _buildErrorScaffold(
-          vocabularyModel.errorMessage ?? 'No scenes available in vocabulary data',
+          vocabularyModel.errorMessage ??
+              'No scenes available in vocabulary data',
         );
       }
-      
+
       return _buildMainScaffold(vocabularyModel);
     } catch (e) {
-      print('Error in HomeScreen build: $e');
+      AppLogger.debug('Error in HomeScreen build: $e');
       return _buildErrorScaffold('Error loading application: $e');
     }
   }
-  
+
   /// Builds the main scaffold with all app content
   Widget _buildMainScaffold(VocabularyModel vocabularyModel) {
     return Scaffold(
@@ -70,20 +73,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     currentLanguage: vocabularyModel.currentLanguage,
                   ),
                 ),
-                
+
                 // Bottom controls bar
                 Container(
                   decoration: BoxDecoration(
                     color: Theme.of(context).cardColor,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 8.0,
                         offset: const Offset(0, -2),
                       ),
                     ],
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 16.0,
+                  ),
                   child: Wrap(
                     alignment: WrapAlignment.spaceBetween,
                     crossAxisAlignment: WrapCrossAlignment.center,
@@ -93,19 +99,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       // Scene selector dropdown
                       Row(
                         children: [
-                          const Text('Scene: ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
+                          const Text(
+                            'Scene: ',
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           SceneDropdown(
-                            selectedSceneIndex: vocabularyModel.currentSceneIndex,
+                            selectedSceneIndex:
+                                vocabularyModel.currentSceneIndex,
                             availableScenes: vocabularyModel.scenes,
-                            onSceneChanged: (index) => vocabularyModel.navigateToScene(index),
+                            onSceneChanged: (index) =>
+                                vocabularyModel.navigateToScene(index),
                           ),
                         ],
                       ),
-                      
+
                       // Navigation controls
                       Row(
                         mainAxisSize: MainAxisSize.min,
@@ -127,7 +134,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           const SizedBox(width: 16),
                           ElevatedButton.icon(
-                            onPressed: vocabularyModel.currentSceneIndex < vocabularyModel.sceneCount - 1
+                            onPressed:
+                                vocabularyModel.currentSceneIndex <
+                                    vocabularyModel.sceneCount - 1
                                 ? vocabularyModel.nextScene
                                 : null,
                             icon: const Icon(Icons.arrow_forward),
@@ -140,14 +149,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            
+
             // Loading indicator
             if (_isLoading)
               Container(
                 color: Colors.black54,
-                child: const Center(
-                  child: CircularProgressIndicator(),
-                ),
+                child: const Center(child: CircularProgressIndicator()),
               ),
           ],
         ),
@@ -157,9 +164,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   /// Updates the selected language and saves it to preferences
   void _onLanguageChanged(String languageCode) async {
-    final vocabularyModel = Provider.of<VocabularyModel>(context, listen: false);
+    final vocabularyModel = Provider.of<VocabularyModel>(
+      context,
+      listen: false,
+    );
     vocabularyModel.setLanguage(languageCode);
-    
+
     // Save the selected language to preferences
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('selectedLanguage', languageCode);
@@ -167,9 +177,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   /// Shows information about the vocabulary set
   void _showInfoDialog() {
-    final vocabularyModel = Provider.of<VocabularyModel>(context, listen: false);
+    final vocabularyModel = Provider.of<VocabularyModel>(
+      context,
+      listen: false,
+    );
     final vocabularyData = vocabularyModel.vocabularyData;
-    
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -181,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text(vocabularyData.description),
               const SizedBox(height: 16),
-              Text('Supported Languages:'),
+              const Text('Supported Languages:'),
               ...vocabularyData.supportedLanguages.map((code) {
                 return Padding(
                   padding: const EdgeInsets.only(left: 16, top: 4),
@@ -191,7 +204,9 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 16),
               Text('Number of Scenes: ${vocabularyData.scenes.length}'),
               const SizedBox(height: 8),
-              Text('Total Vocabulary Items: ${_countVocabularyItems(vocabularyData)}'),
+              Text(
+                'Total Vocabulary Items: ${_countVocabularyItems(vocabularyData)}',
+              ),
             ],
           ),
         ),
@@ -204,7 +219,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  
 
   /// Counts the total number of vocabulary items across all scenes
   int _countVocabularyItems(VocabularyData data) {
@@ -214,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     return count;
   }
-  
+
   /// Builds an error scaffold when something goes wrong
   Future<void> _retryLoad() async {
     setState(() => _isLoading = true);
@@ -231,9 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildErrorScaffold(String errorMessage) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Vocabular - Error'),
-      ),
+      appBar: AppBar(title: const Text('Vocabular - Error')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
