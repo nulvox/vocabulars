@@ -85,6 +85,7 @@ flutter test
 
 See [Development workflow](docs/development.md) for the Nix environment,
 content validation, audio generation, CI expectations, and data-model guidance.
+See [Releases](docs/releases.md) for tagging and APK publication.
 
 If model classes change, regenerate the serializer:
 
