@@ -12,30 +12,30 @@ git push origin v1.2.0
 
 The release workflow then:
 
-1. Verifies that the tag is valid and higher than every existing semantic
-   release.
+1. Verifies that the tag was newly created and was not force-updated.
 2. Derives the Flutter `build-name` and a monotonic Android `build-number`
    from the tag, and writes the same version into `pubspec.yaml` in the build
    workspace.
-3. Generates all bundled pronunciation files with the no-login provider.
-4. Validates the vocabulary and generated audio.
-5. Builds `app-release.apk` with the tag version.
-6. Creates a GitHub release and uploads the APK.
+3. Installs Flutter, Python, and the Android SDK on the GitHub runner.
+4. Generates all bundled pronunciation files with the no-login provider.
+5. Validates the vocabulary and generated audio.
+6. Builds `app-release.apk` with the tag version.
+7. Creates a GitHub release and uploads the APK.
 
-A release tag is treated as immutable: the workflow refuses to overwrite an
-existing GitHub release or publish a version that is not strictly greater than
-an existing release. Repository administrators should also protect `v*` tags
-from force updates in GitHub rulesets. Fixes require a new higher version tag.
+A release tag is treated as immutable: the workflow rejects force-updated
+or reused tag events and refuses to overwrite an existing GitHub release.
+Repository administrators should also protect `v*` tags from force updates in
+GitHub rulesets. Fixes require a new version tag.
 
 The generated audio, modified asset list, and generated vocabulary metadata
 exist only in the release build workspace; they are not committed as part of
-the release workflow. GitHub Actions uses Java 17 and Android API 35 for the
-APK build.
+the release workflow. The release uses the Flutter build action and Android API
+35 on the GitHub runner; it does not require Nix.
 
 ## Dry-running the version logic
 
 ```bash
-printf '[{"tagName":"v1.0.0"}]' >/tmp/releases.json
+cp pubspec.yaml /tmp/pubspec.yaml
 nix develop --command python scripts/check_release_tag.py \
-  --tag v1.1.0 --existing-json /tmp/releases.json
+  --tag v1.1.0 --write-pubspec /tmp/pubspec.yaml
 ```
