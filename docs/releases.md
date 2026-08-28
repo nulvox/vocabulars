@@ -31,7 +31,8 @@ GitHub rulesets. Fixes require a new version tag.
 The generated audio, modified asset list, and generated vocabulary metadata
 exist only in the release build workspace; they are not committed as part of
 the release workflow. The release uses the Flutter build action and Android API
-35 available on the GitHub runner; it does not require Nix.
+35 available on the GitHub runner; it does not require Nix. The workflow pins
+Flutter 3.29.3 to match the Gradle/AGP versions in `android/`.
 
 ## Dry-running the version logic
 
