@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vocabular/services/vocabulary_service.dart';
@@ -10,19 +11,8 @@ void main() {
     late VocabularyService service;
     
     setUp(() {
-      service = VocabularyService();
-      
-      // Mock asset bundle
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
-        MethodChannel('flutter/assets'),
-        (MethodCall methodCall) async {
-          if (methodCall.method == 'getAssetAsString') {
-            if (methodCall.arguments == 'assets/vocabulary.json') {
-              return json.encode(_getMockVocabularyData());
-            }
-          }
-          return null;
-        }
+      service = VocabularyService(
+        assetBundle: _MockAssetBundle(json.encode(_getMockVocabularyData())),
       );
     });
 
@@ -80,6 +70,17 @@ void main() {
       }
     });
   });
+}
+
+class _MockAssetBundle extends CachingAssetBundle {
+  _MockAssetBundle(this.contents);
+
+  final String contents;
+
+  @override
+  Future<ByteData> load(String key) async {
+    return ByteData.sublistView(Uint8List.fromList(utf8.encode(contents)));
+  }
 }
 
 /// Creates a mock vocabulary data structure for testing

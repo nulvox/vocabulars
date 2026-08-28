@@ -5,7 +5,6 @@ import 'package:path/path.dart' as p;
 import '../models/scenes_model.dart';
 import '../models/vocabulary_model.dart';
 import '../utils/app_constants.dart';
-import '../utils/platform_utils.dart';
 import '../utils/image_utils.dart';
 import 'vocabulary_card.dart';
 

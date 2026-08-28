@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:flutter/services.dart';
 import '../models/scenes_model.dart';
 import '../utils/app_constants.dart';
 import '../utils/platform_utils.dart';
@@ -16,6 +17,7 @@ class VocabularyService {
   
   /// Path to the vocabulary JSON file
   final String _jsonPath;
+  final AssetBundle? _assetBundle;
   
   /// Flag indicating if the data is loaded from an external source
   bool _isExternalData = false;
@@ -30,8 +32,9 @@ class VocabularyService {
   String? get externalDirectoryPath => _externalDirectoryPath;
   
   /// Constructor that accepts an optional JSON file path
-  VocabularyService({String? jsonPath}) 
-      : _jsonPath = jsonPath ?? AppConstants.defaultVocabularyPath;
+  VocabularyService({String? jsonPath, AssetBundle? assetBundle})
+      : _jsonPath = jsonPath ?? AppConstants.defaultVocabularyPath,
+        _assetBundle = assetBundle;
 
   /// Initialize the service by loading vocabulary data
   Future<void> initialize() async {
@@ -43,7 +46,7 @@ class VocabularyService {
       // Load the JSON file based on platform
       if (PlatformUtils.isWeb) {
         // For web, always load from assets
-        jsonString = await PlatformUtils.loadAssetFile(_jsonPath);
+        jsonString = await PlatformUtils.loadAssetFile(_jsonPath, bundle: _assetBundle);
       } else if (_isExternalData && _externalDirectoryPath != null) {
         // For external data on desktop or mobile
         final jsonFilePath = '$_externalDirectoryPath/vocabulary.json';
@@ -53,12 +56,12 @@ class VocabularyService {
           jsonString = await PlatformUtils.loadFileFromFilesystem(jsonFilePath);
         } else {
           // Fallback to assets for other platforms
-          jsonString = await PlatformUtils.loadAssetFile(_jsonPath);
+          jsonString = await PlatformUtils.loadAssetFile(_jsonPath, bundle: _assetBundle);
         }
       } else {
         // Default: load from bundled assets
         print('Loading bundled asset from: $_jsonPath');
-        jsonString = await PlatformUtils.loadAssetFile(_jsonPath);
+        jsonString = await PlatformUtils.loadAssetFile(_jsonPath, bundle: _assetBundle);
         print('Asset content length: ${jsonString.length}');
         print('First 100 chars: ${jsonString.substring(0, min(100, jsonString.length))}');
       }

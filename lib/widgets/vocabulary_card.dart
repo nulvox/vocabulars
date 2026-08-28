@@ -334,7 +334,7 @@ class _VocabularyCardState extends State<VocabularyCard> with SingleTickerProvid
       await _audioPlayer!.setAsset(audioPath);
       
       // Check if audio loaded successfully
-      final duration = await _audioPlayer!.duration;
+      final duration = _audioPlayer!.duration;
       if (kDebugMode) {
         print('Audio duration: $duration');
       }
@@ -350,6 +350,7 @@ class _VocabularyCardState extends State<VocabularyCard> with SingleTickerProvid
       }
       
       // Show error message to user
+      if (!_isMounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Could not play audio: ${e.toString().split('\n')[0]}'),
