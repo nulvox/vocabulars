@@ -16,7 +16,8 @@ logger = logging.getLogger(__name__)
 # Default constants
 DEFAULT_VOCABULARY_PATH = 'assets/vocabulary.json'
 DEFAULT_AUDIO_DIR = 'assets/audio'
-USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
+USER_AGENT = 'Vocabular/1.0 (pronunciation asset downloader)'
+REQUEST_TIMEOUT = (10, 30)
 
 # Language preferences
 LANGUAGE_PREFERENCES = {
@@ -62,7 +63,7 @@ def get_audio_urls(word, lang_code):
     
     headers = {'User-Agent': USER_AGENT}
     try:
-        response = requests.get(page_url, headers=headers)
+        response = requests.get(page_url, headers=headers, timeout=REQUEST_TIMEOUT)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
         logger.warning(f"Error fetching Wiktionary page for {word}: {e}")
@@ -111,17 +112,25 @@ def download_audio(url, output_path):
     """Download audio file from URL and save it to output_path."""
     headers = {'User-Agent': USER_AGENT}
     try:
-        response = requests.get(url, headers=headers, stream=True)
+        response = requests.get(url, headers=headers, stream=True, timeout=REQUEST_TIMEOUT)
         response.raise_for_status()
         
-        with open(output_path, 'wb') as file:
+        # Write atomically so an interrupted download cannot create a file that
+        # looks complete to a later build.
+        temporary_path = output_path + '.part'
+        with open(temporary_path, 'wb') as file:
             for chunk in response.iter_content(chunk_size=8192):
-                file.write(chunk)
-        
+                if chunk:
+                    file.write(chunk)
+        os.replace(temporary_path, output_path)
+
         logger.info(f"Downloaded audio to {output_path}")
         return True
     except requests.exceptions.RequestException as e:
         logger.warning(f"Error downloading audio: {e}")
+        return False
+    except OSError as e:
+        logger.warning(f"Error writing audio file {output_path}: {e}")
         return False
 
 def process_vocabulary(vocabulary_path, audio_dir, test_mode=False, force_update=False):

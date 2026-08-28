@@ -8,12 +8,17 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 # Change to project root
 cd "$PROJECT_ROOT" || { echo "Failed to change to project root directory"; exit 1; }
 
-echo "Checking for required Python packages..."
-python3 -m pip install --quiet requests beautifulsoup4 || { 
-    echo "Failed to install required Python packages."; 
-    echo "Please install manually: pip install requests beautifulsoup4"; 
-    exit 1; 
-}
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "python3 is required to download audio." >&2
+    exit 1
+fi
+
+if ! python3 -c 'import requests, bs4' >/dev/null 2>&1; then
+    echo "Missing Python dependencies: requests and beautifulsoup4." >&2
+    echo "Install them in a project virtual environment (or use your system/Nix environment);" >&2
+    echo "this script intentionally does not modify your global Python installation." >&2
+    exit 1
+fi
 
 echo "Starting audio download process..."
 python3 "$SCRIPT_DIR/download_audio.py"

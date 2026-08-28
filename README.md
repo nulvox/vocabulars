@@ -16,8 +16,7 @@ A Flutter application designed to teach vocabulary through interactive scenes. T
 
 ### Prerequisites
 
-- Flutter SDK (3.0.0 or higher)
-- Dart SDK (2.17.0 or higher)
+- Flutter SDK compatible with Dart 3.0 or higher (see `pubspec.yaml`)
 - An IDE (e.g., VS Code, Android Studio)
 - For Android development: Android SDK
 - For desktop development: OS-specific dependencies (see platform-specific sections below)
@@ -35,15 +34,17 @@ A Flutter application designed to teach vocabulary through interactive scenes. T
    flutter pub get
    ```
 
-3. Generate the necessary JSON serialization code:
+3. Run the app:
    ```
-   flutter pub run build_runner build --delete-conflicting-outputs
+   flutter run
    ```
 
-4. Run the app:
-   ```
-   flutter run --release
-   ```
+The generated serializer (`lib/models/scenes_model.g.dart`) is committed to the
+repository. If you change the model classes, regenerate it with:
+
+```
+dart run build_runner build --delete-conflicting-outputs
+```
 
 ## Creating Custom Vocabulary Sets
 
@@ -244,7 +245,8 @@ Layer properties:
 1. Ensure you have the Linux development dependencies:
    ```
    flutter config --enable-linux-desktop
-   sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+   Install the GTK, CMake, Ninja, Clang, pkg-config, and liblzma development
+   packages using your distribution's package manager.
    ```
 2. Build the Linux app:
    ```

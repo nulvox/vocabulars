@@ -1,8 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import '../models/scenes_model.dart';
 import '../utils/app_constants.dart';
 import '../utils/platform_utils.dart';
@@ -125,18 +122,28 @@ class VocabularyService {
   
   /// Validates a vocabulary data object
   void _validateVocabularyDataObject(VocabularyData data) {
-    // Check that we have at least one language
+    // Check that we have at least one language and no duplicates.
     if (data.supportedLanguages.isEmpty) {
       throw Exception('No supported languages found in vocabulary data');
     }
-    
-    // Check that we have at least one scene
+    if (data.supportedLanguages.any((language) => language.trim().isEmpty) ||
+        data.supportedLanguages.toSet().length != data.supportedLanguages.length) {
+      throw Exception('Supported languages must be non-empty and unique');
+    }
+
+    // Check that we have at least one scene.
     if (data.scenes.isEmpty) {
       throw Exception('No scenes found in vocabulary data');
     }
-    
+    final sceneIds = <String>{};
+
     // Verify each scene has a valid image path or layers
     for (var scene in data.scenes) {
+      if (scene.id.trim().isEmpty || scene.name.trim().isEmpty ||
+          !sceneIds.add(scene.id)) {
+        throw Exception('Scene IDs and names must be non-empty and scene IDs unique');
+      }
+
       // Scene can have either direct imagePath or imageLayers
       if ((scene.imagePath == null || scene.imagePath!.isEmpty) &&
           (scene.imageLayers == null || scene.imageLayers!.isEmpty)) {
@@ -144,12 +151,38 @@ class VocabularyService {
         throw Exception('Scene ${scene.id} has neither a valid image path nor image layers');
       }
       
-      // If using imageLayers, check that each layer has a valid path
+      // Validate interaction points and their localized resources.
+      final pointIds = <String>{};
+      for (final point in scene.interactionPoints) {
+        if (point.id.trim().isEmpty || point.label.trim().isEmpty ||
+            !pointIds.add(point.id)) {
+          throw Exception('Interaction point IDs and labels in scene ${scene.id} must be non-empty and unique');
+        }
+        if (point.x < 0 || point.x > 1 || point.y < 0 || point.y > 1) {
+          throw Exception('Interaction point ${point.id} in scene ${scene.id} has coordinates outside 0..1');
+        }
+        for (final translation in point.translations) {
+          if (!data.supportedLanguages.contains(translation.languageCode) ||
+              translation.text.trim().isEmpty) {
+            throw Exception('Invalid translation for ${point.id} in scene ${scene.id}');
+          }
+        }
+        for (final audio in point.audioFiles) {
+          if (!data.supportedLanguages.contains(audio.languageCode) ||
+              audio.filePath.trim().isEmpty) {
+            throw Exception('Invalid audio file for ${point.id} in scene ${scene.id}');
+          }
+        }
+      }
+
+      // If using imageLayers, check that each layer has a valid path.
       if (scene.imageLayers != null && scene.imageLayers!.isNotEmpty) {
         for (var layer in scene.imageLayers!) {
-          if (layer.imagePath.isEmpty) {
-            print('Layer ${layer.id} in scene ${scene.id} has an empty image path');
-            throw Exception('Layer ${layer.id} in scene ${scene.id} has an empty image path');
+          if (layer.id.trim().isEmpty || layer.imagePath.trim().isEmpty) {
+            throw Exception('Layers in scene ${scene.id} require IDs and image paths');
+          }
+          if (layer.opacity < 0 || layer.opacity > 1 || layer.scale <= 0) {
+            throw Exception('Layer ${layer.id} in scene ${scene.id} has invalid opacity or scale');
           }
         }
       }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/foundation.dart';
-import 'dart:io';
 import 'package:path/path.dart' as p;
 
 /// Utility class for handling different image types and formats

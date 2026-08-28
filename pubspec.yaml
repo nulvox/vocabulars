@@ -44,9 +44,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/images/flags/
-    - assets/audio/
-    - assets/audio/en/
-    - assets/audio/es/
-    - assets/audio/fr/
     - assets/vocabulary.json

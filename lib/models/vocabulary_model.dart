@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import '../utils/app_constants.dart';
 import 'scenes_model.dart';
 
 /// The main model class that holds and manages the vocabulary application state.
@@ -22,7 +23,11 @@ class VocabularyModel extends ChangeNotifier {
   VocabularyModel({
     required this.vocabularyData,
     required String initialLanguage,
-  }) : _currentLanguage = initialLanguage {
+  }) : _currentLanguage = vocabularyData.supportedLanguages.contains(initialLanguage)
+            ? initialLanguage
+            : (vocabularyData.supportedLanguages.isNotEmpty
+                ? vocabularyData.supportedLanguages.first
+                : AppConstants.defaultLanguage) {
     // Set initial scene to bedroom
     _setInitialScene();
   }
