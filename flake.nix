@@ -19,7 +19,22 @@
     {
       devShells = forAllSystems (system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          androidEnv = pkgs.androidenv.override { licenseAccepted = true; };
+          androidComposition = androidEnv.composeAndroidPackages {
+            platformVersions = [ "35" "36" ];
+            buildToolsVersions = [ "35.0.0" ];
+            includeNDK = true;
+            ndkVersions = [ "28.2.13676358" ];
+            includeCmake = true;
+            cmakeVersions = [ "3.22.1" ];
+            includeEmulator = false;
+            includeSystemImages = false;
+          };
+          androidSdk = androidComposition.androidsdk;
           python = pkgs.python312.withPackages (ps: [
             ps.requests
             ps.beautifulsoup4
@@ -57,7 +72,17 @@
               pkgs.flutterPackages.stable
               python
               pkgs.git
-            ] ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux linuxBuildInputs;
+            ]
+            ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux (
+              [ androidSdk pkgs.jdk17 ] ++ linuxBuildInputs
+            );
+
+            ANDROID_HOME = pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux
+              "${androidSdk}/libexec/android-sdk";
+            ANDROID_SDK_ROOT = pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux
+              "${androidSdk}/libexec/android-sdk";
+            JAVA_HOME = pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux
+              "${pkgs.jdk17}/lib/openjdk";
 
             # Flutter plugins and the generated Linux runner use libraries from
             # the host system at build and runtime. Keep this scoped to the
