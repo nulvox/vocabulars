@@ -1,0 +1,16 @@
+# Flutter/Dart generated files
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Flutter build output
+build/
+
+# Generated pronunciation files (run scripts/generate_audio.py to create them)
+assets/audio/**/*.mp3
+
+# Generated platform metadata
+*.iml

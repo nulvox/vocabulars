@@ -78,14 +78,21 @@
   </div>
   
   <script>
-    window.addEventListener('load', function(ev) {
+    window.addEventListener('load', async function(ev) {
       var loadingText = document.querySelector('#loadingText');
-      
+
+      // Remove registrations left by older Flutter builds. A normal refresh
+      // does not bypass a service worker's cache, so clean it explicitly.
+      if (navigator.serviceWorker) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(registrations.map(registration => registration.unregister()));
+      }
+      if (window.caches) {
+        await Promise.all((await caches.keys()).map(cache => caches.delete(cache)));
+      }
+
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
         onEntrypointLoaded: function(engineInitializer) {
           loadingText.textContent = 'Initializing engine...';
           engineInitializer.initializeEngine().then(function(appRunner) {

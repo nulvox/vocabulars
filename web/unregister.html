@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Vocabular cache cleanup</title>
+<p id="status">Removing old Vocabular service workers and caches…</p>
+<script>
+(async () => {
+  const registrations = await navigator.serviceWorker.getRegistrations();
+  await Promise.all(registrations.map(registration => registration.unregister()));
+  if (window.caches) {
+    await Promise.all((await caches.keys()).map(cache => caches.delete(cache)));
+  }
+  document.getElementById('status').textContent =
+    'Done. Open the Vocabular app again.';
+})();
+</script>

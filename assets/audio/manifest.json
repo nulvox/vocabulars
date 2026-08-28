@@ -1,0 +1,326 @@
+{
+  "en/layered_sofa.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Sofa",
+    "generatedAt": "2026-08-28T16:59:44.291757+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/layered_sofa.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Sofá",
+    "generatedAt": "2026-08-28T16:59:44.291780+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/layered_sofa.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Canapé",
+    "generatedAt": "2026-08-28T16:59:44.291791+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/layered_lamp.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Lamp",
+    "generatedAt": "2026-08-28T16:59:44.291800+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/layered_lamp.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Lámpara",
+    "generatedAt": "2026-08-28T16:59:44.291808+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/layered_lamp.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Lampe",
+    "generatedAt": "2026-08-28T16:59:44.291816+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/mixed_refrigerator.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Refrigerator",
+    "generatedAt": "2026-08-28T16:59:44.291824+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/mixed_refrigerator.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Refrigerador",
+    "generatedAt": "2026-08-28T16:59:44.291832+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/mixed_refrigerator.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Réfrigérateur",
+    "generatedAt": "2026-08-28T16:59:44.291839+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/sofa.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Sofa",
+    "generatedAt": "2026-08-28T16:59:44.291847+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/sofa.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Sofá",
+    "generatedAt": "2026-08-28T16:59:44.291854+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/sofa.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Canapé",
+    "generatedAt": "2026-08-28T16:59:44.291861+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/tv.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Television",
+    "generatedAt": "2026-08-28T16:59:44.291869+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/tv.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Televisión",
+    "generatedAt": "2026-08-28T16:59:44.291876+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/tv.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Télévision",
+    "generatedAt": "2026-08-28T16:59:44.291884+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/lamp.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Lamp",
+    "generatedAt": "2026-08-28T16:59:44.291891+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/lamp.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Lámpara",
+    "generatedAt": "2026-08-28T16:59:44.291898+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/lamp.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Lampe",
+    "generatedAt": "2026-08-28T16:59:44.291905+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/refrigerator.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Refrigerator",
+    "generatedAt": "2026-08-28T16:59:44.291913+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/refrigerator.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Refrigerador",
+    "generatedAt": "2026-08-28T16:59:44.291921+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/refrigerator.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Réfrigérateur",
+    "generatedAt": "2026-08-28T16:59:44.291928+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/stove.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Stove",
+    "generatedAt": "2026-08-28T16:59:44.291935+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/stove.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Estufa",
+    "generatedAt": "2026-08-28T16:59:44.291942+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/stove.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Cuisinière",
+    "generatedAt": "2026-08-28T16:59:44.291949+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/sink.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Sink",
+    "generatedAt": "2026-08-28T16:59:44.291956+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/sink.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Fregadero",
+    "generatedAt": "2026-08-28T16:59:44.291964+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/sink.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Évier",
+    "generatedAt": "2026-08-28T16:59:44.291971+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/bed.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Bed",
+    "generatedAt": "2026-08-28T16:59:44.291979+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/bed.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Cama",
+    "generatedAt": "2026-08-28T16:59:44.291986+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/bed.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Lit",
+    "generatedAt": "2026-08-28T16:59:44.291993+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/wardrobe.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Wardrobe",
+    "generatedAt": "2026-08-28T16:59:44.292001+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/wardrobe.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Armario",
+    "generatedAt": "2026-08-28T16:59:44.292008+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/wardrobe.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Armoire",
+    "generatedAt": "2026-08-28T16:59:44.292015+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "en/mirror.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "en-US",
+    "text": "Mirror",
+    "generatedAt": "2026-08-28T16:59:44.292023+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "es/mirror.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "es-ES",
+    "text": "Espejo",
+    "generatedAt": "2026-08-28T16:59:44.292030+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  },
+  "fr/mirror.mp3": {
+    "provider": "Google Translate TTS",
+    "voice": "Google Translate default voice",
+    "languageCode": "fr-FR",
+    "text": "Miroir",
+    "generatedAt": "2026-08-28T16:59:44.292037+00:00",
+    "format": "MP3",
+    "api": "Google Cloud Text-to-Speech v1"
+  }
+}
