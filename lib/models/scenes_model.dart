@@ -178,11 +178,11 @@ class InteractionPoint {
 
   /// Get audio file for a specific language
   AudioFile? getAudioForLanguage(String languageCode) {
-    try {
-      return audioFiles.firstWhere((a) => a.languageCode == languageCode);
-    } catch (e) {
-      return audioFiles.isNotEmpty ? audioFiles.first : null;
+    for (final audioFile in audioFiles) {
+      if (audioFile.languageCode == languageCode) return audioFile;
     }
+    // Never silently play another language's pronunciation.
+    return null;
   }
 }
 

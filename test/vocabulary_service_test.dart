@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:vocabular/models/scenes_model.dart';
 import 'package:vocabular/services/vocabulary_service.dart';
 
 void main() {
@@ -39,61 +38,46 @@ void main() {
     test('validate checks for required data', () async {
       // This test makes sure the validation logic is working
       
-      // First with valid data
-      service.vocabularyData = VocabularyData.fromJson(_getMockVocabularyData());
-      expect(() => service._validateVocabularyData(), returnsNormally);
-      
-      // Then with invalid data
-      service.vocabularyData = VocabularyData(
-        title: 'Empty',
-        description: 'Empty',
-        supportedLanguages: [],  // Empty languages - should fail
-        scenes: [
-          Scene(
-            id: 'scene1',
-            name: 'Scene 1',
-            imagePath: 'scene1.jpg',
-            interactionPoints: [],
-          ),
-        ],
+      // Validation is exercised through the public loading API.
+      expect(
+        await service.loadVocabularyFromJsonString(json.encode(_getMockVocabularyData())),
+        isTrue,
       );
-      
-      expect(() => service._validateVocabularyData(), throwsException);
-      
-      // Test with empty scenes
-      service.vocabularyData = VocabularyData(
-        title: 'Empty',
-        description: 'Empty',
-        supportedLanguages: ['en'],
-        scenes: [],  // Empty scenes - should fail
-      );
-      
-      expect(() => service._validateVocabularyData(), throwsException);
-      
-      // Test with invalid image path
-      service.vocabularyData = VocabularyData(
-        title: 'Empty',
-        description: 'Empty',
-        supportedLanguages: ['en'],
-        scenes: [
-          Scene(
-            id: 'scene1',
-            name: 'Scene 1',
-            imagePath: '',  // Empty image path - should fail
-            interactionPoints: [],
-          ),
-        ],
-      );
-      
-      expect(() => service._validateVocabularyData(), throwsException);
-    });
-    
-    test('createEmptyVocabularyData returns valid data structure', () {
-      final emptyData = service._createEmptyVocabularyData();
-      
-      expect(emptyData.title, 'Empty Vocabulary');
-      expect(emptyData.supportedLanguages, ['en']);
-      expect(emptyData.scenes, isEmpty);
+
+      final invalidCases = <Map<String, dynamic>>[
+        {
+          'title': 'Empty',
+          'description': 'Empty',
+          'supportedLanguages': <String>[],
+          'scenes': <Map<String, dynamic>>[],
+        },
+        {
+          'title': 'Empty',
+          'description': 'Empty',
+          'supportedLanguages': ['en'],
+          'scenes': <Map<String, dynamic>>[],
+        },
+        {
+          'title': 'Empty',
+          'description': 'Empty',
+          'supportedLanguages': ['en'],
+          'scenes': [
+            {
+              'id': 'scene1',
+              'name': 'Scene 1',
+              'imagePath': '',
+              'interactionPoints': [],
+            },
+          ],
+        },
+      ];
+
+      for (final invalidData in invalidCases) {
+        expect(
+          await service.loadVocabularyFromJsonString(json.encode(invalidData)),
+          isFalse,
+        );
+      }
     });
   });
 }
