@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Evaluate Nix flake
+        run: nix flake check --no-build
+
+      - name: Validate vocabulary
+        run: nix develop --command python scripts/validate_vocabulary.py
+
+      - name: Validate audio generation plan
+        run: nix develop --command python scripts/generate_audio.py --dry-run
+
+      - name: Run tests
+        run: nix develop --command flutter test
+
+      - name: Analyze Dart code
+        run: nix develop --command flutter analyze --no-fatal-infos
+
+      - name: Build web release
+        run: nix develop --command flutter build web --release
