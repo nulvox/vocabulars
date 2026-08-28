@@ -120,9 +120,7 @@ void main() {
           interactionPoint: interactionPoint,
           currentLanguage: 'en',
           onClose: () {
-            print('onClose callback triggered in test');
             closePressed = true;
-            print('closePressed set to true: $closePressed');
           },
         ),
       ),
@@ -241,7 +239,6 @@ void main() {
             icon: const Icon(Icons.close),
             tooltip: 'Test Button',
             onPressed: () {
-              print('Basic button pressed');
               buttonPressed = true;
             },
           ),

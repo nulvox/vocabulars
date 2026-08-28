@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import '../models/scenes_model.dart';
+import '../utils/app_logger.dart';
 import '../utils/app_constants.dart';
 import '../utils/platform_utils.dart';
 
@@ -83,7 +84,7 @@ class _VocabularyCardState extends State<VocabularyCard>
         },
         onError: (error) {
           if (kDebugMode) {
-            print('Audio player error: $error');
+            AppLogger.debug('Audio player error: $error');
           }
           if (_isMounted) {
             setState(() {
@@ -249,9 +250,9 @@ class _VocabularyCardState extends State<VocabularyCard>
                     IconButton(
                       icon: const Icon(Icons.close),
                       onPressed: () {
-                        print('Close button pressed');
+                        AppLogger.debug('Close button pressed');
                         widget.onClose();
-                        print('onClose callback executed');
+                        AppLogger.debug('onClose callback executed');
                       },
                       tooltip: 'Close',
                     ),
@@ -352,19 +353,30 @@ class _VocabularyCardState extends State<VocabularyCard>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ElevatedButton.icon(
-          onPressed: _playAudio,
-          icon: Icon(_isPlaying ? Icons.stop : Icons.volume_up),
-          label: Text(_isPlaying ? 'Stop' : 'Listen'),
+        Tooltip(
+          message: _isPlaying ? 'Stop pronunciation' : 'Play pronunciation',
+          child: Semantics(
+            button: true,
+            label: _isPlaying ? 'Stop pronunciation' : 'Play pronunciation',
+            child: ElevatedButton.icon(
+              onPressed: _playAudio,
+              icon: Icon(_isPlaying ? Icons.stop : Icons.volume_up),
+              label: Text(_isPlaying ? 'Stop' : 'Listen'),
+            ),
+          ),
         ),
         if (_isPlaying)
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
-            child: LinearProgressIndicator(
-              value: _playbackProgress,
-              backgroundColor: Colors.grey[300],
-              valueColor: AlwaysStoppedAnimation<Color>(
-                Theme.of(context).primaryColor,
+            child: Semantics(
+              label: 'Pronunciation playback progress',
+              value: '${(_playbackProgress * 100).round()} percent',
+              child: LinearProgressIndicator(
+                value: _playbackProgress,
+                backgroundColor: Colors.grey[300],
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Theme.of(context).primaryColor,
+                ),
               ),
             ),
           ),
@@ -378,32 +390,36 @@ class _VocabularyCardState extends State<VocabularyCard>
     required String detail,
     required Color color,
   }) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.10),
-        border: Border.all(color: color.withValues(alpha: 0.35)),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, color: color),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(fontWeight: FontWeight.bold, color: color),
-                ),
-                const SizedBox(height: 3),
-                Text(detail, style: const TextStyle(fontSize: 12)),
-              ],
+    return Semantics(
+      liveRegion: true,
+      label: '$title. $detail',
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.10),
+          border: Border.all(color: color.withValues(alpha: 0.35)),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(icon, color: color),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(fontWeight: FontWeight.bold, color: color),
+                  ),
+                  const SizedBox(height: 3),
+                  Text(detail, style: const TextStyle(fontSize: 12)),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -448,7 +464,7 @@ class _VocabularyCardState extends State<VocabularyCard>
     final audioFile = _getAudioFile();
     if (audioFile == null) {
       if (kDebugMode) {
-        print(
+        AppLogger.debug(
           'No audio file available for language: ${widget.currentLanguage}',
         );
       }
@@ -464,11 +480,11 @@ class _VocabularyCardState extends State<VocabularyCard>
       final audioPath = _audioAssetPath(audioFile);
 
       if (kDebugMode) {
-        print('Playing audio from: $audioPath');
-        print(
+        AppLogger.debug('Playing audio from: $audioPath');
+        AppLogger.debug(
           'Audio file details: ${audioFile.languageCode}/${audioFile.filePath}',
         );
-        print('Is web platform: ${PlatformUtils.isWeb}');
+        AppLogger.debug('Is web platform: ${PlatformUtils.isWeb}');
       }
 
       // Load the audio
@@ -477,7 +493,7 @@ class _VocabularyCardState extends State<VocabularyCard>
       // Check if audio loaded successfully
       final duration = _audioPlayer!.duration;
       if (kDebugMode) {
-        print('Audio duration: $duration');
+        AppLogger.debug('Audio duration: $duration');
       }
 
       // Play the audio
@@ -487,11 +503,11 @@ class _VocabularyCardState extends State<VocabularyCard>
       // as we're handling it in the playerStateStream listener in initState
     } catch (e) {
       if (kDebugMode) {
-        print('Error playing audio: $e');
+        AppLogger.debug('Error playing audio: $e');
       }
 
       // Show error message to user
-      if (!_isMounted) return;
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Could not play audio: ${e.toString().split('\n')[0]}'),
