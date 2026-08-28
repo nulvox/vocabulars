@@ -19,11 +19,16 @@ class VocabularyModel extends ChangeNotifier {
   /// The currently active interaction point, if any
   InteractionPoint? _activeInteractionPoint;
 
+  /// A user-facing error from the most recent data load, if any.
+  String? _errorMessage;
+
   /// Constructor that initializes the model with vocabulary data and language
   VocabularyModel({
     required this.vocabularyData,
     required String initialLanguage,
-  }) : _currentLanguage = vocabularyData.supportedLanguages.contains(initialLanguage)
+    String? errorMessage,
+  }) : _errorMessage = errorMessage,
+       _currentLanguage = vocabularyData.supportedLanguages.contains(initialLanguage)
             ? initialLanguage
             : (vocabularyData.supportedLanguages.isNotEmpty
                 ? vocabularyData.supportedLanguages.first
@@ -77,11 +82,28 @@ class VocabularyModel extends ChangeNotifier {
   /// Gets the current scene index
   int get currentSceneIndex => _currentSceneIndex;
   
+  /// Gets the most recent loading error, if any.
+  String? get errorMessage => _errorMessage;
+
   /// Gets whether the vocabulary app supports multiple languages
   bool get isMultilingual => vocabularyData.supportedLanguages.length > 1;
   
   /// Gets the list of available languages
   List<String> get availableLanguages => vocabularyData.supportedLanguages;
+
+  /// Replaces the current vocabulary data after a reload.
+  void replaceVocabularyData(VocabularyData data, {String? errorMessage}) {
+    vocabularyData = data;
+    _errorMessage = errorMessage;
+    _activeInteractionPoint = null;
+    if (!vocabularyData.supportedLanguages.contains(_currentLanguage)) {
+      _currentLanguage = vocabularyData.supportedLanguages.isNotEmpty
+          ? vocabularyData.supportedLanguages.first
+          : AppConstants.defaultLanguage;
+    }
+    _setInitialScene();
+    notifyListeners();
+  }
 
   /// Changes the current scene to the given index
   void navigateToScene(int index) {

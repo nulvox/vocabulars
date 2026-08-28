@@ -40,6 +40,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => VocabularyModel(
           vocabularyData: vocabularyService.vocabularyData,
           initialLanguage: currentLanguage ?? AppConstants.defaultLanguage,
+          errorMessage: vocabularyService.errorMessage,
         )),
       ],
       child: const VocabularApp(),

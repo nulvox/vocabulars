@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:universal_platform/universal_platform.dart';
+import 'file_loader.dart';
 
 /// Utility class for handling platform-specific operations
 class PlatformUtils {
@@ -33,19 +34,14 @@ class PlatformUtils {
   }
 
   /// Loads a file from the asset bundle (used for bundled assets)
-  static Future<String> loadAssetFile(String path) async {
-    return await rootBundle.loadString(path);
+  static Future<String> loadAssetFile(String path, {AssetBundle? bundle}) async {
+    return await (bundle ?? rootBundle).loadString(path);
   }
 
   /// Loads a file from the filesystem (used for desktop platforms)
   static Future<String> loadFileFromFilesystem(String path) async {
     try {
-      final file = File(path);
-      if (await file.exists()) {
-        return await file.readAsString();
-      } else {
-        throw Exception('File not found: $path');
-      }
+      return await readTextFile(path);
     } catch (e) {
       throw Exception('Error reading file: $e');
     }
