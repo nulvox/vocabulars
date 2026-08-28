@@ -79,6 +79,14 @@ void main() {
       expect(vocabularyModel.isMultilingual, true);
       expect(vocabularyModel.availableLanguages, ['en', 'es', 'fr']);
     });
+
+    test('should fall back when the initial language is unavailable', () {
+      final model = VocabularyModel(
+        vocabularyData: testData,
+        initialLanguage: 'de',
+      );
+      expect(model.currentLanguage, 'en');
+    });
   });
 
   group('VocabularyModel scene navigation', () {

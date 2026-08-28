@@ -8,6 +8,11 @@ import '../utils/platform_utils.dart';
 class VocabularyService {
   /// The parsed vocabulary data
   late VocabularyData vocabularyData;
+
+  /// Error from the most recent initialization attempt, if any.
+  String? _errorMessage;
+
+  String? get errorMessage => _errorMessage;
   
   /// Path to the vocabulary JSON file
   final String _jsonPath;
@@ -30,6 +35,7 @@ class VocabularyService {
 
   /// Initialize the service by loading vocabulary data
   Future<void> initialize() async {
+    _errorMessage = null;
     try {
       print('Initializing vocabulary service from $_jsonPath');
       String jsonString;
@@ -82,8 +88,9 @@ class VocabularyService {
       // Verify that the data is valid
       _validateVocabularyData();
     } catch (e) {
+      _errorMessage = 'Could not load vocabulary data. Check the app assets and try again.';
       print('Failed to load vocabulary data: $e');
-      // Load fallback data if available or create empty data
+      // Keep the app renderable while exposing the failure to the UI.
       vocabularyData = _createEmptyVocabularyData();
     }
   }

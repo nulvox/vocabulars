@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/vocabulary_model.dart';
 import '../models/scenes_model.dart';
+import '../services/vocabulary_service.dart';
 import '../widgets/language_dropdown.dart';
 import '../widgets/scene_view.dart';
 import '../widgets/scene_dropdown.dart';
@@ -26,7 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
       
       // Safety check for empty scenes
       if (vocabularyModel.sceneCount == 0) {
-        return _buildErrorScaffold('No scenes available in vocabulary data');
+        return _buildErrorScaffold(
+          vocabularyModel.errorMessage ?? 'No scenes available in vocabulary data',
+        );
       }
       
       return _buildMainScaffold(vocabularyModel);
@@ -212,6 +215,19 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   
   /// Builds an error scaffold when something goes wrong
+  Future<void> _retryLoad() async {
+    setState(() => _isLoading = true);
+    final service = Provider.of<VocabularyService>(context, listen: false);
+    await service.initialize();
+    if (!mounted) return;
+    final model = Provider.of<VocabularyModel>(context, listen: false);
+    model.replaceVocabularyData(
+      service.vocabularyData,
+      errorMessage: service.errorMessage,
+    );
+    setState(() => _isLoading = false);
+  }
+
   Widget _buildErrorScaffold(String errorMessage) {
     return Scaffold(
       appBar: AppBar(
@@ -229,6 +245,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 errorMessage,
                 style: const TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              FilledButton.icon(
+                onPressed: _isLoading ? null : _retryLoad,
+                icon: _isLoading
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Icon(Icons.refresh),
+                label: Text(_isLoading ? 'Retrying…' : 'Retry'),
               ),
             ],
           ),
