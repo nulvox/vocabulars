@@ -1,4 +1,4 @@
-name: Release Android APK
+name: Release demo apps
 
 on:
   push:
@@ -8,36 +8,44 @@ on:
 permissions:
   contents: write
 
-# Never let two runs publish the same tag concurrently.
+defaults:
+  run:
+    shell: bash
+
+# Every release tag produces one APK and one web bundle per vocabulary config.
+# Audio and platform metadata are generated inside each isolated matrix job.
 concurrency:
   group: release-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
-  release:
+  build:
+    name: Build ${{ matrix.config }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - config: house
+            file: configs/house.json
+          - config: bestiary
+            file: configs/bestiary.json
     steps:
       - uses: actions/checkout@v4
 
-      # A release must be a newly-created tag. A force-updated tag is rejected
-      # so an existing version can never be silently rebuilt and replaced.
       - name: Reject reused or force-updated tag
         if: github.event.created != true || github.event.forced == true
         run: |
           echo "Release tags must be created once and never force-updated" >&2
           exit 1
 
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@v2
         with:
           channel: stable
-          # Match the Flutter/Dart versions used by the Nix development shell
-          # and the constraints recorded in pubspec.lock.
           flutter-version: "3.47.0"
           cache: true
 
-      - name: Install Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
@@ -50,34 +58,71 @@ jobs:
           TAG: ${{ github.ref_name }}
         run: python scripts/check_release_tag.py --tag "$TAG" --write-pubspec pubspec.yaml >> "$GITHUB_OUTPUT"
 
+      - name: Select vocabulary config
+        run: python scripts/select_vocabulary.py "${{ matrix.file }}"
+
       - name: Generate bundled pronunciations
         run: python scripts/generate_audio.py --update-json
 
-      - name: Generate app metadata
+      - name: Generate app metadata and icon selection
         run: python scripts/generate_app_metadata.py
 
       - name: Validate generated content
         run: python scripts/validate_vocabulary.py --require-audio
 
-      - name: Build versioned APK
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build Android APK
         run: >-
           flutter build apk --release
           --build-name "${{ steps.version.outputs.version }}"
           --build-number "${{ steps.version.outputs.build_number }}"
 
+      - name: Build web bundle
+        run: flutter build web --release
+
+      - name: Name release artifacts
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          CONFIG: ${{ matrix.config }}
+        run: |
+          mkdir -p dist
+          cp build/app/outputs/flutter-apk/app-release.apk \
+            "dist/vocabulars-${CONFIG}-v${VERSION}.apk"
+          (cd build && zip -qr "../dist/vocabulars-${CONFIG}-v${VERSION}-web.zip" web)
+
+      - name: Upload demo artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ matrix.config }}
+          path: dist/*
+          if-no-files-found: error
+
+  publish:
+    name: Publish release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download demo artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: release-*
+          path: dist
+          merge-multiple: true
+
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
-          VERSION: ${{ steps.version.outputs.version }}
         run: |
-          # Do not overwrite an existing release for this immutable tag.
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "Release $TAG already exists; refusing to overwrite it" >&2
             exit 1
           fi
-          gh release create "$TAG" \
-            build/app/outputs/flutter-apk/app-release.apk \
+          gh release create "$TAG" dist/* \
             --verify-tag \
-            --title "Vocabular $VERSION" \
+            --title "Vocabulars demo apps $TAG" \
             --generate-notes

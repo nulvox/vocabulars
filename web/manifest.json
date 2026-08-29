@@ -1,5 +1,5 @@
 {
-    "name": "Vocabulars: The House",
+    "name": "Vocabulars: Bestiary",
     "short_name": "Vocabulars",
     "start_url": ".",
     "display": "standalone",
@@ -10,23 +10,23 @@
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/house.svg",
+            "src": "icons/paw.svg",
             "sizes": "any",
             "type": "image/svg+xml"
         },
         {
-            "src": "icons/house.svg",
+            "src": "icons/paw.svg",
             "sizes": "any",
             "type": "image/svg+xml"
         },
         {
-            "src": "icons/house.svg",
+            "src": "icons/paw.svg",
             "sizes": "any",
             "type": "image/svg+xml",
             "purpose": "maskable"
         },
         {
-            "src": "icons/house.svg",
+            "src": "icons/paw.svg",
             "sizes": "any",
             "type": "image/svg+xml",
             "purpose": "maskable"

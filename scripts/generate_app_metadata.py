@@ -22,16 +22,24 @@ def main() -> None:
     data = json.loads(VOCABULARY.read_text())
     title = data["title"]
     app_name = f"Vocabulars: {title}"
+    icon = data.get("icon", "house")
+    icon_path = f"icons/{icon}.svg"
 
     # Web metadata is source-controlled as a template and refreshed per build.
     manifest = json.loads((ROOT / "web/manifest.json").read_text())
     manifest["name"] = app_name
     manifest["short_name"] = "Vocabulars"
+    for manifest_icon in manifest.get("icons", []):
+        manifest_icon["src"] = icon_path
     (ROOT / "web/manifest.json").write_text(json.dumps(manifest, indent=4) + "\n")
     replace(ROOT / "web/index.html", r"<meta name=\"description\" content=\"[^\"]*\">",
             f'<meta name="description" content="{app_name} - Interactive Vocabulary Learning App">')
     replace(ROOT / "web/index.html", r'<meta name="apple-mobile-web-app-title" content="[^"]*">',
             f'<meta name="apple-mobile-web-app-title" content="{app_name}">')
+    replace(ROOT / "web/index.html", r'<link rel="apple-touch-icon" href="[^"]*">',
+            f'<link rel="apple-touch-icon" href="{icon_path}">')
+    replace(ROOT / "web/index.html", r'<link rel="icon" type="image/svg\+xml" href="[^"]*"/>',
+            f'<link rel="icon" type="image/svg+xml" href="{icon_path}"/>')
     replace(ROOT / "web/index.html", r"<title>[^<]*</title>", f"<title>{app_name}</title>")
     replace(ROOT / "web/index.html", r"Loading [^<]*\.\.\.", f"Loading {app_name}...")
 
@@ -63,7 +71,7 @@ def main() -> None:
     # metadata is intentionally English and stable before Flutter starts.
     replace(ROOT / "lib/main.dart", r"title: '[^']*',",
             "title: 'Vocabulars: ${vocabularyModel.vocabularyData.title}',")
-    print(f"generated app metadata for {app_name}")
+    print(f"generated app metadata for {app_name} (icon: {icon})")
 
 
 if __name__ == "__main__":

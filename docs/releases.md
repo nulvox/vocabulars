@@ -1,5 +1,9 @@
 # Releases
 
+Every release builds the configured demos listed in the release workflow
+matrix (currently House and Bestiary). Each demo gets its own APK and web
+bundle, with content, audio, metadata, and icon selected from its config.
+
 Releases are created by GitHub Actions from semantic-version tags on `main`.
 Use the form `vMAJOR.MINOR.PATCH`:
 
@@ -18,10 +22,11 @@ The release workflow then:
    workspace.
 3. Uses the Flutter action for Flutter and bundled Dart, Python for the
    generator, and the Android SDK already present on the GitHub runner.
-4. Generates all bundled pronunciation files with the no-login provider.
-5. Validates the vocabulary and generated audio.
-6. Builds `app-release.apk` with the tag version.
-7. Creates a GitHub release and uploads the APK.
+4. Selects each demo config in an isolated build job.
+5. Generates all bundled pronunciation files with the no-login provider.
+6. Validates the vocabulary and generated audio.
+7. Builds a versioned APK and web bundle for each demo.
+8. Creates one GitHub release and uploads clearly named artifacts for every demo.
 
 A release tag is treated as immutable: the workflow rejects force-updated
 or reused tag events and refuses to overwrite an existing GitHub release.
@@ -29,8 +34,9 @@ Repository administrators should also protect `v*` tags from force updates in
 GitHub rulesets. Fixes require a new version tag.
 
 The generated audio, modified asset list, and generated vocabulary metadata
-exist only in the release build workspace; they are not committed as part of
-the release workflow. The release uses the Flutter build action and Android API
+exist only in each release build workspace; they are not committed as part of
+the release workflow. To add another demo, add its config and assets, then add
+an entry to the matrix in `.github/workflows/release.yml`. The release uses the Flutter build action and Android API
 35 available on the GitHub runner; it does not require Nix. The workflow pins
 Flutter 3.47.0, matching the Nix shell and the lockfile, with Gradle 8.14,
 Android Gradle Plugin 8.13.2, and Kotlin 2.2.21.

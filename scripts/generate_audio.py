@@ -26,6 +26,9 @@ DEFAULT_VOICES = {
     "en": {"languageCode": "en-US", "name": "en-US-Neural2-F"},
     "es": {"languageCode": "es-ES", "name": "es-ES-Neural2-A"},
     "fr": {"languageCode": "fr-FR", "name": "fr-FR-Neural2-A"},
+    "ja": {"languageCode": "ja-JP", "name": "ja-JP-Neural2-B"},
+    "ru": {"languageCode": "ru-RU", "name": "ru-RU-Neural2-A"},
+    "de": {"languageCode": "de-DE", "name": "de-DE-Neural2-B"},
 }
 
 
@@ -91,10 +94,14 @@ def write_atomic(path, content):
 
 
 def update_pubspec(pubspec, paths):
-    # The recursive assets/audio/ entry already includes generated files.
-    # Do not add individual MP3 paths: generated audio is intentionally
-    # ignored by Git, and explicit paths make CI fail on a clean checkout.
-    return
+    content = pubspec.read_text(encoding="utf-8")
+    missing = [f"    - {path}\n" for path in sorted(paths) if f"    - {path}\n" not in content]
+    if not missing:
+        return
+    marker = "    - assets/vocabulary.json"
+    if marker not in content:
+        raise RuntimeError(f"Could not find asset section in {pubspec}")
+    pubspec.write_text(content.replace(marker, "".join(missing) + marker, 1), encoding="utf-8")
 
 
 def main():

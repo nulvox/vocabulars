@@ -1,0 +1,1736 @@
+{
+  "title": "The House",
+  "description": "Learn vocabulary for common household items in multiple languages",
+  "supportedLanguages": [
+    "en",
+    "es",
+    "fr",
+    "ja",
+    "ru",
+    "de"
+  ],
+  "scenes": [
+    {
+      "id": "living_room",
+      "name": "Living Room",
+      "imageLayers": [
+        {
+          "id": "background",
+          "imagePath": "living_room.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "educator_child",
+          "imagePath": "educator_child.svg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 2
+        }
+      ],
+      "interactionPoints": [
+        {
+          "id": "sofa",
+          "label": "Sofa",
+          "x": 0.69,
+          "y": 0.59,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/sofa.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/sofa.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/sofa.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/sofa.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/sofa.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/sofa.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Sofa"
+            },
+            {
+              "languageCode": "es",
+              "text": "Sofá"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Canapé"
+            },
+            {
+              "languageCode": "ja",
+              "text": "ソファ"
+            },
+            {
+              "languageCode": "ru",
+              "text": "диван"
+            },
+            {
+              "languageCode": "de",
+              "text": "Sofa"
+            }
+          ]
+        },
+        {
+          "id": "tv",
+          "label": "Television",
+          "x": 0.2,
+          "y": 0.32,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/tv.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/tv.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/tv.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/tv.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/tv.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/tv.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Television"
+            },
+            {
+              "languageCode": "es",
+              "text": "Televisión"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Télévision"
+            },
+            {
+              "languageCode": "ja",
+              "text": "テレビ"
+            },
+            {
+              "languageCode": "ru",
+              "text": "телевизор"
+            },
+            {
+              "languageCode": "de",
+              "text": "Fernseher"
+            }
+          ]
+        },
+        {
+          "id": "lamp",
+          "label": "Lamp",
+          "x": 0.9,
+          "y": 0.46,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/lamp.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/lamp.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/lamp.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/lamp.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/lamp.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/lamp.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Lamp"
+            },
+            {
+              "languageCode": "es",
+              "text": "Lámpara"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Lampe"
+            },
+            {
+              "languageCode": "ja",
+              "text": "ランプ"
+            },
+            {
+              "languageCode": "ru",
+              "text": "лампа"
+            },
+            {
+              "languageCode": "de",
+              "text": "Lampe"
+            }
+          ]
+        },
+        {
+          "id": "window",
+          "label": "Window",
+          "x": 0.51,
+          "y": 0.4,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/window.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/window.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/window.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/window.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/window.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/window.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Window"
+            },
+            {
+              "languageCode": "es",
+              "text": "Ventana"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Fenêtre"
+            },
+            {
+              "languageCode": "ja",
+              "text": "窓"
+            },
+            {
+              "languageCode": "ru",
+              "text": "окно"
+            },
+            {
+              "languageCode": "de",
+              "text": "Fenster"
+            }
+          ]
+        },
+        {
+          "id": "door",
+          "label": "Door",
+          "x": 0.745,
+          "y": 0.43,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/door.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/door.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/door.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/door.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/door.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/door.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Door"
+            },
+            {
+              "languageCode": "es",
+              "text": "Puerta"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Porte"
+            },
+            {
+              "languageCode": "ja",
+              "text": "ドア"
+            },
+            {
+              "languageCode": "ru",
+              "text": "дверь"
+            },
+            {
+              "languageCode": "de",
+              "text": "Tür"
+            }
+          ]
+        },
+        {
+          "id": "automan",
+          "label": "Ottoman",
+          "x": 0.565,
+          "y": 0.68,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/automan.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/automan.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/automan.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/automan.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/automan.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/automan.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Ottoman"
+            },
+            {
+              "languageCode": "es",
+              "text": "Puf"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Pouf"
+            },
+            {
+              "languageCode": "ja",
+              "text": "オットマン"
+            },
+            {
+              "languageCode": "ru",
+              "text": "пуфик"
+            },
+            {
+              "languageCode": "de",
+              "text": "Ottomane"
+            }
+          ]
+        },
+        {
+          "id": "chair",
+          "label": "Chair",
+          "x": 0.87,
+          "y": 0.77,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/chair.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/chair.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/chair.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/chair.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/chair.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/chair.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Chair"
+            },
+            {
+              "languageCode": "es",
+              "text": "Silla"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Chaise"
+            },
+            {
+              "languageCode": "ja",
+              "text": "椅子"
+            },
+            {
+              "languageCode": "ru",
+              "text": "стул"
+            },
+            {
+              "languageCode": "de",
+              "text": "Stuhl"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kitchen_with_educator",
+      "name": "Kitchen",
+      "imageLayers": [
+        {
+          "id": "background",
+          "imagePath": "kitchen.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "educator_child",
+          "imagePath": "educator_child.svg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 2
+        }
+      ],
+      "interactionPoints": [
+        {
+          "id": "refrigerator",
+          "label": "Refrigerator",
+          "x": 0.56,
+          "y": 0.4,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/refrigerator.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/refrigerator.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/refrigerator.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/refrigerator.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/refrigerator.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/refrigerator.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Refrigerator"
+            },
+            {
+              "languageCode": "es",
+              "text": "Refrigerador"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Réfrigérateur"
+            },
+            {
+              "languageCode": "ja",
+              "text": "冷蔵庫"
+            },
+            {
+              "languageCode": "ru",
+              "text": "холодильник"
+            },
+            {
+              "languageCode": "de",
+              "text": "Kühlschrank"
+            }
+          ]
+        },
+        {
+          "id": "stove",
+          "label": "Stove",
+          "x": 0.73,
+          "y": 0.56,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/stove.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/stove.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/stove.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/stove.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/stove.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/stove.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Stove"
+            },
+            {
+              "languageCode": "es",
+              "text": "Estufa"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Cuisinière"
+            },
+            {
+              "languageCode": "ja",
+              "text": "コンロ"
+            },
+            {
+              "languageCode": "ru",
+              "text": "плита"
+            },
+            {
+              "languageCode": "de",
+              "text": "Herd"
+            }
+          ]
+        },
+        {
+          "id": "sink",
+          "label": "Sink",
+          "x": 0.94,
+          "y": 0.59,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/sink.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/sink.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/sink.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/sink.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/sink.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/sink.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Sink"
+            },
+            {
+              "languageCode": "es",
+              "text": "Fregadero"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Évier"
+            },
+            {
+              "languageCode": "ja",
+              "text": "シンク"
+            },
+            {
+              "languageCode": "ru",
+              "text": "раковина"
+            },
+            {
+              "languageCode": "de",
+              "text": "Spüle"
+            }
+          ]
+        },
+        {
+          "id": "microwave",
+          "label": "Microwave",
+          "x": 0.77,
+          "y": 0.33,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/microwave.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/microwave.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/microwave.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/microwave.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/microwave.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/microwave.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Microwave"
+            },
+            {
+              "languageCode": "es",
+              "text": "Microondas"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Micro-ondes"
+            },
+            {
+              "languageCode": "ja",
+              "text": "電子レンジ"
+            },
+            {
+              "languageCode": "ru",
+              "text": "микроволновка"
+            },
+            {
+              "languageCode": "de",
+              "text": "Mikrowelle"
+            }
+          ]
+        },
+        {
+          "id": "counter",
+          "label": "Counter",
+          "x": 0.82,
+          "y": 0.53,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/counter.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/counter.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/counter.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/counter.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/counter.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/counter.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Counter"
+            },
+            {
+              "languageCode": "es",
+              "text": "Encimera"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Plan de travail"
+            },
+            {
+              "languageCode": "ja",
+              "text": "カウンター"
+            },
+            {
+              "languageCode": "ru",
+              "text": "столешница"
+            },
+            {
+              "languageCode": "de",
+              "text": "Arbeitsplatte"
+            }
+          ]
+        },
+        {
+          "id": "table",
+          "label": "Table",
+          "x": 0.2,
+          "y": 0.56,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/table.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/table.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/table.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/table.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/table.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/table.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Table"
+            },
+            {
+              "languageCode": "es",
+              "text": "Mesa"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Table"
+            },
+            {
+              "languageCode": "ja",
+              "text": "テーブル"
+            },
+            {
+              "languageCode": "ru",
+              "text": "стол"
+            },
+            {
+              "languageCode": "de",
+              "text": "Tisch"
+            }
+          ]
+        },
+        {
+          "id": "cabinet",
+          "label": "Cabinet",
+          "x": 0.86,
+          "y": 0.34,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/cabinet.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/cabinet.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/cabinet.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/cabinet.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/cabinet.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/cabinet.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Cabinet"
+            },
+            {
+              "languageCode": "es",
+              "text": "Armario"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Placard"
+            },
+            {
+              "languageCode": "ja",
+              "text": "キャビネット"
+            },
+            {
+              "languageCode": "ru",
+              "text": "шкаф"
+            },
+            {
+              "languageCode": "de",
+              "text": "Schrank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bedroom",
+      "name": "Bedroom",
+      "interactionPoints": [
+        {
+          "id": "bed",
+          "label": "Bed",
+          "x": 0.36,
+          "y": 0.39,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/bed.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/bed.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/bed.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/bed.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/bed.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/bed.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Bed"
+            },
+            {
+              "languageCode": "es",
+              "text": "Cama"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Lit"
+            },
+            {
+              "languageCode": "ja",
+              "text": "ベッド"
+            },
+            {
+              "languageCode": "ru",
+              "text": "кровать"
+            },
+            {
+              "languageCode": "de",
+              "text": "Bett"
+            }
+          ]
+        },
+        {
+          "id": "wardrobe",
+          "label": "Wardrobe",
+          "x": 0.78,
+          "y": 0.63,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/wardrobe.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/wardrobe.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/wardrobe.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/wardrobe.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/wardrobe.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/wardrobe.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Wardrobe"
+            },
+            {
+              "languageCode": "es",
+              "text": "Armario"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Armoire"
+            },
+            {
+              "languageCode": "ja",
+              "text": "ワードローブ"
+            },
+            {
+              "languageCode": "ru",
+              "text": "шкаф"
+            },
+            {
+              "languageCode": "de",
+              "text": "Kleiderschrank"
+            }
+          ]
+        },
+        {
+          "id": "mirror",
+          "label": "Mirror",
+          "x": 0.86,
+          "y": 0.27,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/mirror.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/mirror.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/mirror.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/mirror.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/mirror.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/mirror.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Mirror"
+            },
+            {
+              "languageCode": "es",
+              "text": "Espejo"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Miroir"
+            },
+            {
+              "languageCode": "ja",
+              "text": "鏡"
+            },
+            {
+              "languageCode": "ru",
+              "text": "зеркало"
+            },
+            {
+              "languageCode": "de",
+              "text": "Spiegel"
+            }
+          ]
+        },
+        {
+          "id": "curtains",
+          "label": "Curtains",
+          "x": 0.64,
+          "y": 0.27,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/curtains.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/curtains.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/curtains.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/curtains.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/curtains.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/curtains.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Curtains"
+            },
+            {
+              "languageCode": "es",
+              "text": "Cortinas"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Rideaux"
+            },
+            {
+              "languageCode": "ja",
+              "text": "カーテン"
+            },
+            {
+              "languageCode": "ru",
+              "text": "шторы"
+            },
+            {
+              "languageCode": "de",
+              "text": "Vorhänge"
+            }
+          ]
+        },
+        {
+          "id": "night_stand",
+          "label": "Nightstand",
+          "x": 0.1,
+          "y": 0.6,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/night_stand.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/night_stand.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/night_stand.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/night_stand.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/night_stand.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/night_stand.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Nightstand"
+            },
+            {
+              "languageCode": "es",
+              "text": "Mesita de noche"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Table de nuit"
+            },
+            {
+              "languageCode": "ja",
+              "text": "ナイトスタンド"
+            },
+            {
+              "languageCode": "ru",
+              "text": "прикроватная тумбочка"
+            },
+            {
+              "languageCode": "de",
+              "text": "Nachttisch"
+            }
+          ]
+        }
+      ],
+      "imageLayers": [
+        {
+          "id": "background",
+          "imagePath": "bedroom.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "educator_child",
+          "imagePath": "educator_child.svg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "bathroom",
+      "name": "Bathroom",
+      "imageLayers": [
+        {
+          "id": "background",
+          "imagePath": "bathroom.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "educator_child",
+          "imagePath": "educator_child.svg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 2
+        }
+      ],
+      "interactionPoints": [
+        {
+          "id": "shower",
+          "label": "Shower",
+          "x": 0.67,
+          "y": 0.35,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/shower.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/shower.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/shower.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/shower.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/shower.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/shower.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Shower"
+            },
+            {
+              "languageCode": "es",
+              "text": "Ducha"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Douche"
+            },
+            {
+              "languageCode": "ja",
+              "text": "シャワー"
+            },
+            {
+              "languageCode": "ru",
+              "text": "душ"
+            },
+            {
+              "languageCode": "de",
+              "text": "Dusche"
+            }
+          ]
+        },
+        {
+          "id": "vanity",
+          "label": "Vanity",
+          "x": 0.27,
+          "y": 0.47,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/vanity.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/vanity.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/vanity.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/vanity.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/vanity.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/vanity.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Vanity"
+            },
+            {
+              "languageCode": "es",
+              "text": "Tocador"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Meuble-lavabo"
+            },
+            {
+              "languageCode": "ja",
+              "text": "洗面台"
+            },
+            {
+              "languageCode": "ru",
+              "text": "туалетный столик"
+            },
+            {
+              "languageCode": "de",
+              "text": "Waschtisch"
+            }
+          ]
+        },
+        {
+          "id": "toilet",
+          "label": "Toilet",
+          "x": 0.95,
+          "y": 0.64,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/toilet.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/toilet.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/toilet.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/toilet.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/toilet.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/toilet.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Toilet"
+            },
+            {
+              "languageCode": "es",
+              "text": "Inodoro"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Toilettes"
+            },
+            {
+              "languageCode": "ja",
+              "text": "トイレ"
+            },
+            {
+              "languageCode": "ru",
+              "text": "туалет"
+            },
+            {
+              "languageCode": "de",
+              "text": "Toilette"
+            }
+          ]
+        },
+        {
+          "id": "tub",
+          "label": "Tub",
+          "x": 0.5,
+          "y": 0.61,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/tub.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/tub.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/tub.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/tub.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/tub.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/tub.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Tub"
+            },
+            {
+              "languageCode": "es",
+              "text": "Bañera"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Baignoire"
+            },
+            {
+              "languageCode": "ja",
+              "text": "浴槽"
+            },
+            {
+              "languageCode": "ru",
+              "text": "ванна"
+            },
+            {
+              "languageCode": "de",
+              "text": "Badewanne"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garden",
+      "name": "Garden",
+      "imageLayers": [
+        {
+          "id": "background",
+          "imagePath": "garden.jpg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 1
+        },
+        {
+          "id": "educator_child",
+          "imagePath": "educator_child.svg",
+          "opacity": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "scale": 1.0,
+          "zIndex": 2
+        }
+      ],
+      "interactionPoints": [
+        {
+          "id": "path",
+          "label": "Path",
+          "x": 0.27,
+          "y": 0.74,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/path.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/path.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/path.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/path.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/path.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/path.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Path"
+            },
+            {
+              "languageCode": "es",
+              "text": "Sendero"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Chemin"
+            },
+            {
+              "languageCode": "ja",
+              "text": "小道"
+            },
+            {
+              "languageCode": "ru",
+              "text": "тропинка"
+            },
+            {
+              "languageCode": "de",
+              "text": "Weg"
+            }
+          ]
+        },
+        {
+          "id": "flowers",
+          "label": "Flowers",
+          "x": 0.57,
+          "y": 0.57,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/flowers.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/flowers.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/flowers.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/flowers.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/flowers.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/flowers.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Flowers"
+            },
+            {
+              "languageCode": "es",
+              "text": "Flores"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Fleurs"
+            },
+            {
+              "languageCode": "ja",
+              "text": "花々"
+            },
+            {
+              "languageCode": "ru",
+              "text": "цветы"
+            },
+            {
+              "languageCode": "de",
+              "text": "Blumen"
+            }
+          ]
+        },
+        {
+          "id": "shed",
+          "label": "Shed",
+          "x": 0.73,
+          "y": 0.34,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/shed.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/shed.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/shed.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/shed.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/shed.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/shed.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Shed"
+            },
+            {
+              "languageCode": "es",
+              "text": "Cobertizo"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Abri de jardin"
+            },
+            {
+              "languageCode": "ja",
+              "text": "小屋"
+            },
+            {
+              "languageCode": "ru",
+              "text": "сарай"
+            },
+            {
+              "languageCode": "de",
+              "text": "Schuppen"
+            }
+          ]
+        },
+        {
+          "id": "grass",
+          "label": "Grass",
+          "x": 0.82,
+          "y": 0.56,
+          "audioFiles": [
+            {
+              "languageCode": "en",
+              "filePath": "en/grass.mp3"
+            },
+            {
+              "languageCode": "es",
+              "filePath": "es/grass.mp3"
+            },
+            {
+              "languageCode": "fr",
+              "filePath": "fr/grass.mp3"
+            },
+            {
+              "languageCode": "ja",
+              "filePath": "ja/grass.mp3"
+            },
+            {
+              "languageCode": "ru",
+              "filePath": "ru/grass.mp3"
+            },
+            {
+              "languageCode": "de",
+              "filePath": "de/grass.mp3"
+            }
+          ],
+          "translations": [
+            {
+              "languageCode": "en",
+              "text": "Grass"
+            },
+            {
+              "languageCode": "es",
+              "text": "Hierba"
+            },
+            {
+              "languageCode": "fr",
+              "text": "Herbe"
+            },
+            {
+              "languageCode": "ja",
+              "text": "草"
+            },
+            {
+              "languageCode": "ru",
+              "text": "трава"
+            },
+            {
+              "languageCode": "de",
+              "text": "Gras"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "titleTranslations": [
+    {
+      "languageCode": "en",
+      "text": "The House"
+    },
+    {
+      "languageCode": "es",
+      "text": "La Casa"
+    },
+    {
+      "languageCode": "fr",
+      "text": "La Maison"
+    },
+    {
+      "languageCode": "ja",
+      "text": "家"
+    },
+    {
+      "languageCode": "ru",
+      "text": "Дом"
+    },
+    {
+      "languageCode": "de",
+      "text": "Das Haus"
+    }
+  ]
+}

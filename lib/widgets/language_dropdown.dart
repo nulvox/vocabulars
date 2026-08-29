@@ -63,19 +63,30 @@ class LanguageDropdown extends StatelessWidget {
     );
   }
 
-  /// A reliable fallback that does not require optional flag assets.
+  /// Returns a platform-independent flag emoji for the language.
+  ///
+  /// Language codes are not necessarily country codes, so keep this mapping
+  /// explicit rather than deriving a flag from the first two letters.
   Widget _getFlagImage(String code) {
-    return Container(
+    const flags = {
+      'en': '🇬🇧',
+      'es': '🇪🇸',
+      'fr': '🇫🇷',
+      'ja': '🇯🇵',
+      'ru': '🇷🇺',
+      'de': '🇩🇪',
+    };
+    final flag = flags[code.toLowerCase()];
+
+    return SizedBox(
       width: 24.0,
-      height: 16.0,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(2.0),
-      ),
-      child: Text(
-        code.toUpperCase(),
-        style: const TextStyle(fontSize: 9.0, fontWeight: FontWeight.bold),
+      height: 20.0,
+      child: Center(
+        child: Text(
+          flag ?? '🌐',
+          textScaler: const TextScaler.linear(0.9),
+          semanticsLabel: flag == null ? 'Language' : '$code flag',
+        ),
       ),
     );
   }

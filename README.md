@@ -50,8 +50,17 @@ flutter run -d chrome
 ```
 
 The web output is written to `build/web`. Serve that directory with any static
-web server. Platform-specific builds may require the corresponding SDK and
-native build tools.
+web server. To build and review a particular config locally:
+
+```bash
+./scripts/build_with_audio.sh --config configs/bestiary.json build web --release
+python3 -m http.server 8000 --directory build/web
+```
+
+The server hosts whichever config was built most recently. Select
+`configs/house.json` or another config and rebuild to switch demos.
+Platform-specific builds may require the corresponding SDK and native build
+tools.
 
 ## Content and audio
 
@@ -87,9 +96,17 @@ See [Development workflow](docs/development.md) for the Nix environment,
 content validation, audio generation, CI expectations, and data-model guidance.
 See [Releases](docs/releases.md) for tagging and APK publication.
 
-The app display name is generated from `assets/vocabulary.json` (the `title`
-field) before builds. For a complete build with synchronized platform metadata
-and generated audio, use:
+The app display name and content are generated from the selected vocabulary
+config. Configs live in `configs/`; the selected config is copied to
+`assets/vocabulary.json` before building. For example, to build the Bestiary:
+
+```bash
+./scripts/build_with_audio.sh --config configs/bestiary.json build web --release
+```
+
+The app icon is also selected by the config (`icon: "paw"` for Bestiary;
+House defaults to the house icon). For a complete build with synchronized
+platform metadata and generated audio, use:
 
 ```bash
 ./scripts/build_with_audio.sh build web --release

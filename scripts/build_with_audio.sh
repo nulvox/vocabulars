@@ -13,6 +13,15 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 # Change to project root
 cd "$PROJECT_ROOT" || { echo "Failed to change to project root directory"; exit 1; }
 
+if [ "${1:-}" = "--config" ]; then
+  if [ -z "${2:-}" ]; then
+    echo "Usage: $0 [--config path/to/config.json] flutter build arguments" >&2
+    exit 2
+  fi
+  python3 "$SCRIPT_DIR/select_vocabulary.py" "$2"
+  shift 2
+fi
+
 echo "=== Generating app metadata from vocabulary config ==="
 python3 "$SCRIPT_DIR/generate_app_metadata.py"
 echo "=== Starting audio download process ==="
