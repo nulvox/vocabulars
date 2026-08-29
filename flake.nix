@@ -26,7 +26,7 @@
           androidEnv = pkgs.androidenv.override { licenseAccepted = true; };
           androidComposition = androidEnv.composeAndroidPackages {
             platformVersions = [ "35" "36" ];
-            buildToolsVersions = [ "35.0.0" ];
+            buildToolsVersions = [ "35.0.0" "36.0.0" ];
             includeNDK = true;
             ndkVersions = [ "28.2.13676358" ];
             includeCmake = true;

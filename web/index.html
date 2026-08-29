@@ -17,12 +17,8 @@
   <title>Vocabulars: Bestiary</title>
   <link rel="manifest" href="manifest.json">
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+  <!-- Flutter initialization and build configuration. -->
+  <script src="flutter_bootstrap.js" async></script>
   
   <style>
     body {
@@ -77,31 +73,6 @@
     </p>
   </div>
   
-  <script>
-    window.addEventListener('load', async function(ev) {
-      var loadingText = document.querySelector('#loadingText');
-
-      // Remove registrations left by older Flutter builds. A normal refresh
-      // does not bypass a service worker's cache, so clean it explicitly.
-      if (navigator.serviceWorker) {
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        await Promise.all(registrations.map(registration => registration.unregister()));
-      }
-      if (window.caches) {
-        await Promise.all((await caches.keys()).map(cache => caches.delete(cache)));
-      }
-
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        onEntrypointLoaded: function(engineInitializer) {
-          loadingText.textContent = 'Initializing engine...';
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            loadingText.textContent = 'Starting app...';
-            appRunner.runApp();
-          });
-        }
-      });
-    });
-  </script>
+  <!-- Initialization is handled by web/flutter_bootstrap.js. -->
 </body>
 </html>

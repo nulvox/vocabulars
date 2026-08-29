@@ -6,7 +6,7 @@ Enter the reproducible shell before using Flutter or the audio tools:
 nix develop
 flutter pub get
 flutter test
-flutter build web --release
+flutter build web --release --no-wasm-dry-run --no-tree-shake-icons
 ```
 
 ## Selecting and hosting a vocabulary config
@@ -20,14 +20,14 @@ nix develop
 python scripts/select_vocabulary.py configs/bestiary.json
 python scripts/generate_audio.py --update-json
 python scripts/generate_app_metadata.py
-flutter build web --release
+flutter build web --release --no-wasm-dry-run --no-tree-shake-icons
 python3 -m http.server 8000 --directory build/web
 ```
 
 For a one-command build with audio and metadata generation, use:
 
 ```bash
-./scripts/build_with_audio.sh --config configs/bestiary.json build web --release
+./scripts/build_with_audio.sh --config configs/bestiary.json build web --release --no-wasm-dry-run --no-tree-shake-icons
 python3 -m http.server 8000 --directory build/web
 ```
 

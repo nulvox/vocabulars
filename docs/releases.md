@@ -38,8 +38,8 @@ exist only in each release build workspace; they are not committed as part of
 the release workflow. To add another demo, add its config and assets, then add
 an entry to the matrix in `.github/workflows/release.yml`. The release uses the Flutter build action and Android API
 35 available on the GitHub runner; it does not require Nix. The workflow pins
-Flutter 3.47.0, matching the Nix shell and the lockfile, with Gradle 8.14,
-Android Gradle Plugin 8.13.2, and Kotlin 2.2.21.
+Flutter 3.47.0, matching the Nix shell and the lockfile, with Gradle 9.5.0,
+Android Gradle Plugin 9.3.2, and Kotlin 2.3.20.
 
 ## Dry-running the version logic
 

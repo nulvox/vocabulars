@@ -45,7 +45,7 @@ flutter run -d chrome
 ## Build
 
 ```bash
-./scripts/build_with_audio.sh build web --release
+./scripts/build_with_audio.sh build web --release --no-wasm-dry-run --no-tree-shake-icons
 ./scripts/build_with_audio.sh build apk --release
 ```
 
@@ -53,7 +53,7 @@ The web output is written to `build/web`. Serve that directory with any static
 web server. To build and review a particular config locally:
 
 ```bash
-./scripts/build_with_audio.sh --config configs/bestiary.json build web --release
+./scripts/build_with_audio.sh --config configs/bestiary.json build web --release --no-wasm-dry-run --no-tree-shake-icons
 python3 -m http.server 8000 --directory build/web
 ```
 
@@ -101,7 +101,7 @@ config. Configs live in `configs/`; the selected config is copied to
 `assets/vocabulary.json` before building. For example, to build the Bestiary:
 
 ```bash
-./scripts/build_with_audio.sh --config configs/bestiary.json build web --release
+./scripts/build_with_audio.sh --config configs/bestiary.json build web --release --no-wasm-dry-run --no-tree-shake-icons
 ```
 
 The app icon is also selected by the config (`icon: "paw"` for Bestiary;
@@ -109,7 +109,7 @@ House defaults to the house icon). For a complete build with synchronized
 platform metadata and generated audio, use:
 
 ```bash
-./scripts/build_with_audio.sh build web --release
+./scripts/build_with_audio.sh build web --release --no-wasm-dry-run --no-tree-shake-icons
 ```
 
 If model classes change, regenerate the serializer:

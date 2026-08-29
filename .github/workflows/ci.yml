@@ -54,4 +54,4 @@ jobs:
         run: nix develop --command python scripts/generate_app_metadata.py
 
       - name: Build web release
-        run: nix develop --command flutter build web --release
+        run: nix develop --command flutter build web --release --no-wasm-dry-run --no-tree-shake-icons

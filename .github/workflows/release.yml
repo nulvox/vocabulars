@@ -100,7 +100,7 @@ jobs:
           --build-number "$BUILD_NUMBER"
 
       - name: Build web bundle
-        run: flutter build web --release
+        run: flutter build web --release --no-wasm-dry-run --no-tree-shake-icons
 
       - name: Name release artifacts
         env:
