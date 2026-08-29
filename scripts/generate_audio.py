@@ -91,14 +91,10 @@ def write_atomic(path, content):
 
 
 def update_pubspec(pubspec, paths):
-    content = pubspec.read_text(encoding="utf-8")
-    missing = [f"    - {path}\n" for path in sorted(paths) if f"    - {path}\n" not in content]
-    if not missing:
-        return
-    marker = "    - assets/vocabulary.json"
-    if marker not in content:
-        raise RuntimeError(f"Could not find asset section in {pubspec}")
-    pubspec.write_text(content.replace(marker, "".join(missing) + marker, 1), encoding="utf-8")
+    # The recursive assets/audio/ entry already includes generated files.
+    # Do not add individual MP3 paths: generated audio is intentionally
+    # ignored by Git, and explicit paths make CI fail on a clean checkout.
+    return
 
 
 def main():

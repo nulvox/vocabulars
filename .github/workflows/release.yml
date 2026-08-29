@@ -53,6 +53,9 @@ jobs:
       - name: Generate bundled pronunciations
         run: python scripts/generate_audio.py --update-json
 
+      - name: Generate app metadata
+        run: python scripts/generate_app_metadata.py
+
       - name: Validate generated content
         run: python scripts/validate_vocabulary.py --require-audio
 
