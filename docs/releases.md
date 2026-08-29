@@ -8,6 +8,10 @@ web bundles are deployed to GitHub Pages at:
 - `https://nulvox.github.io/vocabulars/house/`
 - `https://nulvox.github.io/vocabulars/bestiary/`
 
+The repository must have a `github-pages` environment configured to allow
+release tags (for example, the `v*` pattern). If that environment requires
+reviewers, the tagged deployment must be approved in the Actions UI.
+
 Releases are created by GitHub Actions from semantic-version tags on `main`.
 Use the form `vMAJOR.MINOR.PATCH`:
 
