@@ -100,7 +100,13 @@ jobs:
           --build-number "$BUILD_NUMBER"
 
       - name: Build web bundle
-        run: flutter build web --release --no-wasm-dry-run --no-tree-shake-icons
+        env:
+          BASE_HREF: /vocabulars/${{ matrix.config }}/
+        run: >-
+          flutter build web --release
+          --base-href "$BASE_HREF"
+          --no-wasm-dry-run
+          --no-tree-shake-icons
 
       - name: Name release artifacts
         env:
@@ -118,6 +124,55 @@ jobs:
           name: release-${{ matrix.config }}
           path: dist/*
           if-no-files-found: error
+
+  pages:
+    name: Deploy demos to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download demo bundles
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: release-*
+          path: dist
+          merge-multiple: true
+
+      - name: Assemble Pages site
+        run: |
+          set -euo pipefail
+          mkdir -p site
+          cat > site/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>Vocabulars demos</title>
+          <h1>Vocabulars demos</h1>
+          <ul>
+            <li><a href="/vocabulars/house/">Vocabulars: The House</a></li>
+            <li><a href="/vocabulars/bestiary/">Vocabulars: Bestiary</a></li>
+          </ul>
+          HTML
+          for config in house bestiary; do
+            archive=$(find dist -name "vocabulars-${config}-*-web.zip" -print -quit)
+            test -n "$archive"
+            mkdir -p "tmp/$config" "site/$config"
+            unzip -q "$archive" -d "tmp/$config"
+            cp -a "tmp/$config/web/." "site/$config/"
+          done
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site
+
+      - name: Deploy Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
 
   publish:
     name: Publish release

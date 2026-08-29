@@ -2,7 +2,11 @@
 
 Every release builds the configured demos listed in the release workflow
 matrix (currently House and Bestiary). Each demo gets its own APK and web
-bundle, with content, audio, metadata, and icon selected from its config.
+bundle, with content, audio, metadata, and icon selected from its config. The
+web bundles are deployed to GitHub Pages at:
+
+- `https://nulvox.github.io/vocabulars/house/`
+- `https://nulvox.github.io/vocabulars/bestiary/`
 
 Releases are created by GitHub Actions from semantic-version tags on `main`.
 Use the form `vMAJOR.MINOR.PATCH`:
@@ -25,8 +29,10 @@ The release workflow then:
 4. Selects each demo config in an isolated build job.
 5. Generates all bundled pronunciation files with the no-login provider.
 6. Validates the vocabulary and generated audio.
-7. Builds a versioned APK and web bundle for each demo.
-8. Creates one GitHub release and uploads clearly named artifacts for every demo.
+7. Builds a versioned APK and web bundle for each demo, using the correct
+   GitHub Pages base path.
+8. Deploys both web bundles to GitHub Pages.
+9. Creates one GitHub release and uploads clearly named artifacts for every demo.
 
 A release tag is treated as immutable: the workflow rejects force-updated
 or reused tag events and refuses to overwrite an existing GitHub release.
