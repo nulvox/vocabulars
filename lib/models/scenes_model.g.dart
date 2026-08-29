@@ -108,10 +108,12 @@ Map<String, dynamic> _$AudioFileToJson(AudioFile instance) => <String, dynamic>{
 Translation _$TranslationFromJson(Map<String, dynamic> json) => Translation(
       languageCode: json['languageCode'] as String,
       text: json['text'] as String,
+      ipa: json['ipa'] as String?,
     );
 
 Map<String, dynamic> _$TranslationToJson(Translation instance) =>
     <String, dynamic>{
       'languageCode': instance.languageCode,
       'text': instance.text,
+      'ipa': instance.ipa,
     };

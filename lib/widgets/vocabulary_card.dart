@@ -252,16 +252,7 @@ class _VocabularyCardState extends State<VocabularyCard>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                      child: Text(
-                        widget.interactionPoint.getTranslation(
-                          widget.currentLanguage,
-                        ),
-                        style: const TextStyle(
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      child: _buildCurrentWord(),
                     ),
                     IconButton(
                       icon: const Icon(Icons.close),
@@ -315,6 +306,31 @@ class _VocabularyCardState extends State<VocabularyCard>
     );
   }
 
+  Widget _buildCurrentWord() {
+    final translation = widget.interactionPoint.translations.firstWhere(
+      (t) => t.languageCode == widget.currentLanguage,
+      orElse: () => Translation(
+        languageCode: widget.currentLanguage,
+        text: widget.interactionPoint.label,
+      ),
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          translation.text,
+          style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+        ),
+        if (translation.ipa != null && translation.ipa!.isNotEmpty)
+          Text(
+            'IPA: [${translation.ipa}]',
+            style: TextStyle(fontSize: 14.0, color: Colors.grey.shade700),
+          ),
+      ],
+    );
+  }
+
   /// Builds a translation item for the list
   Widget _buildTranslationItem(Translation translation) {
     final langName =
@@ -333,7 +349,22 @@ class _VocabularyCardState extends State<VocabularyCard>
               style: const TextStyle(fontWeight: FontWeight.w500),
             ),
           ),
-          Expanded(child: Text(translation.text)),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(translation.text),
+                if (translation.ipa != null && translation.ipa!.isNotEmpty)
+                  Text(
+                    'IPA: [${translation.ipa}]',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.grey.shade700,
+                    ),
+                  ),
+              ],
+            ),
+          ),
         ],
       ),
     );

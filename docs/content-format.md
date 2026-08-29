@@ -62,7 +62,7 @@ Each scene has an ID, name, and either one `imagePath` or multiple
         {"languageCode": "fr", "filePath": "fr/bed.mp3"}
       ],
       "translations": [
-        {"languageCode": "en", "text": "Bed"},
+        {"languageCode": "en", "text": "Bed", "ipa": "bɛd"},
         {"languageCode": "es", "text": "Cama"},
         {"languageCode": "fr", "text": "Lit"}
       ]
@@ -73,8 +73,9 @@ Each scene has an ID, name, and either one `imagePath` or multiple
 
 Every interaction-point ID must be unique across the document. Keep IDs stable:
 they are used to name generated audio files. Each supported language should
-have a translation. Audio may be absent, in which case the app displays an
-explicit unavailable state.
+have a translation. The optional `ipa` field is shown in the hotspot card as
+an International Phonetic Alphabet pronunciation. Audio may be absent, in
+which case the app displays an explicit unavailable state.
 
 ## Layered scenes
 

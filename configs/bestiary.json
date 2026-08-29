@@ -60,27 +60,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Bear"
+              "text": "Bear",
+              "ipa": "bˈeə"
             },
             {
               "languageCode": "es",
-              "text": "Oso"
+              "text": "Oso",
+              "ipa": "ˈoso"
             },
             {
               "languageCode": "fr",
-              "text": "Ours"
+              "text": "Ours",
+              "ipa": "ˈuʁs"
             },
             {
               "languageCode": "ja",
-              "text": "熊"
+              "text": "熊",
+              "ipa": "kˈɯᵝmä"
             },
             {
               "languageCode": "ru",
-              "text": "медведь"
+              "text": "медведь",
+              "ipa": "mʲidvʲˈetʲ"
             },
             {
               "languageCode": "de",
-              "text": "Bär"
+              "text": "Bär",
+              "ipa": "bˈɛːɾ"
             }
           ]
         },
@@ -118,27 +124,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Fox"
+              "text": "Fox",
+              "ipa": "fˈɒks"
             },
             {
               "languageCode": "es",
-              "text": "Zorro"
+              "text": "Zorro",
+              "ipa": "θˈoro"
             },
             {
               "languageCode": "fr",
-              "text": "Renard"
+              "text": "Renard",
+              "ipa": "ʁənˈaʁ"
             },
             {
               "languageCode": "ja",
-              "text": "キツネ"
+              "text": "キツネ",
+              "ipa": "kitsˈɯᵝne̞"
             },
             {
               "languageCode": "ru",
-              "text": "лиса"
+              "text": "лиса",
+              "ipa": "ɭʲˈisa"
             },
             {
               "languageCode": "de",
-              "text": "Fuchs"
+              "text": "Fuchs",
+              "ipa": "fˈʊxs"
             }
           ]
         },
@@ -176,27 +188,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Owl"
+              "text": "Owl",
+              "ipa": "ˈaʊl"
             },
             {
               "languageCode": "es",
-              "text": "Búho"
+              "text": "Búho",
+              "ipa": "bˈuo"
             },
             {
               "languageCode": "fr",
-              "text": "Hibou"
+              "text": "Hibou",
+              "ipa": "ibˈu"
             },
             {
               "languageCode": "ja",
-              "text": "フクロウ"
+              "text": "フクロウ",
+              "ipa": "ɸˌɯᵝkɯᵝɽˈo̞ɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "сова"
+              "text": "сова",
+              "ipa": "sʌvˈɑ"
             },
             {
               "languageCode": "de",
-              "text": "Eule"
+              "text": "Eule",
+              "ipa": "ˈɔølə"
             }
           ]
         },
@@ -234,27 +252,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Deer"
+              "text": "Deer",
+              "ipa": "dˈiə"
             },
             {
               "languageCode": "es",
-              "text": "Ciervo"
+              "text": "Ciervo",
+              "ipa": "θjˈeɾβo"
             },
             {
               "languageCode": "fr",
-              "text": "Cerf"
+              "text": "Cerf",
+              "ipa": "sˈɛʁ"
             },
             {
               "languageCode": "ja",
-              "text": "鹿"
+              "text": "鹿",
+              "ipa": "ɕˈikä"
             },
             {
               "languageCode": "ru",
-              "text": "олень"
+              "text": "олень",
+              "ipa": "ʌɭʲˈen"
             },
             {
               "languageCode": "de",
-              "text": "Hirsch"
+              "text": "Hirsch",
+              "ipa": "hˈɪɾʃ"
             }
           ]
         }
@@ -309,27 +333,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Lion"
+              "text": "Lion",
+              "ipa": "lˈaɪən"
             },
             {
               "languageCode": "es",
-              "text": "León"
+              "text": "León",
+              "ipa": "leˈon"
             },
             {
               "languageCode": "fr",
-              "text": "Lion"
+              "text": "Lion",
+              "ipa": "ljˈɔ̃"
             },
             {
               "languageCode": "ja",
-              "text": "ライオン"
+              "text": "ライオン",
+              "ipa": "ɽäˈio̞ɴ"
             },
             {
               "languageCode": "ru",
-              "text": "лев"
+              "text": "лев",
+              "ipa": "ɭʲˈef"
             },
             {
               "languageCode": "de",
-              "text": "Löwe"
+              "text": "Löwe",
+              "ipa": "lˈøːvə"
             }
           ]
         },
@@ -367,27 +397,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Elephant"
+              "text": "Elephant",
+              "ipa": "ˈɛlɪfənt"
             },
             {
               "languageCode": "es",
-              "text": "Elefante"
+              "text": "Elefante",
+              "ipa": "ˌelefˈante"
             },
             {
               "languageCode": "fr",
-              "text": "Éléphant"
+              "text": "Éléphant",
+              "ipa": "elefˈɑ̃"
             },
             {
               "languageCode": "ja",
-              "text": "象"
+              "text": "象",
+              "ipa": "zˈo̞ɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "слон"
+              "text": "слон",
+              "ipa": "sɭˈon"
             },
             {
               "languageCode": "de",
-              "text": "Elefant"
+              "text": "Elefant",
+              "ipa": "ˌeːleːfˈant"
             }
           ]
         },
@@ -425,27 +461,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Giraffe"
+              "text": "Giraffe",
+              "ipa": "dʒɪɹˈaf"
             },
             {
               "languageCode": "es",
-              "text": "Jirafa"
+              "text": "Jirafa",
+              "ipa": "xiɾˈafa"
             },
             {
               "languageCode": "fr",
-              "text": "Girafe"
+              "text": "Girafe",
+              "ipa": "ʒiʁˈaf"
             },
             {
               "languageCode": "ja",
-              "text": "キリン"
+              "text": "キリン",
+              "ipa": "kˈiɽiɴ"
             },
             {
               "languageCode": "ru",
-              "text": "жираф"
+              "text": "жираф",
+              "ipa": "ʒyrˈɑf"
             },
             {
               "languageCode": "de",
-              "text": "Giraffe"
+              "text": "Giraffe",
+              "ipa": "ɡˈiːrafə"
             }
           ]
         },
@@ -483,27 +525,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Zebra"
+              "text": "Zebra",
+              "ipa": "zˈɛbɹə"
             },
             {
               "languageCode": "es",
-              "text": "Cebra"
+              "text": "Cebra",
+              "ipa": "θˈeβɾa"
             },
             {
               "languageCode": "fr",
-              "text": "Zèbre"
+              "text": "Zèbre",
+              "ipa": "zˈɛbʁ"
             },
             {
               "languageCode": "ja",
-              "text": "シマウマ"
+              "text": "シマウマ",
+              "ipa": "ɕˌimäˈɯᵝmä"
             },
             {
               "languageCode": "ru",
-              "text": "зебра"
+              "text": "зебра",
+              "ipa": "ʑˈebra"
             },
             {
               "languageCode": "de",
-              "text": "Zebra"
+              "text": "Zebra",
+              "ipa": "tsˈɛbrɑː"
             }
           ]
         }
@@ -558,27 +606,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Dolphin"
+              "text": "Dolphin",
+              "ipa": "dˈɒlfɪn"
             },
             {
               "languageCode": "es",
-              "text": "Delfín"
+              "text": "Delfín",
+              "ipa": "delfˈin"
             },
             {
               "languageCode": "fr",
-              "text": "Dauphin"
+              "text": "Dauphin",
+              "ipa": "dofˈɛ̃"
             },
             {
               "languageCode": "ja",
-              "text": "イルカ"
+              "text": "イルカ",
+              "ipa": "iɽˈɯᵝkä"
             },
             {
               "languageCode": "ru",
-              "text": "дельфин"
+              "text": "дельфин",
+              "ipa": "dʲiɭfʲˈin"
             },
             {
               "languageCode": "de",
-              "text": "Delfin"
+              "text": "Delfin",
+              "ipa": "dˈɛlfɪn"
             }
           ]
         },
@@ -616,27 +670,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Whale"
+              "text": "Whale",
+              "ipa": "wˈeɪl"
             },
             {
               "languageCode": "es",
-              "text": "Ballena"
+              "text": "Ballena",
+              "ipa": "baʎˈena"
             },
             {
               "languageCode": "fr",
-              "text": "Baleine"
+              "text": "Baleine",
+              "ipa": "balˈɛn"
             },
             {
               "languageCode": "ja",
-              "text": "クジラ"
+              "text": "クジラ",
+              "ipa": "kɯᵝdʑˈiɽä"
             },
             {
               "languageCode": "ru",
-              "text": "кит"
+              "text": "кит",
+              "ipa": "kʲˈit"
             },
             {
               "languageCode": "de",
-              "text": "Wal"
+              "text": "Wal",
+              "ipa": "vˈɑːl"
             }
           ]
         },
@@ -674,27 +734,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Octopus"
+              "text": "Octopus",
+              "ipa": "ˈɒktəpəs"
             },
             {
               "languageCode": "es",
-              "text": "Pulpo"
+              "text": "Pulpo",
+              "ipa": "pˈulpo"
             },
             {
               "languageCode": "fr",
-              "text": "Poulpe"
+              "text": "Poulpe",
+              "ipa": "pˈulp"
             },
             {
               "languageCode": "ja",
-              "text": "タコ"
+              "text": "タコ",
+              "ipa": "tˈäko̞"
             },
             {
               "languageCode": "ru",
-              "text": "осьминог"
+              "text": "осьминог",
+              "ipa": "ʌsʲmʲinˈok"
             },
             {
               "languageCode": "de",
-              "text": "Oktopus"
+              "text": "Oktopus",
+              "ipa": "ˈɔktɔpˌʊs"
             }
           ]
         },
@@ -732,27 +798,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Turtle"
+              "text": "Turtle",
+              "ipa": "tˈɜːtəl"
             },
             {
               "languageCode": "es",
-              "text": "Tortuga"
+              "text": "Tortuga",
+              "ipa": "toɾtˈuɣa"
             },
             {
               "languageCode": "fr",
-              "text": "Tortue"
+              "text": "Tortue",
+              "ipa": "tɔʁtˈy"
             },
             {
               "languageCode": "ja",
-              "text": "カメ"
+              "text": "カメ",
+              "ipa": "kˈäme̞"
             },
             {
               "languageCode": "ru",
-              "text": "черепаха"
+              "text": "черепаха",
+              "ipa": "tʃʲirʲipˈɑxa"
             },
             {
               "languageCode": "de",
-              "text": "Schildkröte"
+              "text": "Schildkröte",
+              "ipa": "ʃˈɪltkrøːtə"
             }
           ]
         }
@@ -807,27 +879,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Polar Bear"
+              "text": "Polar Bear",
+              "ipa": "pˈəʊlə bˈeə"
             },
             {
               "languageCode": "es",
-              "text": "Oso polar"
+              "text": "Oso polar",
+              "ipa": "ˈoso polˈaɾ"
             },
             {
               "languageCode": "fr",
-              "text": "Ours polaire"
+              "text": "Ours polaire",
+              "ipa": "ˈuʁs polˈɛʁ"
             },
             {
               "languageCode": "ja",
-              "text": "ホッキョクグマ"
+              "text": "ホッキョクグマ",
+              "ipa": "hˌo̞kkʲo̞kɯᵝɡˈɯᵝmä"
             },
             {
               "languageCode": "ru",
-              "text": "белый медведь"
+              "text": "белый медведь",
+              "ipa": "bʲˈeɭyj mʲidvʲˈetʲ"
             },
             {
               "languageCode": "de",
-              "text": "Eisbär"
+              "text": "Eisbär",
+              "ipa": "aɪsbˈɛːɾ"
             }
           ]
         },
@@ -865,27 +943,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Penguin"
+              "text": "Penguin",
+              "ipa": "pˈɛŋɡwɪn"
             },
             {
               "languageCode": "es",
-              "text": "Pingüino"
+              "text": "Pingüino",
+              "ipa": "pˌiŋɡuˈino"
             },
             {
               "languageCode": "fr",
-              "text": "Manchot"
+              "text": "Manchot",
+              "ipa": "mɑ̃ʃˈo"
             },
             {
               "languageCode": "ja",
-              "text": "ペンギン"
+              "text": "ペンギン",
+              "ipa": "pˈe̞ŋɡiɴ"
             },
             {
               "languageCode": "ru",
-              "text": "пингвин"
+              "text": "пингвин",
+              "ipa": "pʲinɡvʲˈin"
             },
             {
               "languageCode": "de",
-              "text": "Pinguin"
+              "text": "Pinguin",
+              "ipa": "pˈɪŋuːˌɪn"
             }
           ]
         },
@@ -923,27 +1007,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Seal"
+              "text": "Seal",
+              "ipa": "sˈiːl"
             },
             {
               "languageCode": "es",
-              "text": "Foca"
+              "text": "Foca",
+              "ipa": "fˈoka"
             },
             {
               "languageCode": "fr",
-              "text": "Phoque"
+              "text": "Phoque",
+              "ipa": "fˈok"
             },
             {
               "languageCode": "ja",
-              "text": "アザラシ"
+              "text": "アザラシ",
+              "ipa": "ˌäzäɽˈäɕi"
             },
             {
               "languageCode": "ru",
-              "text": "тюлень"
+              "text": "тюлень",
+              "ipa": "tʲu\"ɭʲˈen"
             },
             {
               "languageCode": "de",
-              "text": "Robbe"
+              "text": "Robbe",
+              "ipa": "rˈɔbə"
             }
           ]
         },
@@ -981,27 +1071,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Arctic Fox"
+              "text": "Arctic Fox",
+              "ipa": "ˈɑːktɪk fˈɒks"
             },
             {
               "languageCode": "es",
-              "text": "Zorro ártico"
+              "text": "Zorro ártico",
+              "ipa": "θˈoro ˈaɾtiko"
             },
             {
               "languageCode": "fr",
-              "text": "Renard arctique"
+              "text": "Renard arctique",
+              "ipa": "ʁənˈaʁ aʁtˈik"
             },
             {
               "languageCode": "ja",
-              "text": "ホッキョクギツネ"
+              "text": "ホッキョクギツネ",
+              "ipa": "hˌo̞kkʲo̞kˌɯᵝɡitsˈɯᵝne̞"
             },
             {
               "languageCode": "ru",
-              "text": "песец"
+              "text": "песец",
+              "ipa": "pʲisʲˈets"
             },
             {
               "languageCode": "de",
-              "text": "Polarfuchs"
+              "text": "Polarfuchs",
+              "ipa": "pˈoːlaɾfˌʊxs"
             }
           ]
         }
@@ -1056,27 +1152,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Monkey"
+              "text": "Monkey",
+              "ipa": "mˈʌŋki"
             },
             {
               "languageCode": "es",
-              "text": "Mono"
+              "text": "Mono",
+              "ipa": "mˈono"
             },
             {
               "languageCode": "fr",
-              "text": "Singe"
+              "text": "Singe",
+              "ipa": "sˈɛ̃ʒ"
             },
             {
               "languageCode": "ja",
-              "text": "サル"
+              "text": "サル",
+              "ipa": "sˈäɽɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "обезьяна"
+              "text": "обезьяна",
+              "ipa": "ʌbʲiʑjˈjana"
             },
             {
               "languageCode": "de",
-              "text": "Affe"
+              "text": "Affe",
+              "ipa": "ˈafə"
             }
           ]
         },
@@ -1114,27 +1216,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Parrot"
+              "text": "Parrot",
+              "ipa": "pˈaɹət"
             },
             {
               "languageCode": "es",
-              "text": "Loro"
+              "text": "Loro",
+              "ipa": "lˈoɾo"
             },
             {
               "languageCode": "fr",
-              "text": "Perroquet"
+              "text": "Perroquet",
+              "ipa": "pɛʁokˈɛ"
             },
             {
               "languageCode": "ja",
-              "text": "オウム"
+              "text": "オウム",
+              "ipa": "o̞ˈɯᵝmɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "попугай"
+              "text": "попугай",
+              "ipa": "pʌpuɡˈɑj"
             },
             {
               "languageCode": "de",
-              "text": "Papagei"
+              "text": "Papagei",
+              "ipa": "pˈɑpaɡˌaɪ"
             }
           ]
         },
@@ -1172,27 +1280,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Jaguar"
+              "text": "Jaguar",
+              "ipa": "dʒˈaɡwɑː"
             },
             {
               "languageCode": "es",
-              "text": "Jaguar"
+              "text": "Jaguar",
+              "ipa": "xaɣwˈaɾ"
             },
             {
               "languageCode": "fr",
-              "text": "Jaguar"
+              "text": "Jaguar",
+              "ipa": "ʒaɡwˈaʁ"
             },
             {
               "languageCode": "ja",
-              "text": "ジャガー"
+              "text": "ジャガー",
+              "ipa": "dʑˈäɡää"
             },
             {
               "languageCode": "ru",
-              "text": "ягуар"
+              "text": "ягуар",
+              "ipa": "jaɡuˈɑr"
             },
             {
               "languageCode": "de",
-              "text": "Jaguar"
+              "text": "Jaguar",
+              "ipa": "jˈɑɡuːˌɑːɾ"
             }
           ]
         },
@@ -1230,27 +1344,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Frog"
+              "text": "Frog",
+              "ipa": "fɹˈɒɡ"
             },
             {
               "languageCode": "es",
-              "text": "Rana"
+              "text": "Rana",
+              "ipa": "rˈana"
             },
             {
               "languageCode": "fr",
-              "text": "Grenouille"
+              "text": "Grenouille",
+              "ipa": "ɡʁənˈuj"
             },
             {
               "languageCode": "ja",
-              "text": "カエル"
+              "text": "カエル",
+              "ipa": "käˈe̞ɽɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "лягушка"
+              "text": "лягушка",
+              "ipa": "ɭʲaɡˈuʃka"
             },
             {
               "languageCode": "de",
-              "text": "Frosch"
+              "text": "Frosch",
+              "ipa": "frˈɔʃ"
             }
           ]
         }
@@ -1260,27 +1380,33 @@
   "titleTranslations": [
     {
       "languageCode": "en",
-      "text": "Bestiary"
+      "text": "Bestiary",
+      "ipa": "bˈɛsʃjəɹi"
     },
     {
       "languageCode": "es",
-      "text": "Bestiario"
+      "text": "Bestiario",
+      "ipa": "bestjˈaɾjo"
     },
     {
       "languageCode": "fr",
-      "text": "Bestiaire"
+      "text": "Bestiaire",
+      "ipa": "bɛstjˈɛʁ"
     },
     {
       "languageCode": "ja",
-      "text": "動物図鑑"
+      "text": "動物図鑑",
+      "ipa": "dˌo̞ɯᵝbˌɯᵝtsɯᵝzˈɯᵝkäɴ"
     },
     {
       "languageCode": "ru",
-      "text": "Бестиарий"
+      "text": "Бестиарий",
+      "ipa": "bʲisʲtʲiˈɑrʲij"
     },
     {
       "languageCode": "de",
-      "text": "Bestiarium"
+      "text": "Bestiarium",
+      "ipa": "bˌɛstiːˈɑːriːˌʊm"
     }
   ]
 }

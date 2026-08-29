@@ -229,9 +229,13 @@ class Translation {
   /// Translated text
   final String text;
 
+  /// International Phonetic Alphabet pronunciation for the translated text.
+  final String? ipa;
+
   Translation({
     required this.languageCode,
     required this.text,
+    this.ipa,
   });
 
   /// Create a Translation instance from a JSON map

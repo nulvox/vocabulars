@@ -68,27 +68,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Sofa"
+              "text": "Sofa",
+              "ipa": "sˈəʊfə"
             },
             {
               "languageCode": "es",
-              "text": "Sofá"
+              "text": "Sofá",
+              "ipa": "sofˈa"
             },
             {
               "languageCode": "fr",
-              "text": "Canapé"
+              "text": "Canapé",
+              "ipa": "kanapˈe"
             },
             {
               "languageCode": "ja",
-              "text": "ソファ"
+              "text": "ソファ",
+              "ipa": "sˈo̞ɸä"
             },
             {
               "languageCode": "ru",
-              "text": "диван"
+              "text": "диван",
+              "ipa": "dʲivˈɑn"
             },
             {
               "languageCode": "de",
-              "text": "Sofa"
+              "text": "Sofa",
+              "ipa": "zˈoːfɑː"
             }
           ]
         },
@@ -126,27 +132,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Television"
+              "text": "Television",
+              "ipa": "tˈɛlɪvˌɪʒən"
             },
             {
               "languageCode": "es",
-              "text": "Televisión"
+              "text": "Televisión",
+              "ipa": "tˌeleβisjˈon"
             },
             {
               "languageCode": "fr",
-              "text": "Télévision"
+              "text": "Télévision",
+              "ipa": "televizjˈɔ̃"
             },
             {
               "languageCode": "ja",
-              "text": "テレビ"
+              "text": "テレビ",
+              "ipa": "te̞ɽˈe̞bi"
             },
             {
               "languageCode": "ru",
-              "text": "телевизор"
+              "text": "телевизор",
+              "ipa": "tʲiɭʲivʲˈizʌr"
             },
             {
               "languageCode": "de",
-              "text": "Fernseher"
+              "text": "Fernseher",
+              "ipa": "fˈɛɾnzeːɜ"
             }
           ]
         },
@@ -184,27 +196,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Lamp"
+              "text": "Lamp",
+              "ipa": "lˈamp"
             },
             {
               "languageCode": "es",
-              "text": "Lámpara"
+              "text": "Lámpara",
+              "ipa": "lˈampaɾa"
             },
             {
               "languageCode": "fr",
-              "text": "Lampe"
+              "text": "Lampe",
+              "ipa": "lˈɑ̃p"
             },
             {
               "languageCode": "ja",
-              "text": "ランプ"
+              "text": "ランプ",
+              "ipa": "ɽäˈũpɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "лампа"
+              "text": "лампа",
+              "ipa": "ɭˈɑmpa"
             },
             {
               "languageCode": "de",
-              "text": "Lampe"
+              "text": "Lampe",
+              "ipa": "lˈampə"
             }
           ]
         },
@@ -242,27 +260,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Window"
+              "text": "Window",
+              "ipa": "wˈɪndəʊ"
             },
             {
               "languageCode": "es",
-              "text": "Ventana"
+              "text": "Ventana",
+              "ipa": "bentˈana"
             },
             {
               "languageCode": "fr",
-              "text": "Fenêtre"
+              "text": "Fenêtre",
+              "ipa": "fənˈɛtʁ"
             },
             {
               "languageCode": "ja",
-              "text": "窓"
+              "text": "窓",
+              "ipa": "mˈädo̞"
             },
             {
               "languageCode": "ru",
-              "text": "окно"
+              "text": "окно",
+              "ipa": "ʌknˈo"
             },
             {
               "languageCode": "de",
-              "text": "Fenster"
+              "text": "Fenster",
+              "ipa": "fˈɛnstɜ"
             }
           ]
         },
@@ -300,27 +324,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Door"
+              "text": "Door",
+              "ipa": "dˈɔː"
             },
             {
               "languageCode": "es",
-              "text": "Puerta"
+              "text": "Puerta",
+              "ipa": "pwˈeɾta"
             },
             {
               "languageCode": "fr",
-              "text": "Porte"
+              "text": "Porte",
+              "ipa": "pˈɔʁt"
             },
             {
               "languageCode": "ja",
-              "text": "ドア"
+              "text": "ドア",
+              "ipa": "dˈo̞ä"
             },
             {
               "languageCode": "ru",
-              "text": "дверь"
+              "text": "дверь",
+              "ipa": "dvʲˈerɪ^"
             },
             {
               "languageCode": "de",
-              "text": "Tür"
+              "text": "Tür",
+              "ipa": "tˈyːɾ"
             }
           ]
         },
@@ -358,27 +388,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Ottoman"
+              "text": "Ottoman",
+              "ipa": "ˈɒtəmən"
             },
             {
               "languageCode": "es",
-              "text": "Puf"
+              "text": "Puf",
+              "ipa": "pˈuf"
             },
             {
               "languageCode": "fr",
-              "text": "Pouf"
+              "text": "Pouf",
+              "ipa": "pˈuf"
             },
             {
               "languageCode": "ja",
-              "text": "オットマン"
+              "text": "オットマン",
+              "ipa": "o̞ttˈo̞mäɴ"
             },
             {
               "languageCode": "ru",
-              "text": "пуфик"
+              "text": "пуфик",
+              "ipa": "pˈufʲik"
             },
             {
               "languageCode": "de",
-              "text": "Ottomane"
+              "text": "Ottomane",
+              "ipa": "ˌɔtoːmˈɑːnə"
             }
           ]
         },
@@ -416,27 +452,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Chair"
+              "text": "Chair",
+              "ipa": "tʃˈeə"
             },
             {
               "languageCode": "es",
-              "text": "Silla"
+              "text": "Silla",
+              "ipa": "sˈiʎa"
             },
             {
               "languageCode": "fr",
-              "text": "Chaise"
+              "text": "Chaise",
+              "ipa": "ʃˈɛz"
             },
             {
               "languageCode": "ja",
-              "text": "椅子"
+              "text": "椅子",
+              "ipa": "ˈisɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "стул"
+              "text": "стул",
+              "ipa": "stˈuɭ"
             },
             {
               "languageCode": "de",
-              "text": "Stuhl"
+              "text": "Stuhl",
+              "ipa": "ʃtˈuːl"
             }
           ]
         }
@@ -500,27 +542,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Refrigerator"
+              "text": "Refrigerator",
+              "ipa": "ɹɪfɹˈɪdʒəɹˌeɪtə"
             },
             {
               "languageCode": "es",
-              "text": "Refrigerador"
+              "text": "Refrigerador",
+              "ipa": "rˌefɾixˌeɾaðˈoɾ"
             },
             {
               "languageCode": "fr",
-              "text": "Réfrigérateur"
+              "text": "Réfrigérateur",
+              "ipa": "ʁefʁiʒeʁatˈœʁ"
             },
             {
               "languageCode": "ja",
-              "text": "冷蔵庫"
+              "text": "冷蔵庫",
+              "ipa": "ɽˌe̞izo̞ˈɯᵝko̞"
             },
             {
               "languageCode": "ru",
-              "text": "холодильник"
+              "text": "холодильник",
+              "ipa": "xʌɭʌdʲˈiɭnʲik"
             },
             {
               "languageCode": "de",
-              "text": "Kühlschrank"
+              "text": "Kühlschrank",
+              "ipa": "kˈyːlʃraŋk"
             }
           ]
         },
@@ -558,27 +606,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Stove"
+              "text": "Stove",
+              "ipa": "stˈəʊv"
             },
             {
               "languageCode": "es",
-              "text": "Estufa"
+              "text": "Estufa",
+              "ipa": "estˈufa"
             },
             {
               "languageCode": "fr",
-              "text": "Cuisinière"
+              "text": "Cuisinière",
+              "ipa": "kyizinjˈɛʁ"
             },
             {
               "languageCode": "ja",
-              "text": "コンロ"
+              "text": "コンロ",
+              "ipa": "kˈo̞nɽo̞"
             },
             {
               "languageCode": "ru",
-              "text": "плита"
+              "text": "плита",
+              "ipa": "pɭʲitˈɑ"
             },
             {
               "languageCode": "de",
-              "text": "Herd"
+              "text": "Herd",
+              "ipa": "hˈeːɾt"
             }
           ]
         },
@@ -616,27 +670,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Sink"
+              "text": "Sink",
+              "ipa": "sˈɪŋk"
             },
             {
               "languageCode": "es",
-              "text": "Fregadero"
+              "text": "Fregadero",
+              "ipa": "fɾˌeɣaðˈeɾo"
             },
             {
               "languageCode": "fr",
-              "text": "Évier"
+              "text": "Évier",
+              "ipa": "evjˈe"
             },
             {
               "languageCode": "ja",
-              "text": "シンク"
+              "text": "シンク",
+              "ipa": "ɕˈiŋkɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "раковина"
+              "text": "раковина",
+              "ipa": "rˈɑkʌvʲina"
             },
             {
               "languageCode": "de",
-              "text": "Spüle"
+              "text": "Spüle",
+              "ipa": "ʃpˈyːlə"
             }
           ]
         },
@@ -674,27 +734,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Microwave"
+              "text": "Microwave",
+              "ipa": "mˈaɪkɹəʊwˌeɪv"
             },
             {
               "languageCode": "es",
-              "text": "Microondas"
+              "text": "Microondas",
+              "ipa": "mˌikɾoˈondas"
             },
             {
               "languageCode": "fr",
-              "text": "Micro-ondes"
+              "text": "Micro-ondes",
+              "ipa": "mikʁˈoˈɔ̃d"
             },
             {
               "languageCode": "ja",
-              "text": "電子レンジ"
+              "text": "電子レンジ",
+              "ipa": "dˌe̞ũɕˌiɽe̞ˈũdʑi"
             },
             {
               "languageCode": "ru",
-              "text": "микроволновка"
+              "text": "микроволновка",
+              "ipa": "mʲikrʌvʌɭnˈofka"
             },
             {
               "languageCode": "de",
-              "text": "Mikrowelle"
+              "text": "Mikrowelle",
+              "ipa": "mˌiːkroːvˈɛlə"
             }
           ]
         },
@@ -732,27 +798,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Counter"
+              "text": "Counter",
+              "ipa": "kˈaʊntə"
             },
             {
               "languageCode": "es",
-              "text": "Encimera"
+              "text": "Encimera",
+              "ipa": "ˌenθimˈeɾa"
             },
             {
               "languageCode": "fr",
-              "text": "Plan de travail"
+              "text": "Plan de travail",
+              "ipa": "plˈɑ̃ də- tʁavˈaj"
             },
             {
               "languageCode": "ja",
-              "text": "カウンター"
+              "text": "カウンター",
+              "ipa": "käˈɯᵝntää"
             },
             {
               "languageCode": "ru",
-              "text": "столешница"
+              "text": "столешница",
+              "ipa": "stʌɭʲˈeʃnʲitsa"
             },
             {
               "languageCode": "de",
-              "text": "Arbeitsplatte"
+              "text": "Arbeitsplatte",
+              "ipa": "ˈaɾbaɪtsplˌatə"
             }
           ]
         },
@@ -790,27 +862,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Table"
+              "text": "Table",
+              "ipa": "tˈeɪbəl"
             },
             {
               "languageCode": "es",
-              "text": "Mesa"
+              "text": "Mesa",
+              "ipa": "mˈesa"
             },
             {
               "languageCode": "fr",
-              "text": "Table"
+              "text": "Table",
+              "ipa": "tˈabl"
             },
             {
               "languageCode": "ja",
-              "text": "テーブル"
+              "text": "テーブル",
+              "ipa": "te̞e̞bˈɯᵝɽɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "стол"
+              "text": "стол",
+              "ipa": "stˈoɭ"
             },
             {
               "languageCode": "de",
-              "text": "Tisch"
+              "text": "Tisch",
+              "ipa": "tˈɪʃ"
             }
           ]
         },
@@ -848,27 +926,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Cabinet"
+              "text": "Cabinet",
+              "ipa": "kˈabɪnət"
             },
             {
               "languageCode": "es",
-              "text": "Armario"
+              "text": "Armario",
+              "ipa": "aɾmˈaɾjo"
             },
             {
               "languageCode": "fr",
-              "text": "Placard"
+              "text": "Placard",
+              "ipa": "plakˈaʁ"
             },
             {
               "languageCode": "ja",
-              "text": "キャビネット"
+              "text": "キャビネット",
+              "ipa": "kʲˌäbinˈe̞tto̞"
             },
             {
               "languageCode": "ru",
-              "text": "шкаф"
+              "text": "шкаф",
+              "ipa": "ʃkˈɑf"
             },
             {
               "languageCode": "de",
-              "text": "Schrank"
+              "text": "Schrank",
+              "ipa": "ʃrˈaŋk"
             }
           ]
         }
@@ -912,27 +996,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Bed"
+              "text": "Bed",
+              "ipa": "bˈɛd"
             },
             {
               "languageCode": "es",
-              "text": "Cama"
+              "text": "Cama",
+              "ipa": "kˈama"
             },
             {
               "languageCode": "fr",
-              "text": "Lit"
+              "text": "Lit",
+              "ipa": "lˈi"
             },
             {
               "languageCode": "ja",
-              "text": "ベッド"
+              "text": "ベッド",
+              "ipa": "bˈe̞ddo̞"
             },
             {
               "languageCode": "ru",
-              "text": "кровать"
+              "text": "кровать",
+              "ipa": "krʌvˈɑtʲ"
             },
             {
               "languageCode": "de",
-              "text": "Bett"
+              "text": "Bett",
+              "ipa": "bˈɛt"
             }
           ]
         },
@@ -970,27 +1060,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Wardrobe"
+              "text": "Wardrobe",
+              "ipa": "wˈɔːdɹəʊb"
             },
             {
               "languageCode": "es",
-              "text": "Armario"
+              "text": "Armario",
+              "ipa": "aɾmˈaɾjo"
             },
             {
               "languageCode": "fr",
-              "text": "Armoire"
+              "text": "Armoire",
+              "ipa": "aʁmwˈaʁ"
             },
             {
               "languageCode": "ja",
-              "text": "ワードローブ"
+              "text": "ワードローブ",
+              "ipa": "wˌäädo̞ɽˈo̞o̞bɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "шкаф"
+              "text": "шкаф",
+              "ipa": "ʃkˈɑf"
             },
             {
               "languageCode": "de",
-              "text": "Kleiderschrank"
+              "text": "Kleiderschrank",
+              "ipa": "klˈaɪdɜʃrˌaŋk"
             }
           ]
         },
@@ -1028,27 +1124,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Mirror"
+              "text": "Mirror",
+              "ipa": "mˈɪɹə"
             },
             {
               "languageCode": "es",
-              "text": "Espejo"
+              "text": "Espejo",
+              "ipa": "espˈexo"
             },
             {
               "languageCode": "fr",
-              "text": "Miroir"
+              "text": "Miroir",
+              "ipa": "miʁwˈaʁ"
             },
             {
               "languageCode": "ja",
-              "text": "鏡"
+              "text": "鏡",
+              "ipa": "käɡˈämi"
             },
             {
               "languageCode": "ru",
-              "text": "зеркало"
+              "text": "зеркало",
+              "ipa": "ʑˈerkʌɭʌ"
             },
             {
               "languageCode": "de",
-              "text": "Spiegel"
+              "text": "Spiegel",
+              "ipa": "ʃpˈiːɡəl"
             }
           ]
         },
@@ -1086,27 +1188,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Curtains"
+              "text": "Curtains",
+              "ipa": "kˈɜːtənz"
             },
             {
               "languageCode": "es",
-              "text": "Cortinas"
+              "text": "Cortinas",
+              "ipa": "koɾtˈinas"
             },
             {
               "languageCode": "fr",
-              "text": "Rideaux"
+              "text": "Rideaux",
+              "ipa": "ʁidˈo"
             },
             {
               "languageCode": "ja",
-              "text": "カーテン"
+              "text": "カーテン",
+              "ipa": "kˈääte̞ɴ"
             },
             {
               "languageCode": "ru",
-              "text": "шторы"
+              "text": "шторы",
+              "ipa": "ʃtˈory"
             },
             {
               "languageCode": "de",
-              "text": "Vorhänge"
+              "text": "Vorhänge",
+              "ipa": "fˈoːɾhˌɛŋə"
             }
           ]
         },
@@ -1144,27 +1252,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Nightstand"
+              "text": "Nightstand",
+              "ipa": "nˈaɪtstand"
             },
             {
               "languageCode": "es",
-              "text": "Mesita de noche"
+              "text": "Mesita de noche",
+              "ipa": "mesˈita ðe nˈotʃe"
             },
             {
               "languageCode": "fr",
-              "text": "Table de nuit"
+              "text": "Table de nuit",
+              "ipa": "tˈabl də- nyˈi"
             },
             {
               "languageCode": "ja",
-              "text": "ナイトスタンド"
+              "text": "ナイトスタンド",
+              "ipa": "nˌäitˌo̞sɯᵝtˈändo̞"
             },
             {
               "languageCode": "ru",
-              "text": "прикроватная тумбочка"
+              "text": "прикроватная тумбочка",
+              "ipa": "prʲikrʌvˈɑtnʌja tˈumbʌtʃʲka"
             },
             {
               "languageCode": "de",
-              "text": "Nachttisch"
+              "text": "Nachttisch",
+              "ipa": "nˈaxtɪʃ"
             }
           ]
         }
@@ -1248,27 +1362,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Shower"
+              "text": "Shower",
+              "ipa": "ʃˈaʊə"
             },
             {
               "languageCode": "es",
-              "text": "Ducha"
+              "text": "Ducha",
+              "ipa": "dˈutʃa"
             },
             {
               "languageCode": "fr",
-              "text": "Douche"
+              "text": "Douche",
+              "ipa": "dˈuʃ"
             },
             {
               "languageCode": "ja",
-              "text": "シャワー"
+              "text": "シャワー",
+              "ipa": "ɕˈäwää"
             },
             {
               "languageCode": "ru",
-              "text": "душ"
+              "text": "душ",
+              "ipa": "dˈuʃ"
             },
             {
               "languageCode": "de",
-              "text": "Dusche"
+              "text": "Dusche",
+              "ipa": "dˈuːʃə"
             }
           ]
         },
@@ -1306,27 +1426,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Vanity"
+              "text": "Vanity",
+              "ipa": "vˈanɪti"
             },
             {
               "languageCode": "es",
-              "text": "Tocador"
+              "text": "Tocador",
+              "ipa": "tˌokaðˈoɾ"
             },
             {
               "languageCode": "fr",
-              "text": "Meuble-lavabo"
+              "text": "Meuble-lavabo",
+              "ipa": "mˈøbllavabˈo"
             },
             {
               "languageCode": "ja",
-              "text": "洗面台"
+              "text": "洗面台",
+              "ipa": "sˌe̞mme̞ndˈäi"
             },
             {
               "languageCode": "ru",
-              "text": "туалетный столик"
+              "text": "туалетный столик",
+              "ipa": "tuaɭʲˈetnyj stˈoɭʲik"
             },
             {
               "languageCode": "de",
-              "text": "Waschtisch"
+              "text": "Waschtisch",
+              "ipa": "vˈaʃtˌɪʃ"
             }
           ]
         },
@@ -1364,27 +1490,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Toilet"
+              "text": "Toilet",
+              "ipa": "tˈɔɪlɪt"
             },
             {
               "languageCode": "es",
-              "text": "Inodoro"
+              "text": "Inodoro",
+              "ipa": "ˌinoðˈoɾo"
             },
             {
               "languageCode": "fr",
-              "text": "Toilettes"
+              "text": "Toilettes",
+              "ipa": "twalˈɛt"
             },
             {
               "languageCode": "ja",
-              "text": "トイレ"
+              "text": "トイレ",
+              "ipa": "to̞ˈiɽe̞"
             },
             {
               "languageCode": "ru",
-              "text": "туалет"
+              "text": "туалет",
+              "ipa": "tuaɭʲˈet"
             },
             {
               "languageCode": "de",
-              "text": "Toilette"
+              "text": "Toilette",
+              "ipa": "tˈoːiːlˌɛtə"
             }
           ]
         },
@@ -1422,27 +1554,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Tub"
+              "text": "Tub",
+              "ipa": "tˈʌb"
             },
             {
               "languageCode": "es",
-              "text": "Bañera"
+              "text": "Bañera",
+              "ipa": "baɲˈeɾa"
             },
             {
               "languageCode": "fr",
-              "text": "Baignoire"
+              "text": "Baignoire",
+              "ipa": "bɛnjwˈaʁ"
             },
             {
               "languageCode": "ja",
-              "text": "浴槽"
+              "text": "浴槽",
+              "ipa": "jˌo̞kɯᵝsˈo̞ɯᵝ"
             },
             {
               "languageCode": "ru",
-              "text": "ванна"
+              "text": "ванна",
+              "ipa": "vˈɑnna"
             },
             {
               "languageCode": "de",
-              "text": "Badewanne"
+              "text": "Badewanne",
+              "ipa": "bˈɑdeːvˌanə"
             }
           ]
         }
@@ -1506,27 +1644,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Path"
+              "text": "Path",
+              "ipa": "pˈaθ"
             },
             {
               "languageCode": "es",
-              "text": "Sendero"
+              "text": "Sendero",
+              "ipa": "sendˈeɾo"
             },
             {
               "languageCode": "fr",
-              "text": "Chemin"
+              "text": "Chemin",
+              "ipa": "ʃəmˈɛ̃"
             },
             {
               "languageCode": "ja",
-              "text": "小道"
+              "text": "小道",
+              "ipa": "ko̞mˈitɕi"
             },
             {
               "languageCode": "ru",
-              "text": "тропинка"
+              "text": "тропинка",
+              "ipa": "trʌpʲˈinka"
             },
             {
               "languageCode": "de",
-              "text": "Weg"
+              "text": "Weg",
+              "ipa": "vˈeːk"
             }
           ]
         },
@@ -1564,27 +1708,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Flowers"
+              "text": "Flowers",
+              "ipa": "flˈaʊəz"
             },
             {
               "languageCode": "es",
-              "text": "Flores"
+              "text": "Flores",
+              "ipa": "flˈoɾes"
             },
             {
               "languageCode": "fr",
-              "text": "Fleurs"
+              "text": "Fleurs",
+              "ipa": "flˈœʁ"
             },
             {
               "languageCode": "ja",
-              "text": "花々"
+              "text": "花々",
+              "ipa": "hˈänä"
             },
             {
               "languageCode": "ru",
-              "text": "цветы"
+              "text": "цветы",
+              "ipa": "tsvʲitˈy"
             },
             {
               "languageCode": "de",
-              "text": "Blumen"
+              "text": "Blumen",
+              "ipa": "blˈʊmən"
             }
           ]
         },
@@ -1622,27 +1772,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Shed"
+              "text": "Shed",
+              "ipa": "ʃˈɛd"
             },
             {
               "languageCode": "es",
-              "text": "Cobertizo"
+              "text": "Cobertizo",
+              "ipa": "kˌoβeɾtˈiθo"
             },
             {
               "languageCode": "fr",
-              "text": "Abri de jardin"
+              "text": "Abri de jardin",
+              "ipa": "abʁˈi də- ʒaʁdˈɛ̃"
             },
             {
               "languageCode": "ja",
-              "text": "小屋"
+              "text": "小屋",
+              "ipa": "kˈo̞jä"
             },
             {
               "languageCode": "ru",
-              "text": "сарай"
+              "text": "сарай",
+              "ipa": "sarˈɑj"
             },
             {
               "languageCode": "de",
-              "text": "Schuppen"
+              "text": "Schuppen",
+              "ipa": "ʃˈʊpən"
             }
           ]
         },
@@ -1680,27 +1836,33 @@
           "translations": [
             {
               "languageCode": "en",
-              "text": "Grass"
+              "text": "Grass",
+              "ipa": "ɡɹˈas"
             },
             {
               "languageCode": "es",
-              "text": "Hierba"
+              "text": "Hierba",
+              "ipa": "jˈeɾβa"
             },
             {
               "languageCode": "fr",
-              "text": "Herbe"
+              "text": "Herbe",
+              "ipa": "ˈɛʁb"
             },
             {
               "languageCode": "ja",
-              "text": "草"
+              "text": "草",
+              "ipa": "kˈɯᵝsä"
             },
             {
               "languageCode": "ru",
-              "text": "трава"
+              "text": "трава",
+              "ipa": "travˈɑ"
             },
             {
               "languageCode": "de",
-              "text": "Gras"
+              "text": "Gras",
+              "ipa": "ɡrˈɑːs"
             }
           ]
         }
@@ -1710,27 +1872,33 @@
   "titleTranslations": [
     {
       "languageCode": "en",
-      "text": "The House"
+      "text": "The House",
+      "ipa": "ðə hˈaʊs"
     },
     {
       "languageCode": "es",
-      "text": "La Casa"
+      "text": "La Casa",
+      "ipa": "la kˈasa"
     },
     {
       "languageCode": "fr",
-      "text": "La Maison"
+      "text": "La Maison",
+      "ipa": "la- mɛzˈɔ̃"
     },
     {
       "languageCode": "ja",
-      "text": "家"
+      "text": "家",
+      "ipa": "ˈie̞"
     },
     {
       "languageCode": "ru",
-      "text": "Дом"
+      "text": "Дом",
+      "ipa": "dˈom"
     },
     {
       "languageCode": "de",
-      "text": "Das Haus"
+      "text": "Das Haus",
+      "ipa": "das hˈaʊs"
     }
   ]
 }
