@@ -72,6 +72,7 @@
               pkgs.flutterPackages.stable
               python
               pkgs.git
+              pkgs.zizmor
             ]
             ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux (
               [ androidSdk pkgs.jdk17 ] ++ linuxBuildInputs

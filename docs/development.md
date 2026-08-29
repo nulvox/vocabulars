@@ -64,6 +64,14 @@ asset list automatically.
 
 ## CI expectations
 
+Every workflow begins with a linear `zizmor` security audit; all subsequent
+jobs depend on that audit passing. Run the same check locally inside the Nix
+environment:
+
+```bash
+nix develop --command zizmor .github/workflows
+```
+
 Pull requests run vocabulary validation, Flutter tests, static analysis, a web
 release build, and Nix flake evaluation. CI does not call the public TTS
 endpoint. Release jobs should run the generation step separately, review the

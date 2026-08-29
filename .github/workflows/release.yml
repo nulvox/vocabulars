@@ -6,7 +6,7 @@ on:
       - "v*.*.*"
 
 permissions:
-  contents: write
+  contents: read
 
 defaults:
   run:
@@ -19,7 +19,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  audit:
+    name: Audit workflows
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run zizmor
+        run: nix develop --command zizmor .github/workflows
+
   build:
+    needs: audit
     name: Build ${{ matrix.config }}
     runs-on: ubuntu-latest
     strategy:
@@ -31,7 +45,9 @@ jobs:
           - config: bestiary
             file: configs/bestiary.json
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Reject reused or force-updated tag
         if: github.event.created != true || github.event.forced == true
@@ -39,13 +55,13 @@ jobs:
           echo "Release tags must be created once and never force-updated" >&2
           exit 1
 
-      - uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           channel: stable
           flutter-version: "3.47.0"
           cache: true
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
 
@@ -74,10 +90,13 @@ jobs:
         run: flutter pub get
 
       - name: Build Android APK
+        env:
+          BUILD_NAME: ${{ steps.version.outputs.version }}
+          BUILD_NUMBER: ${{ steps.version.outputs.build_number }}
         run: >-
           flutter build apk --release
-          --build-name "${{ steps.version.outputs.version }}"
-          --build-number "${{ steps.version.outputs.build_number }}"
+          --build-name "$BUILD_NAME"
+          --build-number "$BUILD_NUMBER"
 
       - name: Build web bundle
         run: flutter build web --release
@@ -93,7 +112,7 @@ jobs:
           (cd build && zip -qr "../dist/vocabulars-${CONFIG}-v${VERSION}-web.zip" web)
 
       - name: Upload demo artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: release-${{ matrix.config }}
           path: dist/*
@@ -102,12 +121,16 @@ jobs:
   publish:
     name: Publish release
     needs: build
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Download demo artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           pattern: release-*
           path: dist
