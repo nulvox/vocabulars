@@ -56,7 +56,7 @@ class VocabularApp extends StatelessWidget {
     final vocabularyModel = Provider.of<VocabularyModel>(context);
     
     return MaterialApp(
-      title: vocabularyModel.vocabularyData.getTitle(vocabularyModel.currentLanguage),
+      title: 'Vocabulars: ${vocabularyModel.vocabularyData.title}',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

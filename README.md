@@ -45,8 +45,8 @@ flutter run -d chrome
 ## Build
 
 ```bash
-flutter build web --release
-flutter build apk --release
+./scripts/build_with_audio.sh build web --release
+./scripts/build_with_audio.sh build apk --release
 ```
 
 The web output is written to `build/web`. Serve that directory with any static
@@ -86,6 +86,14 @@ flutter test
 See [Development workflow](docs/development.md) for the Nix environment,
 content validation, audio generation, CI expectations, and data-model guidance.
 See [Releases](docs/releases.md) for tagging and APK publication.
+
+The app display name is generated from `assets/vocabulary.json` (the `title`
+field) before builds. For a complete build with synchronized platform metadata
+and generated audio, use:
+
+```bash
+./scripts/build_with_audio.sh build web --release
+```
 
 If model classes change, regenerate the serializer:
 

@@ -13,6 +13,8 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 # Change to project root
 cd "$PROJECT_ROOT" || { echo "Failed to change to project root directory"; exit 1; }
 
+echo "=== Generating app metadata from vocabulary config ==="
+python3 "$SCRIPT_DIR/generate_app_metadata.py"
 echo "=== Starting audio download process ==="
 "$SCRIPT_DIR/download_audio.sh"
 
