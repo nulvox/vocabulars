@@ -10,6 +10,9 @@ VocabularyData _$VocabularyDataFromJson(Map<String, dynamic> json) =>
     VocabularyData(
       title: json['title'] as String,
       description: json['description'] as String,
+      titleTranslations: (json['titleTranslations'] as List<dynamic>?)
+          ?.map((e) => Translation.fromJson(e as Map<String, dynamic>))
+          .toList() ?? const [],
       supportedLanguages: (json['supportedLanguages'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -22,6 +25,7 @@ Map<String, dynamic> _$VocabularyDataToJson(VocabularyData instance) =>
     <String, dynamic>{
       'title': instance.title,
       'description': instance.description,
+      'titleTranslations': instance.titleTranslations,
       'supportedLanguages': instance.supportedLanguages,
       'scenes': instance.scenes,
     };

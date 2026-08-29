@@ -46,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildMainScaffold(VocabularyModel vocabularyModel) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(vocabularyModel.vocabularyData.title),
+        title: Text(
+          vocabularyModel.vocabularyData.getTitle(vocabularyModel.currentLanguage),
+        ),
         actions: [
           // Always show language dropdown (requirements)
           LanguageDropdown(
@@ -186,7 +188,9 @@ class _HomeScreenState extends State<HomeScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(vocabularyData.title),
+        title: Text(
+          vocabularyData.getTitle(vocabularyModel.currentLanguage),
+        ),
         content: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

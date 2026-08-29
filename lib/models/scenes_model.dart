@@ -10,6 +10,9 @@ class VocabularyData {
   
   /// Description of the vocabulary set
   final String description;
+
+  /// Localized titles for the vocabulary set, keyed by language code.
+  final List<Translation> titleTranslations;
   
   /// List of language codes supported by this vocabulary set
   final List<String> supportedLanguages;
@@ -20,6 +23,7 @@ class VocabularyData {
   VocabularyData({
     required this.title,
     required this.description,
+    this.titleTranslations = const [],
     required this.supportedLanguages,
     required this.scenes,
   });
@@ -30,6 +34,14 @@ class VocabularyData {
 
   /// Convert this VocabularyData instance to a JSON map
   Map<String, dynamic> toJson() => _$VocabularyDataToJson(this);
+
+  /// Gets the localized title, falling back to the default title.
+  String getTitle(String languageCode) {
+    final translation = titleTranslations.where(
+      (translation) => translation.languageCode == languageCode,
+    );
+    return translation.isEmpty ? title : translation.first.text;
+  }
 }
 
 /// Represents a single scene with image layers and interaction points

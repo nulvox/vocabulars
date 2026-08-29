@@ -24,13 +24,18 @@ referenced by language and stable interaction-point ID.
 
 ## Document shape
 
-At the top level provide a title, description, supported language codes, and
-scenes:
+At the top level provide a title, description, optional localized title
+translations, supported language codes, and scenes:
 
 ```json
 {
-  "title": "Household Items",
+  "title": "The House",
   "description": "Common objects around the home",
+  "titleTranslations": [
+    {"languageCode": "en", "text": "The House"},
+    {"languageCode": "es", "text": "La Casa"},
+    {"languageCode": "fr", "text": "La Maison"}
+  ],
   "supportedLanguages": ["en", "es", "fr"],
   "scenes": []
 }

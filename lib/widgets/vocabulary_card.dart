@@ -61,6 +61,10 @@ class _VocabularyCardState extends State<VocabularyCard>
   /// Whether the asset availability check is still in progress.
   bool _checkingAudioAsset = true;
 
+  /// Identifies the latest audio availability check so stale async results
+  /// cannot overwrite the state for a newly selected language or item.
+  int _audioCheckGeneration = 0;
+
   @override
   void initState() {
     super.initState();
@@ -132,6 +136,17 @@ class _VocabularyCardState extends State<VocabularyCard>
     super.didUpdateWidget(oldWidget);
     if (oldWidget.currentLanguage != widget.currentLanguage ||
         oldWidget.interactionPoint != widget.interactionPoint) {
+      // The player may still contain (or be playing) the previous language's
+      // asset. Reset it immediately so changing language cannot leave the
+      // popup speaking the old pronunciation.
+      _audioCheckGeneration++;
+      _audioPlayer?.stop();
+      if (_isMounted) {
+        setState(() {
+          _isPlaying = false;
+          _playbackProgress = 0.0;
+        });
+      }
       _checkAudioAsset();
     }
   }
@@ -139,9 +154,10 @@ class _VocabularyCardState extends State<VocabularyCard>
   /// Check the actual bundled asset instead of trusting the JSON entry.
   /// This lets the UI warn about missing files before the user presses Listen.
   Future<void> _checkAudioAsset() async {
+    final checkGeneration = _audioCheckGeneration;
     final audioFile = _getAudioFile();
     if (audioFile == null) {
-      if (_isMounted) {
+      if (_isMounted && checkGeneration == _audioCheckGeneration) {
         setState(() {
           _checkingAudioAsset = false;
           _audioAssetAvailable = false;
@@ -151,7 +167,7 @@ class _VocabularyCardState extends State<VocabularyCard>
     }
 
     final path = _audioAssetPath(audioFile);
-    if (_isMounted) {
+    if (_isMounted && checkGeneration == _audioCheckGeneration) {
       setState(() {
         _checkingAudioAsset = true;
         _audioAssetAvailable = false;
@@ -160,7 +176,7 @@ class _VocabularyCardState extends State<VocabularyCard>
 
     try {
       await rootBundle.load(path);
-      if (_isMounted) {
+      if (_isMounted && checkGeneration == _audioCheckGeneration) {
         setState(() {
           _checkingAudioAsset = false;
           _audioAssetAvailable = true;
@@ -174,14 +190,14 @@ class _VocabularyCardState extends State<VocabularyCard>
         final manifest = jsonDecode(
           await rootBundle.loadString('assets/audio/manifest.json'),
         ) as Map<String, dynamic>;
-        if (_isMounted) {
+        if (_isMounted && checkGeneration == _audioCheckGeneration) {
           setState(() {
             _checkingAudioAsset = false;
             _audioAssetAvailable = manifest.containsKey(audioFile.filePath);
           });
         }
       } catch (_) {
-        if (_isMounted) {
+        if (_isMounted && checkGeneration == _audioCheckGeneration) {
           setState(() {
             _checkingAudioAsset = false;
             // The JSON entry is still useful as a last-resort signal when
