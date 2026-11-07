@@ -1,75 +1,101 @@
 # Vocabular
 
-Vocabular is a Flutter app for learning vocabulary through interactive scenes.
-Select a scene, tap an object, and see its translations and pronunciation. The
-sample content covers household objects in English, Spanish, and French.
+**An interactive multilingual pronunciation and vocabulary trainer built with Flutter for Web, Linux, and Android.** Vocabular is the application in the `vocabulars` repository: choose a themed scene, tap an object, and learn its name, translation, and pronunciation in context.
 
-## Features
+## [Try the Live Web Demo](https://nulvox.github.io/vocabulars/)
 
-- Interactive image scenes with vocabulary hotspots
-- Multiple languages and translations
-- Bundled pronunciation audio when generated content is available
-- Web, Android, iOS, Linux, macOS, and Windows targets
-- Custom vocabulary sets
+[![CI](https://github.com/nulvox/vocabulars/actions/workflows/ci.yml/badge.svg)](https://github.com/nulvox/vocabulars/actions/workflows/ci.yml)
+[![Release](https://github.com/nulvox/vocabulars/actions/workflows/release.yml/badge.svg)](https://github.com/nulvox/vocabulars/actions/workflows/release.yml)
+[![Live Demo](https://img.shields.io/badge/live_demo-GitHub_Pages-2ea44f?logo=github)](https://nulvox.github.io/vocabulars/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## Get started
+## Visual Preview
 
-### With Nix (recommended on NixOS and Linux)
+The same scene-driven UI adapts to different vocabulary packs. Learners select a language and scene, then use the highlighted interaction points to reveal vocabulary and play bundled pronunciation audio.
 
-The repository includes a reproducible development shell:
+| The House | Bestiary |
+| --- | --- |
+| [![The House demo showing an interactive bedroom scene](docs/assets/vocabulars-house.png)](https://nulvox.github.io/vocabulars/house/) | [![Bestiary demo showing an interactive forest scene](docs/assets/vocabulars-bestiary.png)](https://nulvox.github.io/vocabulars/bestiary/) |
+
+Each pack is driven by configuration rather than a separate application:
+
+```text
+configs/*.json
+    │ select + validate
+    ▼
+assets/vocabulary.json ──► metadata/icon generation
+    │
+    ├──► TTS pronunciation assets
+    └──► Flutter application
+              ├── Web bundle ──► GitHub Pages
+              ├── Android APK ─► GitHub Release
+              └── Linux desktop build
+```
+
+## Engineering Highlights
+
+- **Cross-platform Flutter delivery** — one Dart codebase supports the hosted Web experience, Android APKs, and Linux desktop builds, with additional Flutter platform scaffolding retained in the repository.
+- **Configurable vocabulary packs** — reusable JSON configs control the app name, icon, scenes, images, interaction points, languages, and translations. The current demos showcase household vocabulary and a themed bestiary.
+- **Reproducible tooling with Nix** — `flake.nix` and `flake.lock` provide Flutter, Dart, Python dependencies, Android tooling, and Linux desktop libraries in a pinned development shell.
+- **Validated content pipeline** — Python tooling selects packs, checks vocabulary structure, generates synchronized platform metadata, and validates that distributable builds include required audio.
+- **Build-time pronunciation generation** — TTS audio is prepared and bundled before release rather than depending on a runtime service or exposing credentials in the client.
+- **Automated quality and releases** — CI audits workflows with `zizmor`, evaluates the Nix flake, validates content, runs tests and static analysis, and builds the Web target. Version tags produce per-pack Web bundles and Android APKs, deploy the demos to GitHub Pages, and publish release artifacts.
+
+## Development & Build
+
+### Prerequisites
+
+The recommended environment is Nix with flakes enabled. The project can also be used with an existing Flutter 3 / Dart 3 installation; Android and Linux builds require their corresponding native toolchains.
+
+### Reproducible Nix environment
 
 ```bash
+git clone https://github.com/nulvox/vocabulars.git
+cd vocabulars
 nix develop
 flutter pub get
 flutter test
 flutter run
 ```
 
-### With an existing Flutter installation
-
-Use Flutter 3 or newer with Dart 3 or newer:
-
-```bash
-git clone https://github.com/nulvox/vocabulars.git
-cd vocabulars
-flutter pub get
-flutter run
-```
-
-Run the app in a browser with:
+To run the Web target during development:
 
 ```bash
 flutter run -d chrome
 ```
 
-## Build
+### Build a vocabulary pack
+
+`assets/vocabulary.json` is the active build input. The wrapper selects a config, generates metadata and pronunciation assets, validates the result, and then invokes Flutter:
 
 ```bash
-./scripts/build_with_audio.sh build web --release --no-wasm-dry-run --no-tree-shake-icons
-./scripts/build_with_audio.sh build apk --release
+# Web release
+./scripts/build_with_audio.sh \
+  --config configs/house.json \
+  build web --release --no-wasm-dry-run --no-tree-shake-icons
+
+# Android release APK
+./scripts/build_with_audio.sh \
+  --config configs/house.json \
+  build apk --release
+
+# Linux desktop release
+./scripts/build_with_audio.sh \
+  --config configs/house.json \
+  build linux --release
 ```
 
-The web output is written to `build/web`. Serve that directory with any static
-web server. To build and review a particular config locally:
+The Web output is written to `build/web`. Review it locally with:
 
 ```bash
-./scripts/build_with_audio.sh --config configs/bestiary.json build web --release --no-wasm-dry-run --no-tree-shake-icons
 python3 -m http.server 8000 --directory build/web
 ```
 
-The server hosts whichever config was built most recently. Select
-`configs/house.json` or another config and rebuild to switch demos.
-Platform-specific builds may require the corresponding SDK and native build
-tools.
+Swap `configs/house.json` for `configs/bestiary.json` to build the other included demo. Platform-specific builds require the relevant SDK and native build tools.
 
-## Content and audio
+### Content and audio workflow
 
-The checked-in sample is in `assets/vocabulary.json`. To create scenes,
-translations, images, and audio for a custom vocabulary set, see
-[Content format](docs/content-format.md).
-
-Audio is generated during content preparation rather than at runtime. The
-no-login default uses the Google Translate TTS endpoint:
+Create custom scenes, translations, images, and interaction points using the documented [content format](docs/content-format.md). Audio is generated during content preparation and the resulting MP3 files are intentionally ignored by Git.
 
 ```bash
 nix develop
@@ -78,59 +104,41 @@ python scripts/generate_audio.py --update-json
 python scripts/validate_vocabulary.py --require-audio
 ```
 
-Generated MP3 files are intentionally ignored by Git. See the
-[pronunciation plan](docs/audio-pronunciation-plan.md) for provider details,
-review guidance, and the optional authenticated Cloud TTS provider.
+The default no-login generator uses the Google Translate TTS endpoint. An authenticated Cloud TTS provider is also supported; see the [pronunciation plan](docs/audio-pronunciation-plan.md) for provider details and review guidance.
 
-## Development
+### Quality checks
 
-Run the full local checks with:
+Run the same core checks used by CI:
 
 ```bash
 nix flake check --no-build
+nix develop --command zizmor .github/workflows
 flutter analyze --no-fatal-infos
 flutter test
+python scripts/validate_vocabulary.py
+python scripts/generate_audio.py --dry-run
 ```
 
-See [Development workflow](docs/development.md) for the Nix environment,
-content validation, audio generation, CI expectations, and data-model guidance.
-See [Releases](docs/releases.md) for tagging and APK publication.
-
-The app display name and content are generated from the selected vocabulary
-config. Configs live in `configs/`; the selected config is copied to
-`assets/vocabulary.json` before building. For example, to build the Bestiary:
-
-```bash
-./scripts/build_with_audio.sh --config configs/bestiary.json build web --release --no-wasm-dry-run --no-tree-shake-icons
-```
-
-The app icon is also selected by the config (`icon: "paw"` for Bestiary;
-House defaults to the house icon). For a complete build with synchronized
-platform metadata and generated audio, use:
-
-```bash
-./scripts/build_with_audio.sh build web --release --no-wasm-dry-run --no-tree-shake-icons
-```
-
-If model classes change, regenerate the serializer:
+If model classes change, regenerate serializers with:
 
 ```bash
 dart run build_runner build --delete-conflicting-outputs
 ```
 
-## Project layout
+See the [development workflow](docs/development.md) for content selection, Nix environment details, CI expectations, and data-model guidance. See [releases](docs/releases.md) for versioning, tagging, GitHub Pages deployment, and APK publication.
 
-- `lib/` — application code
-- `assets/` — sample vocabulary and images
-- `scripts/` — content and audio tooling
-- `docs/` — detailed contributor and content documentation
-- `test/` — unit and widget tests
+## Project Layout
+
+- `lib/` — Flutter application, models, services, screens, and widgets
+- `configs/` — reusable vocabulary pack definitions
+- `assets/` — selected vocabulary data, images, and generated-audio manifest
+- `scripts/` — selection, validation, metadata, audio, and build tooling
+- `docs/` — content format, development, pronunciation, and release documentation
+- `test/` — model, service, and widget tests
 
 ## Contributing
 
-Create a branch, run the checks above, and open a pull request. Changes to
-content should include validation and, where appropriate, a review of generated
-pronunciations.
+Create a branch, run the quality checks above, and open a pull request. Content changes should pass validation and include a review of generated pronunciations where appropriate.
 
 ## License
 
